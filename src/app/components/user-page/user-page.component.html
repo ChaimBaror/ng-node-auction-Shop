@@ -1,0 +1,41 @@
+<!-- <p>user-page works!</p> -->
+
+
+<div class="row">
+  <div class="card " style="width: 15rem;">
+    <ul class="list-group">
+      <li class="list-group-item"><img src={{currentUser.img}} alt="..." width="120" height="120" srcset="">
+        <br> {{currentUser.firstName}} {{currentUser.lastName}} </li>
+
+
+      <li class="list-group-item list-group-item-primary">
+        <label for="">id : </label> <a href={{currentUser.uid}}>{{currentUser.uid}}</a></li>
+      <li class="list-group-item list-group-item-secondary">
+        <label for="">firstName : </label> {{currentUser.firstName}}</li>
+      <li class="list-group-item list-group-item-success">
+        <label for="">lastName : </label>{{currentUser.lastName}}</li>
+      <li class="list-group-item list-group-item-danger">
+        <label for="">email : </label>{{currentUser.email}}</li>
+      <li class="list-group-item list-group-item-warning">
+        <label for="">phone number : </label>{{currentUser.phone}}</li>
+      <li class="list-group-item list-group-item-info">
+        <label for="">password : </label>{{currentUser.password}}</li>
+    </ul>
+  </div>
+  <!-- <img src={{currentUser.img}} alt="..." width="120" height="120"srcset=""> -->
+  <!-- {{currentUser|json}} -->
+  <div class="col">
+  <div class="btn-group" role="group" aria-label="Basic example" style="height:3rem">
+    <button type="button" class="btn btn-secondary">My products</button>
+    <button type="button" class="btn btn-secondary">Messages</button>
+    <button type="button" class="btn btn-secondary">Buy payment</button>
+
+  </div>
+  <div style="background: rgb(158, 156, 156); width: auto; height: auto;">
+<p>No products ........</p>
+<p>No payment .......</p>
+<p>No messages to display</p>
+  </div>
+</div>
+
+</div>

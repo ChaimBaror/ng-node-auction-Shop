@@ -1,0 +1,84 @@
+<div class="body">
+
+<p>loging works!</p>
+<!-- <app-life-cycle></app-life-cycle> -->
+
+
+
+<!-- <ng-container *ngIf="currentUser.name ; then memberTemplate; else loginButton"></ng-container> -->
+
+<!-- <ng-template #loginButton> -->
+    <!-- <div class="container"> -->
+
+
+        
+    <div class="text-center box">
+
+       <form class="form-signin" [formGroup]="signfrom" >
+
+            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <label for="inputName" class="sr-only">first  Name </label>
+            <input type="text" id="inputName" class="form-control" formControlName="firstName" placeholder="first Name"
+                required autofocus>
+
+            <br>
+            <label for="inputName" class="sr-only">last Name </label>
+            <input type="text" id="inputName" class="form-control" formControlName="lastName" placeholder="last Name"
+                >
+
+            <br>
+            <label for="inputName" class="sr-only">number </label>
+            <input  id="inputName" class="form-control" formControlName="phoneNumber" placeholder="phone number"
+            [class.is-invalid]="signfrom.get('phoneNumber').invalid&&signfrom.get('phoneNumber').touched"
+            required autofocus>
+            <div *ngIf="signfrom.get('phoneNumber').errors?.required" class="invalid-feedback">
+                נדרש מספר טלפון
+            </div>
+            <div *ngIf="signfrom.get('phoneNumber').errors?.pattern" class="invalid-feedback">
+                מספר טלפון לא תקין
+            </div>
+
+                <br>
+                <input formControlName="email"
+                [class.is-invalid]="signfrom.get('email').invalid&&signfrom.get('email').touched" class="form-control"
+                id="inputEmail" placeholder="Email">
+                <div *ngIf="signfrom.get('email').errors?.required" class="invalid-feedback">
+                    נדרש אימייל
+                </div>
+                <div *ngIf="signfrom.get('email').errors?.pattern" class="invalid-feedback">
+                   כתובת אימייל לא תקינה
+                </div>
+            <br>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" formControlName="password"
+                placeholder="Password" required>
+
+                <br>
+                <!-- <label for="inputimage" class="sr-only">image </label>
+                <input type="image" id="inputimage" class="form-control" formControlName="img" placeholder="your image"
+                    required autofocus>
+    
+                <br> -->
+            <div class="checkbox mb-3">
+    
+                <label>
+                    <input type="checkbox" formControlName="agree" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' [disabled]="!signfrom.valid">LOGING</button>
+            <a href="/SignUn">Sign Un</a>
+
+            <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+           
+        </form> 
+    </div>
+<!-- </ng-template> -->
+
+<ng-template #memberTemplate>
+
+    <app-navbar></app-navbar>
+
+
+</ng-template>
+</div>
+<!-- </div> -->

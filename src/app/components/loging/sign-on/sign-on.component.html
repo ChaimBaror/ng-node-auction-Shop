@@ -1,0 +1,41 @@
+<div class="body">
+    <p>sign-on works!</p>
+
+    <div class="text-center box">
+
+        <form class="form-signin" [formGroup]="signfrom">
+
+            <input formControlName="email"
+            [class.is-invalid]="signfrom.get('email').invalid&&signfrom.get('email').touched" class="form-control"
+            id="inputEmail" placeholder="Email">
+            <div *ngIf="signfrom.get('email').errors?.required" class="invalid-feedback">
+                נדרש אימייל
+            </div>
+            <div *ngIf="signfrom.get('email').errors?.pattern" class="invalid-feedback">
+               כתובת אימייל לא תקינה
+            </div>
+            <br>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input formControlName="password"
+            [class.is-invalid]="signfrom.get('password').invalid&&signfrom.get('password').touched" type="password"
+            class="form-control" id="inputPassword" placeholder="Password">
+        <div *ngIf="signfrom.get('password').errors?.required" class="invalid-feedback">
+            דרושה סיסמא
+        </div>
+        <div *ngIf="signfrom.get('password').errors?.pattern" class="invalid-feedback">
+            הסיסמה חייבת להכיל 8 תווים לפחות
+        </div>
+            <br>
+
+            <div class="checkbox mb-3">
+
+                <label>
+                    <input type="checkbox" formControlName="agree" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' [disabled]="!signfrom.valid">Sign
+                in</button>
+            <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+        </form>
+    </div>
+</div>

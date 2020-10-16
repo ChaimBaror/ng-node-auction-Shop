@@ -1,0 +1,47 @@
+<p>footer works!</p>
+<section id="footer">
+	<div class="container">
+		<div class="row text-center text-xs-center text-sm-left text-md-left">
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>צור קשר</h5>
+				<ul class="list-unstyled quick-links">
+					<li><a routerLink="/"><i class="fa fa-angle-double-right"></i>דף הבית</a></li>
+					<!-- <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Phiên đấu giá chung</a></li> -->
+					<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>שאלות נפוצות</a></li>
+					<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>סוגי מכירות פומביות</a>
+					</li>
+					<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>המדיניות שלנו</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>תיק מוצרים</h5>
+				<ul class="list-unstyled quick-links">
+					<li *ngFor="let category of categories" ><a routerLink="/category/{{category.id}}"><i class="fa fa-angle-double-right"></i>{{category.name}}</a></li>
+					<!-- <li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Phong Thủy</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Công nghệ</a></li>
+						<li><a href="javascript:void();"><i class="fa fa-angle-double-right"></i>Trải nghiệm</a></li> -->
+					<li><a routerLink="/"><i class="fa fa-angle-double-right"></i>כל הקבצים</a></li>
+				</ul>
+			</div>
+			<div class="col-xs-12 col-sm-4 col-md-4">
+				<h5>התחבר אלינו</h5>
+				<ul class="list-unstyled quick-links">
+					<li><a href="javascript:void();"><i class="fa fa-facebook"></i> Facebook</a></li>
+					<li><a href="javascript:void();"><i class="fa fa-twitter"></i>Twitter</a></li>
+					<li><a href="javascript:void();"><i class="fa fa-instagram"></i>Instragram</a></li>
+					<li><a href="#"><i class="fa fa-google-plus"></i>Google+</a></li>
+					<li><a href="#" target="_blank"><i
+								class="fa fa-envelope"></i>ch.baror@gmail.com</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+				<p><u><a href="https://github.com">אתר התומך במכירה פומבית מקוונת </a></u> עזור למכירה פומבית לקרות במהירות, במדויק ובנוחות</p>
+				<p class="h6">Built and developed by CHAIM BAROR<a class="text-green ml-2"
+						href="https://github.com" target="_blank"></a></p>
+			</div>
+			<hr>
+		</div>
+	</div>
+</section>
