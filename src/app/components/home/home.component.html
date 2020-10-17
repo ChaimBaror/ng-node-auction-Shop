@@ -1,17 +1,19 @@
 <p>home works!</p>
+<!-- <div *ngFor="let item of products">
+{{item |json}}</div> -->
 <ngb-carousel>
-    <ng-template ngbSlide>
-        <div class="col">
+    <ng-template ngbSlide *ngFor="let item of products">
+        <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="picsum-img-wrapper">
-                    <img src="assets/images/logo3.gif" alt="Random first slide">
+                    <img src={{item.image}} alt="Random first slide" height="300">
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="carousel-caption">
-                    <h3>chaim bar-or auction</h3>
-
+                    <h3>{{item.nameProduct}}</h3>
+                    <p>{{item.message}}</p>
                     <p>המכירה הפומבית עומדת להתקיים ב -30 בנובמבר 2020</p>
                     <button class="by now btn btn-info">by now</button>
                     <button class="by now btn btn-warning">New offer</button>
@@ -19,7 +21,7 @@
             </div>
         </div>
     </ng-template>
-    <ng-template ngbSlide>
+    <!-- <ng-template ngbSlide>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="picsum-img-wrapper">
@@ -82,5 +84,5 @@
                 </div>
             </div>
         </div>
-    </ng-template>
+    </ng-template> -->
 </ngb-carousel>

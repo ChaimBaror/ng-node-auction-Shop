@@ -48,7 +48,6 @@ export class LogingService {
   }
 
   getCurrentUser(): Observable<Users> {
-    
     return this.currentUser$.asObservable()
   }
 }

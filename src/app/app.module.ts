@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
+import { PageProductsComponent } from './components/page-products/page-products.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { UserPageComponent } from './components/user-page/user-page.component';
     SignOnComponent,
     HomeComponent,
     FooterComponent,
-    UserPageComponent
+    UserPageComponent,
+    PageProductsComponent
   ],
   imports: [
     BrowserModule,
