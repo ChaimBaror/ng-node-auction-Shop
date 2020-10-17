@@ -14,9 +14,10 @@
                 <div class="carousel-caption">
                     <h3>{{item.nameProduct}}</h3>
                     <p>{{item.message}}</p>
+                    <button class="by now btn btn-danger" (click)=pageId(item.id)> ${{item.price}}</button>
                     <p>המכירה הפומבית עומדת להתקיים ב -30 בנובמבר 2020</p>
-                    <button class="by now btn btn-info">by now</button>
-                    <button class="by now btn btn-warning">New offer</button>
+                    <button class="by now btn btn-info" (click)=pageId(item.id)>by now</button>
+                    <button class="by now btn btn-warning" (click)=pageId(item.id)>New offer</button>
                 </div>
             </div>
         </div>

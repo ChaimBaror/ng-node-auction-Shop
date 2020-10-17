@@ -7,11 +7,16 @@ import { ProductsService, Products } from 'src/app/services/products.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  products : Products[] = []
+  products: Products[] = []
 
-  constructor(public productsSer : ProductsService) { }
+  constructor(private productsSer: ProductsService) { }
 
   ngOnInit(): void {
     this.products = this.productsSer.getAllProducts();
+  }
+  pageId(id){
+    console.log("pageId",id);
+    this.productsSer.getproductById(id)
     
-}}
+  }
+}
