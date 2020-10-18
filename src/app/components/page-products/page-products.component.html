@@ -4,13 +4,39 @@
 <!-- <div>
     {{pageProducts | json}}
 </div> -->
+<div class="row">
+    <div *ngIf="pageProducts.auction">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Auction</th>
+              <th scope="col">price</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let auction of pageProducts.auction;index as i ">
+            <tr>
+              <th scope="row">{{i}}</th>
+              <td> user ID {{auction.userId}}</td>
+              <td>${{auction.price}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col">
+      <button type="button" class="btn btn-outline-success" (click)="addAuction5(pageProducts.id)">Add Auction  $5 </button><br><br>
+      <button type="button" class="btn btn-outline-primary" (click)="addAuction10(pageProducts.id)">Add Auction  $10 </button><br><br>
+      <button type="button" class="btn btn-outline-warning" (click)="addAuction25(pageProducts.id)">Add Auction  $25 </button><br><br>
+      <button type="button" class="btn btn-outline-danger" (click)="addAuction100(pageProducts.id)">Add Auction  $100 </button><br>
 
+    </div>
 <div *ngIf="pageProducts" class="card">
     <img src={{pageProducts.image}} alt="" width="100%" height="auto" />
-    <h1>{{pageProducts.nameProduct}}</h1>
-    <p class="price">$ {{pageProducts.price}}</p>
+    <h1>{{pageProducts.nameProduct}} </h1>
+    <p class="price">$ {{pageProducts.auction[0].price}} </p>
+    
     <p>{{pageProducts.message}}</p>
-    <p><button>Buy It Now</button></p>
+  <p><button>Buy It Now <sub class="timer">{{timerProduct}}</sub></button></p>
     <a routerLink="/home" routerLinkActive="active"> ...חזור</a>
   </div>
 
@@ -19,3 +45,5 @@
     <p><button routerLink="/home"> Now</button></p>
   </div>
 
+ 
+</div>

@@ -15,8 +15,8 @@ export class LogingComponent implements OnInit {
     firstName: ['admin', [Validators.required, Validators.minLength(2)]],
     lastName: ['mnager', [Validators.required, Validators.minLength(2)]],
     email: ['maneer@admin.com', [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z0-9_\.]+@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,}$')]],
-    phoneNumber: ['', [Validators.required, Validators.pattern('0[0-9\s.-]{5,13}')]],
-    password: ['', [Validators.required, Validators.min(4)]],
+    phoneNumber: ['0527676', [Validators.required, Validators.pattern('0[0-9\s.-]{5,13}')]],
+    password: ['1234', [Validators.required, Validators.min(4)]],
     agree: [true],
     img : ['../assets/images/icon/avataricon.png']
   })

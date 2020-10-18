@@ -10,13 +10,13 @@ import { Users } from './Users';
 export class LogingService {
   ;
   currentUser$: BehaviorSubject<Users> = new BehaviorSubject({ img: "../assets/images/icon/avataricon.png" });
-  // currentUser: Users = new Users();
+
   arrayUsers: Users[] = []
 
   constructor(private _router: Router) {
     this.arrayUsers = [
-      { firstName: "chaim", lastName: "bar-or", email: "chaim@example.com", password: "1234", uid: 1, img: "../assets/images/logo5.png" },
-      { firstName: "david", lastName: "AvraTech", email: "david@example.com", password: "1234", uid: 2, img: "../assets/images/logo5.png" },
+      { firstName: "chaim", lastName: "bar-or", email: "chaim@example.com", password: "1234", uid: 1, img: "../assets/images/logo5.png" ,phone:"0521010100" },
+      { firstName: "david", lastName: "AvraTech", email: "david@example.com", password: "1234", uid: 2, img: "../assets/images/logo5.png" ,phone:"0521010111"},
     ]
   }
 

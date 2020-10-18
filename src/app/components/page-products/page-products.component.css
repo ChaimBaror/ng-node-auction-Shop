@@ -23,3 +23,9 @@
     width: 100%;
     font-size: 18px;
   }
+  .row{
+    margin: auto;
+  }
+  .timer{
+    color:red;
+  }

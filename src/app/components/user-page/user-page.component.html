@@ -9,7 +9,7 @@
 
 
       <li class="list-group-item list-group-item-primary">
-        <label for="">id : </label> <a href={{currentUser.uid}}>{{currentUser.uid}}</a></li>
+        <label for="">id : </label> <a>{{currentUser.uid}}</a></li>
       <li class="list-group-item list-group-item-secondary">
         <label for="">firstName : </label> {{currentUser.firstName}}</li>
       <li class="list-group-item list-group-item-success">
@@ -25,17 +25,31 @@
   <!-- <img src={{currentUser.img}} alt="..." width="120" height="120"srcset=""> -->
   <!-- {{currentUser|json}} -->
   <div class="col">
-  <div class="btn-group" role="group" aria-label="Basic example" style="height:3rem">
-    <button type="button" class="btn btn-secondary">My products</button>
-    <button type="button" class="btn btn-secondary">Messages</button>
-    <button type="button" class="btn btn-secondary">Buy payment</button>
+    <div class="btn-group" role="group" aria-label="Basic example" style="height:3rem">
+      <button type="button" class="btn btn-secondary">My products</button>
+      <button type="button" class="btn btn-secondary">Messages</button>
+      <button type="button" class="btn btn-secondary">Buy payment</button>
 
+    </div>
+
+    <div style="background: rgb(158, 156, 156); width: auto; height: auto;">
+
+      <div *ngFor="let myProduct of myproducts">
+        <!-- {{myProduct | json}} -->
+        <div class="row card" style="width: 100%; padding: 2px;">
+          <div class="" style="width: 4rem;">
+            <img src={{myProduct.image}} class="card-img-top" alt="...">
+          </div>
+          <h5 class="card-title">{{myProduct.nameProduct}}</h5>
+          <p class="card-text">{{myProduct.message}}</p>
+          <h5 > {{myProduct.auction[0].price}}</h5>
+        </div>
+     
+      <div class="card-">No products ........</div>
+    </div>
+      <!-- <p>No payment ....... </p>
+      <p>No messages to display</p> -->
+    </div>
   </div>
-  <div style="background: rgb(158, 156, 156); width: auto; height: auto;">
-<p>No products ........</p>
-<p>No payment .......</p>
-<p>No messages to display</p>
-  </div>
-</div>
 
 </div>
