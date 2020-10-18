@@ -3,25 +3,25 @@
   <a class="navbar-brand" href="#">
     <img src="assets/images/logo.png" alt="Logo" style="width:40px;">
   </a>
-    <a class="navbar-brand" href="home">Navbar</a>
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active" >Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active" >Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="UserPage">User Page</a>
+          <a class="nav-link" routerLink="/UserPage" routerLinkActive="active">User Page</a>
         </li>
       </ul>
 
     </div>
     <ng-container *ngIf="currentUser.uid ; then outTemplate; else loginButton"></ng-container>
     <ng-template #loginButton>
-          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="loging" >logging</button>
-          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="SignUn" >Sign Un</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="loging" routerLinkActive="active" >logging</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="SignUn" routerLinkActive="active" >Sign Un</button>
           </ng-template>
           <ng-template #outTemplate>
     
