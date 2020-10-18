@@ -25,7 +25,7 @@
           </ng-template>
           <ng-template #outTemplate>
     
-            <a href="/UserPage" style="color: yellow;">{{currentUser.firstName}}</a>
+            <a routerLink="/UserPage" routerLinkActive="active"  style="color: yellow;">{{currentUser.firstName}}</a>
     
             <button class="btn btn-outline-danger my-2 my-sm-0" (click)= signOut() >sign Out</button>
             

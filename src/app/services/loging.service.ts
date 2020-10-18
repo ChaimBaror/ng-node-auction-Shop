@@ -9,11 +9,16 @@ import { Users } from './Users';
 })
 export class LogingService {
   ;
-  currentUser$: BehaviorSubject<Users> = new BehaviorSubject({img:"../assets/images/icon/avataricon.png"});
+  currentUser$: BehaviorSubject<Users> = new BehaviorSubject({ img: "../assets/images/icon/avataricon.png" });
   // currentUser: Users = new Users();
-  arrayUsers: Users[]=[]
+  arrayUsers: Users[] = []
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router) {
+    this.arrayUsers = [
+      { firstName: "chaim", lastName: "bar-or", email: "chaim@example.com", password: "1234", uid: 1, img: "../assets/images/logo5.png" },
+      { firstName: "david", lastName: "AvraTech", email: "david@example.com", password: "1234", uid: 2, img: "../assets/images/logo5.png" },
+    ]
+  }
 
   signUp(newUser: Users) {
     console.log(`%c ${newUser.email, newUser.firstName}`, `color : red`);
@@ -22,7 +27,7 @@ export class LogingService {
 
   setUser(user: Users) {
     user.uid = Math.floor(Math.random() * 100000);
-    console.log(`%c ${user.uid}` ,'color :blue');
+    console.log(`%c ${user.uid}`, 'color :blue');
     // this.currentUser = user
     this.currentUser$.next(user)
     this.arrayUsers.push(user)
@@ -32,8 +37,23 @@ export class LogingService {
 
   }
 
+  signUpUser(email, password) {
+    for (let i = 0; i < this.arrayUsers.length; i++) {
+      if (this.arrayUsers[i].email === email && this.arrayUsers[i].password === password) {
+        this.currentUser$.next(this.arrayUsers[i])
+        console.log("access_token");
+        this._router.navigate(['/UserPage'])
+      }
 
- signOut() {
+      else {
+        console.log("error");
+        // this._router.navigate(['/loging'])
+      }
+    }
+  }
+
+
+  signOut() {
     // this.currentUser.uid = null
     // this.currentUser.firstName =''
     // this.currentUser.lastName =''
@@ -43,8 +63,8 @@ export class LogingService {
     // this.currentUser.img = ''
     // this.currentUser.agree = null
     this.currentUser$.next(null)
-    console.log(`%c ${ this.currentUser$}`,'color:yellow');
-    this._router.navigate(['/loging'])    
+    console.log(`%c ${this.currentUser$}`, 'color:yellow');
+    this._router.navigate(['/loging'])
   }
 
   getCurrentUser(): Observable<Users> {

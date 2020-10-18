@@ -1317,7 +1317,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    var src_app_services_loging_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! src/app/services/loging.service */
+    "./src/app/services/loging.service.ts");
+    /* harmony import */
+
+
+    var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
     /*! @angular/common */
     "./node_modules/@angular/common/__ivy_ngcc__/fesm2015/common.js");
 
@@ -1362,13 +1368,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }
 
     var SignOnComponent = /*#__PURE__*/function () {
-      function SignOnComponent(fb) {
+      function SignOnComponent(fb, loggingSer) {
         _classCallCheck(this, SignOnComponent);
 
         this.fb = fb;
+        this.loggingSer = loggingSer;
         this.signfrom = this.fb.group({
           email: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern('^[a-zA-Z][a-zA-Z0-9_\.]+@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,}$')]],
-          password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern('.{8,}$')]],
+          password: ['', [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].required, _angular_forms__WEBPACK_IMPORTED_MODULE_1__["Validators"].pattern('.{4,}$')]],
           agree: [true]
         });
       }
@@ -1380,6 +1387,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "onSubmit",
         value: function onSubmit() {
           console.log(this.signfrom.value);
+          this.loggingSer.signUpUser(this.signfrom.controls.email.value, this.signfrom.controls.password.value);
         }
       }]);
 
@@ -1387,7 +1395,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }();
 
     SignOnComponent.ɵfac = function SignOnComponent_Factory(t) {
-      return new (t || SignOnComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]));
+      return new (t || SignOnComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_loging_service__WEBPACK_IMPORTED_MODULE_2__["LogingService"]));
     };
 
     SignOnComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
@@ -1501,7 +1509,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx.signfrom.valid);
         }
       },
-      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"]],
+      directives: [_angular_forms__WEBPACK_IMPORTED_MODULE_1__["ɵangular_packages_forms_forms_y"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatusGroup"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormGroupDirective"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["DefaultValueAccessor"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["NgControlStatus"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormControlName"], _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], _angular_forms__WEBPACK_IMPORTED_MODULE_1__["CheckboxControlValueAccessor"]],
       styles: ["@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext');\r\n\r\n.body[_ngcontent-%COMP%]{\r\n\tbackground-position: center;\r\n    background-origin: content-box;\r\n    background-repeat: no-repeat;\r\n    background-size: cover;\r\n\tmin-height:100vh;\r\n\tfont-family: 'Noto Sans', sans-serif;\r\n}\r\n\r\n.box[_ngcontent-%COMP%]{\r\n\tposition:absolute;\r\n\tleft:50%;\r\n\ttop:50%;\r\n\ttransform: translate(-50%,-50%);\r\n    background-color: rgba(0, 0, 0, 0.89);\r\n    color: white;\r\n\tborder-radius:3px;\r\n\tpadding:70px 100px;\r\n}\r\n\r\n.input-container[_ngcontent-%COMP%]{\r\n\tposition:relative;\r\n\tmargin-bottom:25px;\r\n}\r\n\r\n.input-container[_ngcontent-%COMP%]   label[_ngcontent-%COMP%]{\r\n\tposition:absolute;\r\n\ttop:0px;\r\n\tleft:0px;\r\n\tfont-size:16px;\r\n\tcolor:#fff;\t\r\n    pointer-event:none;\r\n\ttransition: all 0.5s ease-in-out;\r\n}\r\n\r\n.input-container[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]{ \r\n  border:0;\r\n  border-bottom:1px solid #555;  \r\n  background:transparent;\r\n  width:100%;\r\n  padding:8px 0 5px 0;\r\n  font-size:16px;\r\n  color:#fff;\r\n}\r\n\r\n.input-container[_ngcontent-%COMP%]   input[_ngcontent-%COMP%]:focus{ \r\n border:none;\t\r\n outline:none;\r\n border-bottom:1px solid #e74c3c;\t\r\n}\r\n\r\n.btn[_ngcontent-%COMP%]{\r\n\tcolor:#fff;\r\n\tbackground-color:#e74c3c;\r\n\toutline: none;\r\n    border: 0;\r\n    color: #fff;\r\n\tpadding:10px 20px;\r\n\ttext-transform:uppercase;\r\n\tmargin-top:50px;\r\n\tborder-radius:2px;\r\n\tcursor:pointer;\r\n\tposition:relative;\r\n}\r\n\r\n.form-signin[_ngcontent-%COMP%] {\r\n    width: 100%;\r\n    max-width: 330px;\r\n    padding: 15px;\r\n    margin: auto;\r\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sb2dpbmcvc2lnbi1vbi9zaWduLW9uLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsbUdBQW1HOztBQUVuRztDQUNDLDJCQUEyQjtJQUN4Qiw4QkFBOEI7SUFDOUIsNEJBQTRCO0lBQzVCLHNCQUFzQjtDQUN6QixnQkFBZ0I7Q0FDaEIsb0NBQW9DO0FBQ3JDOztBQUVBO0NBQ0MsaUJBQWlCO0NBQ2pCLFFBQVE7Q0FDUixPQUFPO0NBQ1AsK0JBQStCO0lBQzVCLHFDQUFxQztJQUNyQyxZQUFZO0NBQ2YsaUJBQWlCO0NBQ2pCLGtCQUFrQjtBQUNuQjs7QUFDQTtDQUNDLGlCQUFpQjtDQUNqQixrQkFBa0I7QUFDbkI7O0FBQ0E7Q0FDQyxpQkFBaUI7Q0FDakIsT0FBTztDQUNQLFFBQVE7Q0FDUixjQUFjO0NBQ2QsVUFBVTtJQUNQLGtCQUFrQjtDQUNyQixnQ0FBZ0M7QUFDakM7O0FBQ0E7RUFDRSxRQUFRO0VBQ1IsNEJBQTRCO0VBQzVCLHNCQUFzQjtFQUN0QixVQUFVO0VBQ1YsbUJBQW1CO0VBQ25CLGNBQWM7RUFDZCxVQUFVO0FBQ1o7O0FBQ0E7Q0FDQyxXQUFXO0NBQ1gsWUFBWTtDQUNaLCtCQUErQjtBQUNoQzs7QUFDQTtDQUNDLFVBQVU7Q0FDVix3QkFBd0I7Q0FDeEIsYUFBYTtJQUNWLFNBQVM7SUFDVCxXQUFXO0NBQ2QsaUJBQWlCO0NBQ2pCLHdCQUF3QjtDQUN4QixlQUFlO0NBQ2YsaUJBQWlCO0NBQ2pCLGNBQWM7Q0FDZCxpQkFBaUI7QUFDbEI7O0FBS0E7SUFDSSxXQUFXO0lBQ1gsZ0JBQWdCO0lBQ2hCLGFBQWE7SUFDYixZQUFZO0FBQ2hCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9sb2dpbmcvc2lnbi1vbi9zaWduLW9uLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyJAaW1wb3J0IHVybCgnaHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3M/ZmFtaWx5PU5vdG8rU2Fuczo0MDAsNDAwaSw3MDAsNzAwaSZzdWJzZXQ9Z3JlZWstZXh0Jyk7XHJcblxyXG4uYm9keXtcclxuXHRiYWNrZ3JvdW5kLXBvc2l0aW9uOiBjZW50ZXI7XHJcbiAgICBiYWNrZ3JvdW5kLW9yaWdpbjogY29udGVudC1ib3g7XHJcbiAgICBiYWNrZ3JvdW5kLXJlcGVhdDogbm8tcmVwZWF0O1xyXG4gICAgYmFja2dyb3VuZC1zaXplOiBjb3ZlcjtcclxuXHRtaW4taGVpZ2h0OjEwMHZoO1xyXG5cdGZvbnQtZmFtaWx5OiAnTm90byBTYW5zJywgc2Fucy1zZXJpZjtcclxufVxyXG5cclxuLmJveHtcclxuXHRwb3NpdGlvbjphYnNvbHV0ZTtcclxuXHRsZWZ0OjUwJTtcclxuXHR0b3A6NTAlO1xyXG5cdHRyYW5zZm9ybTogdHJhbnNsYXRlKC01MCUsLTUwJSk7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiByZ2JhKDAsIDAsIDAsIDAuODkpO1xyXG4gICAgY29sb3I6IHdoaXRlO1xyXG5cdGJvcmRlci1yYWRpdXM6M3B4O1xyXG5cdHBhZGRpbmc6NzBweCAxMDBweDtcclxufVxyXG4uaW5wdXQtY29udGFpbmVye1xyXG5cdHBvc2l0aW9uOnJlbGF0aXZlO1xyXG5cdG1hcmdpbi1ib3R0b206MjVweDtcclxufVxyXG4uaW5wdXQtY29udGFpbmVyIGxhYmVse1xyXG5cdHBvc2l0aW9uOmFic29sdXRlO1xyXG5cdHRvcDowcHg7XHJcblx0bGVmdDowcHg7XHJcblx0Zm9udC1zaXplOjE2cHg7XHJcblx0Y29sb3I6I2ZmZjtcdFxyXG4gICAgcG9pbnRlci1ldmVudDpub25lO1xyXG5cdHRyYW5zaXRpb246IGFsbCAwLjVzIGVhc2UtaW4tb3V0O1xyXG59XHJcbi5pbnB1dC1jb250YWluZXIgaW5wdXR7IFxyXG4gIGJvcmRlcjowO1xyXG4gIGJvcmRlci1ib3R0b206MXB4IHNvbGlkICM1NTU7ICBcclxuICBiYWNrZ3JvdW5kOnRyYW5zcGFyZW50O1xyXG4gIHdpZHRoOjEwMCU7XHJcbiAgcGFkZGluZzo4cHggMCA1cHggMDtcclxuICBmb250LXNpemU6MTZweDtcclxuICBjb2xvcjojZmZmO1xyXG59XHJcbi5pbnB1dC1jb250YWluZXIgaW5wdXQ6Zm9jdXN7IFxyXG4gYm9yZGVyOm5vbmU7XHRcclxuIG91dGxpbmU6bm9uZTtcclxuIGJvcmRlci1ib3R0b206MXB4IHNvbGlkICNlNzRjM2M7XHRcclxufVxyXG4uYnRue1xyXG5cdGNvbG9yOiNmZmY7XHJcblx0YmFja2dyb3VuZC1jb2xvcjojZTc0YzNjO1xyXG5cdG91dGxpbmU6IG5vbmU7XHJcbiAgICBib3JkZXI6IDA7XHJcbiAgICBjb2xvcjogI2ZmZjtcclxuXHRwYWRkaW5nOjEwcHggMjBweDtcclxuXHR0ZXh0LXRyYW5zZm9ybTp1cHBlcmNhc2U7XHJcblx0bWFyZ2luLXRvcDo1MHB4O1xyXG5cdGJvcmRlci1yYWRpdXM6MnB4O1xyXG5cdGN1cnNvcjpwb2ludGVyO1xyXG5cdHBvc2l0aW9uOnJlbGF0aXZlO1xyXG59XHJcblxyXG5cclxuXHJcblxyXG4uZm9ybS1zaWduaW4ge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBtYXgtd2lkdGg6IDMzMHB4O1xyXG4gICAgcGFkZGluZzogMTVweDtcclxuICAgIG1hcmdpbjogYXV0bztcclxufVxyXG5cclxuXHJcblxyXG4iXX0= */"]
     });
     /*@__PURE__*/
@@ -1517,6 +1525,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }], function () {
         return [{
           type: _angular_forms__WEBPACK_IMPORTED_MODULE_1__["FormBuilder"]
+        }, {
+          type: src_app_services_loging_service__WEBPACK_IMPORTED_MODULE_2__["LogingService"]
         }];
       }, null);
     })();
@@ -1670,7 +1680,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selectors: [["app-navbar"]],
       decls: 22,
       vars: 3,
-      consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "bg-dark"], ["href", "#", 1, "navbar-brand"], ["src", "assets/images/logo.png", "alt", "Logo", 2, "width", "40px"], ["routerLink", "/home", "routerLinkActive", "active", 1, "navbar-brand"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarSupportedContent", "aria-controls", "navbarSupportedContent", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarSupportedContent", 1, "collapse", "navbar-collapse"], [1, "navbar-nav", "mr-auto"], [1, "nav-item", "active"], ["routerLink", "/home", "routerLinkActive", "active", 1, "nav-link"], [1, "sr-only"], [1, "nav-item"], ["routerLink", "/UserPage", "routerLinkActive", "active", 1, "nav-link"], [4, "ngIf", "ngIfThen", "ngIfElse"], ["loginButton", ""], ["outTemplate", ""], ["routerLink", "loging", "routerLinkActive", "active", 1, "btn", "btn-outline-success", "my-2", "my-sm-0"], ["routerLink", "SignUn", "routerLinkActive", "active", 1, "btn", "btn-outline-success", "my-2", "my-sm-0"], ["href", "/UserPage", 2, "color", "yellow"], [1, "btn", "btn-outline-danger", "my-2", "my-sm-0", 3, "click"]],
+      consts: [[1, "navbar", "navbar-expand-lg", "navbar-dark", "bg-dark"], ["href", "#", 1, "navbar-brand"], ["src", "assets/images/logo.png", "alt", "Logo", 2, "width", "40px"], ["routerLink", "/home", "routerLinkActive", "active", 1, "navbar-brand"], ["type", "button", "data-toggle", "collapse", "data-target", "#navbarSupportedContent", "aria-controls", "navbarSupportedContent", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler"], [1, "navbar-toggler-icon"], ["id", "navbarSupportedContent", 1, "collapse", "navbar-collapse"], [1, "navbar-nav", "mr-auto"], [1, "nav-item", "active"], ["routerLink", "/home", "routerLinkActive", "active", 1, "nav-link"], [1, "sr-only"], [1, "nav-item"], ["routerLink", "/UserPage", "routerLinkActive", "active", 1, "nav-link"], [4, "ngIf", "ngIfThen", "ngIfElse"], ["loginButton", ""], ["outTemplate", ""], ["routerLink", "loging", "routerLinkActive", "active", 1, "btn", "btn-outline-success", "my-2", "my-sm-0"], ["routerLink", "SignUn", "routerLinkActive", "active", 1, "btn", "btn-outline-success", "my-2", "my-sm-0"], ["routerLink", "/UserPage", "routerLinkActive", "active", 2, "color", "yellow"], [1, "btn", "btn-outline-danger", "my-2", "my-sm-0", 3, "click"]],
       template: function NavbarComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "nav", 0);
@@ -2295,6 +2305,21 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         }); // currentUser: Users = new Users();
 
         this.arrayUsers = [];
+        this.arrayUsers = [{
+          firstName: "chaim",
+          lastName: "bar-or",
+          email: "chaim@example.com",
+          password: "1234",
+          uid: 1,
+          img: "../assets/images/logo5.png"
+        }, {
+          firstName: "david",
+          lastName: "AvraTech",
+          email: "david@example.com",
+          password: "1234",
+          uid: 2,
+          img: "../assets/images/logo5.png"
+        }];
       }
 
       _createClass(LogingService, [{
@@ -2314,6 +2339,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           this._router.navigate(['/UserPage']);
 
           this.currentUser$.subscribe(console.log);
+        }
+      }, {
+        key: "signUpUser",
+        value: function signUpUser(email, password) {
+          for (var i = 0; i < this.arrayUsers.length; i++) {
+            if (this.arrayUsers[i].email === email && this.arrayUsers[i].password === password) {
+              this.currentUser$.next(this.arrayUsers[i]);
+              console.log("access_token");
+
+              this._router.navigate(['/UserPage']);
+            } else {
+              console.log("error"); // this._router.navigate(['/loging'])
+            }
+          }
         }
       }, {
         key: "signOut",

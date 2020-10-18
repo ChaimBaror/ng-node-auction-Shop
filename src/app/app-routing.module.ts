@@ -8,11 +8,11 @@ import { PageProductsComponent } from './components/page-products/page-products.
 
 const routes: Routes = [
   { path: 'loging', component: LogingComponent },
-  { path: 'SignUn' , component: SignOnComponent},
-  { path: 'home' , component: HomeComponent},
-  { path: 'UserPage' , component: UserPageComponent},
-  { path: 'pageProduct' , component: PageProductsComponent},
-  { path:'' , component:LogingComponent},
+  { path: 'SignUn', component: SignOnComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'UserPage', component: UserPageComponent },
+  { path: 'pageProduct', component: PageProductsComponent },
+  { path: '', component: LogingComponent },
 
 
   // { path: '', redirectTo: 'from', pathMatch: 'full' },

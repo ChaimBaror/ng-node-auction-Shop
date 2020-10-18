@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LogingService } from 'src/app/services/loging.service';
 
 @Component({
   selector: 'app-sign-on',
@@ -8,10 +9,10 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class SignOnComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private loggingSer:LogingService) { }
   signfrom = this.fb.group({
     email: ['', [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z0-9_\.]+@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,}$')]],
-    password: ['', [Validators.required, Validators.pattern('.{8,}$')]],
+    password: ['', [Validators.required, Validators.pattern('.{4,}$')]],
     agree: [true],
   })
 
@@ -19,6 +20,7 @@ export class SignOnComponent implements OnInit {
   }
   onSubmit(){
     console.log(this.signfrom.value);
-    
+    this.loggingSer.signUpUser(this.signfrom.controls.email.value, this.signfrom.controls.password.value)
   }
+
 }

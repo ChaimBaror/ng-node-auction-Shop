@@ -19,4 +19,5 @@ export class HomeComponent implements OnInit {
     this.productsSer.getproductById(id)
     
   }
+  
 }
