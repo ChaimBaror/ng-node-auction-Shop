@@ -18,16 +18,19 @@
             <tr>
               <th scope="row">{{i}}</th>
               <td> user ID {{auction.userId}}</td>
-              <td>${{auction.price}}</td>
+              <td>${{auction.price}}
+                <sub>{{auction.time}}</sub>
+              </td>
             </tr>
+
           </tbody>
         </table>
       </div>
       <div class="col">
-      <button type="button" class="btn btn-outline-success" (click)="addAuction5(pageProducts.id)">Add Auction  $5 </button><br><br>
-      <button type="button" class="btn btn-outline-primary" (click)="addAuction10(pageProducts.id)">Add Auction  $10 </button><br><br>
-      <button type="button" class="btn btn-outline-warning" (click)="addAuction25(pageProducts.id)">Add Auction  $25 </button><br><br>
-      <button type="button" class="btn btn-outline-danger" (click)="addAuction100(pageProducts.id)">Add Auction  $100 </button><br>
+      <button type="button" class="badge badge-pill badge-success" (click)="addAuction5(pageProducts.id)">Add Auction  $5 </button><br><br>
+      <button type="button" class="badge badge-pill badge-primary" (click)="addAuction10(pageProducts.id)">Add Auction  $10 </button><br><br>
+      <button type="button" class="badge badge-pill badge-warning" (click)="addAuction25(pageProducts.id)">Add Auction  $25 </button><br><br>
+      <button type="button" class="badge badge-pill badge-danger" (click)="addAuction100(pageProducts.id)">Add Auction  $100 </button><br>
 
     </div>
 <div *ngIf="pageProducts" class="card">

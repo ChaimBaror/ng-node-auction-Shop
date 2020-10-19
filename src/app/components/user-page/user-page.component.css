@@ -1,0 +1,9 @@
+.style{
+    width: 100%;
+     padding: 2px;
+      background: rgb(192, 198, 209);
+       width: auto; height: 5rem;
+}
+.card-body{
+    background: rgb(155, 182, 212);
+}

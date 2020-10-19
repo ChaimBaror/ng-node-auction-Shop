@@ -15,7 +15,7 @@
                     <p>{{myVar}}</p>
                     <h3>{{item.nameProduct}}</h3>
                     <p>{{item.message}}</p>
-                    <button class="by now btn btn-danger" (click)=pageId(item.id)> ${{item.auction[0].price}}</button>
+                    <button class="by now badge badge-pill badge-danger" (click)=addAuction(item.id,item.auction[0].price)> ${{item.auction[0].price}}</button>
                     <p> המכירה הפומבית עומדת להתקיים ב -30 בנובמבר 2020</p>
                     <button class="by now btn btn-info" (click)=pageId(item.id)>by now</button>
                     <button class="by now btn btn-warning" (click)=pageId(item.id)>New offer</button>

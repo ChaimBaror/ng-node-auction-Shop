@@ -12,13 +12,13 @@ import { timer } from 'rxjs';
 export class PageProductsComponent implements OnInit {
   currentUser: Users
   pageProducts: Products
-  timerProduct:number
+  timerProduct:number=1000
   constructor(private productsSer: ProductsService,private logingSer: LogingService) { 
     
-    const source = timer(500, 2000);
+    const source = timer(100, 1000);
     //output: 0,1,2,3,4,5......
     const subscribe = source.subscribe(val =>
-      this.timerProduct=(val));
+      this.timerProduct-=(val));
   }
  
 

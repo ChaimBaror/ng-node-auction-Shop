@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { element } from 'protractor';
 
 
 export interface Products {
@@ -14,6 +15,7 @@ export interface Products {
 export interface Auction {
   userId: string;
   price: number;
+  time?: string;
 }
 @Injectable({
   providedIn: 'root'
@@ -47,32 +49,59 @@ export class ProductsService {
 
   }
   auctionAdd(id, user, sum) {
+    let date = new Date();
+    let now = date.setDate(date.getDate() - 1)
     let auction = sum
     for (let i = 0; i < this.arrayProducts.length; i++) {
       if (this.arrayProducts[i].id === id) {
         if (this.arrayProducts[i].auction[0] !== null) {
           this.arrayProducts[i].auction = (this.arrayProducts[i].auction.sort((a, b) => (b.price) - (a.price)))
           auction += this.arrayProducts[i].auction[0].price
-          this.arrayProducts[i].auction.push({ userId: user, price: auction })
+          this.arrayProducts[i].auction.push({ userId: user, price: auction, time: this.convertTime(now) })
         }
       }
-      this._router.navigate(['/pageProduct'])
+
+
+
+
+
+      // setTimeout( this.routerpageProduct, 3000);
     }
+  }
+
+  convertTime(str) {
+    var date = new Date(str),
+      mnth = ("0" + (date.getMonth() + 1)).slice(-2),
+      day = ("0" + date.getDate()).slice(-2),
+      hour = ("0" + date.getHours()).slice(-2),
+      min = ("0" + date.getMinutes()).slice(-2),
+      sec = ("0" + date.getSeconds()).slice(-2);
+    // return [date.getFullYear(), mnth, day, hour, min, sec].join(":");
+    return [hour, min, sec].join(":");
+
+  }
+
+  routerpageProduct() {
+    this._router.navigate(['/pageProduct'])
   }
 
   getOneProducts() {
     return this.pageProducts;
   }
 
+
   productsUser(id) {
     let productsUserauction = []
     for (let i = 0; i < this.arrayProducts.length; i++) {
-      for (let j = 0; j < this.arrayProducts[i].auction.length; j++) 
-        if (this.arrayProducts[i].auction[j].userId == id)
-      productsUserauction.push(this.arrayProducts[i])
+      for (let j = 0; j < this.arrayProducts[i].auction.length; j++) {
+        if (this.arrayProducts[i].auction[j].userId == id){
+          productsUserauction.push(this.arrayProducts[i])
+          break;
+        }
+      }
     }
     console.log(productsUserauction);
-    
+
     return productsUserauction
   }
 }
