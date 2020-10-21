@@ -101,7 +101,7 @@
               <div class="card-body " *ngFor="let myProduct of myproducts">
                 <div *ngFor="let myPro of myProduct.auction index as i">
                   <ng-container *ngIf="myPro.userId == userid && i == 0; else Youlost">
-                    <div style="background:yellow">
+                    <div class="winner">
                       <h1> ${{ myPro.price }} ההצעה שלך מקום ראשון עכשיו</h1>
                       <button class="badge badge-pill badge-danger" (click)="pageId(myProduct.id)">Show Now</button>
                       <button class="badge badge-pill badge-success" (click)="pageId(myProduct.id)">Go To payment</button>
