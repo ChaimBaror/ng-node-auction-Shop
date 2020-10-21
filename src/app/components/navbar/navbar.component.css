@@ -1,0 +1,8 @@
+.timediv {
+position:sticky; 
+display: block;
+ }
+  
+  /* span:hover + .timediv {
+    display: block;
+  } */

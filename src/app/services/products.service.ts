@@ -29,7 +29,11 @@ export class ProductsService {
       { id: "11", image: "../assets/images/logo1.gif", nameProduct: "chaim bar-or 2", message: "chaim AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
       { id: "12", image: "../assets/images/logo5.png", nameProduct: "chaim bar-or 3", message: "chaim bar-or auction", price: 100, auction: [{ userId: '', price: 0 }] },
       { id: "13", image: "../assets/images/logo6.gif", nameProduct: "chaim bar-or 4 מכירה הפומבית", message: "chaim > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
-      { id: "14", image: "../assets/images/logo3.gif", nameProduct: "chaim bar-or 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
+      { id: "14", image: "../assets/images/logo4.gif", nameProduct: "chaim bar-or 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
+      { id: "15", image: "../assets/images/logo3.gif", nameProduct: "מכירה פומבית 6", message: "avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
+      { id: "16", image: "../assets/images/logo.png", nameProduct: "chaim bar-or 3 מכירה", message: "מכירה auction", price: 100, auction: [{ userId: '', price: 0 }] },
+      { id: "17", image: "../assets/images/exit1.png", nameProduct: "chaim bar-or exit מכירה", message: "מכירה exit ", price: 1, auction: [{ userId: '', price: 0 }] },
+
     ]
   }
 
@@ -56,22 +60,22 @@ export class ProductsService {
         if (this.arrayProducts[i].auction[0] !== null) {
           this.arrayProducts[i].auction = (this.arrayProducts[i].auction.sort((a, b) => (b.price) - (a.price)))
           auction += this.arrayProducts[i].auction[0].price
-          this.arrayProducts[i].auction.push({ userId: user, price: auction, time: this.convertTime(now) })
+          this.arrayProducts[i].auction.unshift({ userId: user, price: auction, time: this.convertTime(now) })
         }
       }
     }
   }
-  getTineNow() {
+  getTineNow(){
     let date = new Date();
     let seconds = date.setDate(date.getDate() - 1)
-    var days = Math.floor(seconds / (24 * 60 * 60));
-    seconds -= days * (24 * 60 * 60);
-    var hours = Math.floor(seconds / (60 * 60));
-    seconds -= hours * (60 * 60);
-    var minutes = Math.floor(seconds / (60));
+    var days   = Math.floor(seconds / (24*60*60));
+    seconds -= days    * (24*60*60);
+var hours    = Math.floor(seconds / (60*60));
+    seconds -= hours   * (60*60);
+var minutes  = Math.floor(seconds / (60));
     seconds -= minutes * (60);
-    return ((0 < hours) ? (hours + " hour, ") : "") + ((0 < minutes) ? (minutes + " minutes and, ") : "") + ((0 < seconds) ? (seconds + " seconds, ") : "")
-
+    return ((0<hours)?(hours+" hour, "):"") +((0<minutes)?(minutes+" minutes and, "):"") +((0<seconds)?(seconds+" seconds, "):"")
+    
   }
 
   convertTime(str) {
@@ -86,9 +90,9 @@ export class ProductsService {
 
   }
 
-  routerpageProduct() {
-    this._router.navigate(['/pageProduct'])
-  }
+  // routerpageProduct() {
+  //   this._router.navigate(['/pageProduct'])
+  // }
 
   getOneProducts() {
     return this.pageProducts;
@@ -99,7 +103,7 @@ export class ProductsService {
     let productsUserauction = []
     for (let i = 0; i < this.arrayProducts.length; i++) {
       for (let j = 0; j < this.arrayProducts[i].auction.length; j++) {
-        if (this.arrayProducts[i].auction[j].userId == id) {
+        if (this.arrayProducts[i].auction[j].userId == id){
           productsUserauction.push(this.arrayProducts[i])
           break;
         }
@@ -109,15 +113,4 @@ export class ProductsService {
 
     return productsUserauction
   }
-}
-function formatDuration(seconds) {
-  // Complete this function
-  var days = Math.floor(seconds / (24 * 60 * 60));
-  seconds -= days * (24 * 60 * 60);
-  var hours = Math.floor(seconds / (60 * 60));
-  seconds -= hours * (60 * 60);
-  var minutes = Math.floor(seconds / (60));
-  seconds -= minutes * (60);
-  return ((0 < hours) ? (hours + " hour, ") : "") + ((0 < minutes) ? (minutes + " minutes and, ") : "") + ((0 < seconds) ? (seconds + " seconds, ") : "")
-  return ((0 < days) ? (days + " day, ") : "") + hours + " hour, " + minutes + " minute  and " + seconds + " seconds";
 }

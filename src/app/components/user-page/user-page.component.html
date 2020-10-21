@@ -3,109 +3,146 @@
 <ng-container *ngIf="currentUser.password==value ; then pageUser; else passwordUser"></ng-container>
 <ng-template #passwordUser>
   <div class="body">
-  <div class="text-center box">
-    <h1 class="h3 mb-3 font-weight-normal"> דרושה סיסמא</h1>
+    <div class="text-center box">
+      <h1 class="h3 mb-3 font-weight-normal"> דרושה סיסמא</h1>
+      <input type="password" name="" #password (keyup.enter)="onEnter(password.value)">
+      <div>
+      <app-spinner></app-spinner>
+    </div>
+    </div>
 
-    <input type="password" name="" #password (keyup.enter)="onEnter(password.value)">
   </div>
-</div>
 
 </ng-template>
 <ng-template #pageUser>
 
 
-<div class="row container">
-  <div class="card " style="width: 15rem;">
-    <ul class="list-group">
-      <li class="list-group-item"><img src={{currentUser.img}} alt="..." width="120" height="120" srcset="">
-        <br> {{currentUser.firstName}} {{currentUser.lastName}} </li>
+  <div class="row container">
+    <div class="card " style="width: 15rem;">
+      <ul class="list-group">
+        <li class="list-group-item"><img src={{currentUser.img}} alt="..." width="120" height="120" srcset="">
+          <br> {{currentUser.firstName}} {{currentUser.lastName}} </li>
 
 
-      <li class="list-group-item list-group-item-primary">
-        <label for="">id : </label> <a>{{currentUser.uid}}</a></li>
-      <li class="list-group-item list-group-item-secondary">
-        <label for="">firstName : </label> {{currentUser.firstName}}</li>
-      <li class="list-group-item list-group-item-success">
-        <label for="">lastName : </label>{{currentUser.lastName}}</li>
-      <li class="list-group-item list-group-item-danger">
-        <label for="">email : </label>{{currentUser.email}}</li>
-      <li  class="list-group-item list-group-item-warning">
-        <label for="">phone number : </label>{{currentUser.phone}}</li>
-      <li class="list-group-item list-group-item-info">
-        <label for="">password : </label>
-       <span *ngIf="currentUser.password==value"> {{currentUser.password}}</span>
-      </li>
-    </ul>
-  </div>
-  <!-- <img src={{currentUser.img}} alt="..." width="120" height="120"srcset=""> -->
-  <!-- {{currentUser|json}} -->
-  <div class="col">
-    <div id="accordion">
-      <div class="btn-group" role="group" aria-label="Basic example" style="height:3rem">
+        <li class="list-group-item list-group-item-primary">
+          <label for="">id : </label> <a>{{currentUser.uid}}</a></li>
+        <li class="list-group-item list-group-item-secondary">
+          <label for="">firstName : </label> {{currentUser.firstName}}</li>
+        <li class="list-group-item list-group-item-success">
+          <label for="">lastName : </label>{{currentUser.lastName}}</li>
+        <li class="list-group-item list-group-item-danger">
+          <label for="">email : </label>{{currentUser.email}}</li>
+        <li class="list-group-item list-group-item-warning">
+          <label for="">phone number : </label>{{currentUser.phone}}</li>
+        <li class="list-group-item list-group-item-info">
+          <label for="">password : </label>
+          <!-- <span *ngIf="currentUser.password==value"> {{currentUser.password}}</span> -->
+        </li>
+      </ul>
+    </div>
+    <!-- <img src={{currentUser.img}} alt="..." width="120" height="120"srcset=""> -->
+    <!-- {{currentUser|json}} -->
+    <div class="col">
+      <div id="accordion">
+        <div class="btn-group" role="group" aria-label="Basic example" style="height:3rem">
 
-        <button class="btn btn-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-          aria-controls="collapseOne">
-          My products
-        </button>
-        <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseTwo"
-          aria-expanded="false" aria-controls="collapseTwo">
-          Messages
-        </button>
-        <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseThree"
-          aria-expanded="false" aria-controls="collapseThree">
-          Buy payment
-        </button>
-      </div>
-      <div class="card ">
+          <button class="btn btn-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+            aria-controls="collapseOne">
+            My products
+          </button>
+          <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="false" aria-controls="collapseTwo">
+            Messages
+          </button>
+          <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseThree"
+            aria-expanded="false" aria-controls="collapseThree">
+            Buy payment
+          </button>
+        </div>
+        <div class="card ">
 
-        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-          <div class="card-body" *ngFor="let myProduct of myproducts">
-            <div class="row card style ">
-              <div class="" style="width: 4rem;">
-                <img src={{myProduct.image}} class="card-img-top" alt="...">
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body" *ngFor="let myProduct of myproducts">
+              <div class="row card style ">
+                <div class="" style="width: 4rem;">
+                  <img src={{myProduct.image}} class="card-img-top" alt="...">
+                </div>
+
+                <h5 class="card-title">{{myProduct.nameProduct}}</h5>
+                <p class="card-text">{{myProduct.message}}</p>
+
               </div>
 
-              <h5 class="card-title">{{myProduct.nameProduct}}</h5>
-              <p class="card-text">{{myProduct.message}}</p>
+            </div>
+            <div class="card-">No products ........</div>
+
+          </div>
+        </div>
+        <div>
+
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+
+            <div class="card-body " *ngFor="let myProduct of myproducts">
+              <ul *ngFor="let myPro of myProduct.auction">
+                <li *ngIf="myPro.userId == userid" class="card-text style">
+                  <h5 class="card-title">{{myProduct.nameProduct}}</h5> ${{ myPro.price }} An offer for auction was
+                  received on time <sup>{{myPro.time}}</sup>
+                </li>
+              </ul>
+            </div>
+            <div class="card-">No Messages ........</div>
+
+          </div>
+        </div>
+        <div class="card">
+
+          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+              <div class="card-body " *ngFor="let myProduct of myproducts">
+                <div *ngFor="let myPro of myProduct.auction index as i">
+                  <ng-container *ngIf="myPro.userId == userid && i == 0; else Youlost">
+                    <div style="background:yellow">
+                      <h1> ${{ myPro.price }} ההצעה שלך מקום ראשון עכשיו</h1>
+                      <button class="badge badge-pill badge-danger" (click)="pageId(myProduct.id)">Show Now</button>
+                      <button class="badge badge-pill badge-success" (click)="pageId(myProduct.id)">Go To payment</button>
+
+                      <h2>{{myProduct.nameProduct}} </h2>
+                      <sup>{{myPro.time}}</sup>
+
+                    </div>
+                  </ng-container>
+                  <ng-template #Youlost>
+                    <div class="Youlost">
+                      <li> ${{ myPro.price }} ההצעה שלך לא רלבנתית
+                        {{myProduct.nameProduct}}
+                        <sup>{{myPro.time}}</sup></li>
+                      <button class="badge badge-pill badge-info" (click)="pageId(myProduct.id)">You lost</button>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+
+
+              In developing countries, many people don't have access to banking facilities, especially in tier II and
+              tier
+              III cities. Taking the example of India, there are more mobile phone users than there are people with
+              active
+              bank accounts. Telecom operators, in such locations, have started offering mobile money wallets which
+              allow
+              adding funds easily through their existing mobile subscription number, by visiting physical recharge
+              points
+              close to their homes and offices and converting their cash into mobile wallet currency. This can be used
+              for
+              online transaction and eCommerce purchases.
+
 
             </div>
-
+            <div class="card-"> Buy payment ........</div>
           </div>
-          <div class="card-">No products ........</div>
-
-        </div>
-      </div>
-      <div >
-
-        <div  id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-         
-            <div  class="card-body " *ngFor="let myProduct of myproducts">
-              <ul  *ngFor="let myPro of myProduct.auction">
-                 <li *ngIf="myPro.userId == userid" class="card-text style">
-                  <h5 class="card-title">{{myProduct.nameProduct}}</h5> ${{ myPro.price }} An offer for auction was received on time <sup>{{myPro.time}}</sup></li>
-              </ul>
-          </div>
-          <div class="card-">No Messages ........</div>
-
-        </div>
-      </div>
-      <div class="card">
-
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-          <div class="card-body">
-            In developing countries, many people don't have access to banking facilities, especially in tier II and tier
-            III cities. Taking the example of India, there are more mobile phone users than there are people with active
-            bank accounts. Telecom operators, in such locations, have started offering mobile money wallets which allow
-            adding funds easily through their existing mobile subscription number, by visiting physical recharge points
-            close to their homes and offices and converting their cash into mobile wallet currency. This can be used for
-            online transaction and eCommerce purchases.
-          </div>
-          <div class="card-"> Buy payment ........</div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </ng-template>
 <!-- ----------------------------------------------------------------
 

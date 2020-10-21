@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { PageProductsComponent } from './components/page-products/page-products.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { PageProductsComponent } from './components/page-products/page-products.
     HomeComponent,
     FooterComponent,
     UserPageComponent,
-    PageProductsComponent
+    PageProductsComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
