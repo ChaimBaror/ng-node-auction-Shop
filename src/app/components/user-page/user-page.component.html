@@ -1,7 +1,20 @@
 <!-- <p>user-page works!</p> -->
 
+<ng-container *ngIf="currentUser.password==value ; then pageUser; else passwordUser"></ng-container>
+<ng-template #passwordUser>
+  <div class="body">
+  <div class="text-center box">
+    <h1 class="h3 mb-3 font-weight-normal"> דרושה סיסמא</h1>
 
-<div class="row">
+    <input type="password" name="" #password (keyup.enter)="onEnter(password.value)">
+  </div>
+</div>
+
+</ng-template>
+<ng-template #pageUser>
+
+
+<div class="row container">
   <div class="card " style="width: 15rem;">
     <ul class="list-group">
       <li class="list-group-item"><img src={{currentUser.img}} alt="..." width="120" height="120" srcset="">
@@ -16,10 +29,12 @@
         <label for="">lastName : </label>{{currentUser.lastName}}</li>
       <li class="list-group-item list-group-item-danger">
         <label for="">email : </label>{{currentUser.email}}</li>
-      <li class="list-group-item list-group-item-warning">
+      <li  class="list-group-item list-group-item-warning">
         <label for="">phone number : </label>{{currentUser.phone}}</li>
       <li class="list-group-item list-group-item-info">
-        <label for="">password : </label>{{currentUser.password}}</li>
+        <label for="">password : </label>
+       <span *ngIf="currentUser.password==value"> {{currentUser.password}}</span>
+      </li>
     </ul>
   </div>
   <!-- <img src={{currentUser.img}} alt="..." width="120" height="120"srcset=""> -->
@@ -53,10 +68,6 @@
               <h5 class="card-title">{{myProduct.nameProduct}}</h5>
               <p class="card-text">{{myProduct.message}}</p>
 
-
-              <!-- <ng-container *ngFor="let myPro of myProduct.auction" >
-                  <li *ngIf="myPro.userId == userid">{{ myPro.price  }}</li>
-               </ng-container> -->
             </div>
 
           </div>
@@ -90,13 +101,12 @@
             online transaction and eCommerce purchases.
           </div>
           <div class="card-"> Buy payment ........</div>
-
         </div>
       </div>
     </div>
-
   </div>
 </div>
+</ng-template>
 <!-- ----------------------------------------------------------------
 
 

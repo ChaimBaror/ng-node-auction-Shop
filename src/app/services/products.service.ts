@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { element } from 'protractor';
 
 
 export interface Products {
@@ -60,13 +59,19 @@ export class ProductsService {
           this.arrayProducts[i].auction.push({ userId: user, price: auction, time: this.convertTime(now) })
         }
       }
-
-
-
-
-
-      // setTimeout( this.routerpageProduct, 3000);
     }
+  }
+  getTineNow() {
+    let date = new Date();
+    let seconds = date.setDate(date.getDate() - 1)
+    var days = Math.floor(seconds / (24 * 60 * 60));
+    seconds -= days * (24 * 60 * 60);
+    var hours = Math.floor(seconds / (60 * 60));
+    seconds -= hours * (60 * 60);
+    var minutes = Math.floor(seconds / (60));
+    seconds -= minutes * (60);
+    return ((0 < hours) ? (hours + " hour, ") : "") + ((0 < minutes) ? (minutes + " minutes and, ") : "") + ((0 < seconds) ? (seconds + " seconds, ") : "")
+
   }
 
   convertTime(str) {
@@ -94,7 +99,7 @@ export class ProductsService {
     let productsUserauction = []
     for (let i = 0; i < this.arrayProducts.length; i++) {
       for (let j = 0; j < this.arrayProducts[i].auction.length; j++) {
-        if (this.arrayProducts[i].auction[j].userId == id){
+        if (this.arrayProducts[i].auction[j].userId == id) {
           productsUserauction.push(this.arrayProducts[i])
           break;
         }
@@ -104,4 +109,15 @@ export class ProductsService {
 
     return productsUserauction
   }
+}
+function formatDuration(seconds) {
+  // Complete this function
+  var days = Math.floor(seconds / (24 * 60 * 60));
+  seconds -= days * (24 * 60 * 60);
+  var hours = Math.floor(seconds / (60 * 60));
+  seconds -= hours * (60 * 60);
+  var minutes = Math.floor(seconds / (60));
+  seconds -= minutes * (60);
+  return ((0 < hours) ? (hours + " hour, ") : "") + ((0 < minutes) ? (minutes + " minutes and, ") : "") + ((0 < seconds) ? (seconds + " seconds, ") : "")
+  return ((0 < days) ? (days + " day, ") : "") + hours + " hour, " + minutes + " minute  and " + seconds + " seconds";
 }

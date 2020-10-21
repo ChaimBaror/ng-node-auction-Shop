@@ -13,6 +13,7 @@ export class PageProductsComponent implements OnInit {
   currentUser: Users
   pageProducts: Products
   timerProduct:number=1000
+  thisNow 
   constructor(private productsSer: ProductsService,private logingSer: LogingService) { 
     
     const source = timer(100, 1000);
@@ -27,8 +28,15 @@ export class PageProductsComponent implements OnInit {
     this.pageProducts.auction.sort((a, b) => (b.price) - (a.price));
     this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser= {...user} );
+      setInterval(this.timeNow,1000);
   }
 
+  timeNow(){
+   
+  
+    this.thisNow=  this.productsSer.getTineNow()
+
+  }
   addAuction5(id){
     this.addAuction(id,5)
   }

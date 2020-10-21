@@ -16,7 +16,7 @@
 
        <form class="form-signin" [formGroup]="signfrom" >
 
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+            <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
             <label for="inputName" class="sr-only">first  Name </label>
             <input type="text" id="inputName" class="form-control" formControlName="firstName" placeholder="first Name"
                 required autofocus>
@@ -66,9 +66,9 @@
                 </label>
             </div>
             <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' [disabled]="!signfrom.valid">LOGING</button>
-            <a routerLink="/SignUn" routerLinkActive="active" >Sign Un</a>
+            <a routerLink="/SignUn" routerLinkActive="active" >sign in</a>
 
-            <p class="mt-5 mb-3 text-muted">&copy; 2019-2020</p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
            
         </form> 
     </div>

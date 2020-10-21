@@ -20,8 +20,8 @@
     </div>
     <ng-container *ngIf="currentUser.uid ; then outTemplate; else loginButton"></ng-container>
     <ng-template #loginButton>
-          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="loging" routerLinkActive="active" >logging</button>
-          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="SignUn" routerLinkActive="active" >Sign Un</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="loging" routerLinkActive="active" >sign up</button>
+          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="SignUn" routerLinkActive="active" >sign in</button>
           </ng-template>
           <ng-template #outTemplate>
     
@@ -32,3 +32,4 @@
     </ng-template>
 
   </nav>
+  <span style='color:yellow ; background:black;'>{{timenow}}</span>

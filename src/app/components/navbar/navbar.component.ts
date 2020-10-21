@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class NavbarComponent implements OnInit {
   public currentUser: Users;
-
+  public timenow
   // public currentUser:Users =new Users();
   constructor(private logingSer: LogingService) { }
 
@@ -18,6 +18,13 @@ export class NavbarComponent implements OnInit {
    this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser= {...user} );
     console.log(`%c ${this.currentUser.uid}`,'color:red');
+       
+    setInterval(() => {
+      this.timenow =new Date().toLocaleString()
+      
+      
+  }, 1000);
+
 
   }
   signOut() {

@@ -1,9 +1,11 @@
 <p>home works!</p>
 <!-- <div *ngFor="let item of products">
 {{item |json}}</div> -->
+
 <ngb-carousel>
     <ng-template ngbSlide *ngFor="let item of products">
-        <div class="row">
+        <div class=" container">
+            <div class ="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div class="picsum-img-wrapper">
                     <img src={{item.image}} alt="Random first slide" height="300">
@@ -16,11 +18,12 @@
                     <h3>{{item.nameProduct}}</h3>
                     <p>{{item.message}}</p>
                     <button class="by now badge badge-pill badge-danger" (click)=addAuction(item.id,item.auction[0].price)> ${{item.auction[0].price}}</button>
-                    <p> המכירה הפומבית עומדת להתקיים ב -30 בנובמבר 2020</p>
+                    <p> <sub> 12:00 PM</sub> המכירה הפומבית עומדת להתקיים ב -22 באוקטובר 2020</p>
                     <button class="by now btn btn-info" (click)=pageId(item.id)>by now</button>
                     <button class="by now btn btn-warning" (click)=pageId(item.id)>New offer</button>
                 </div>
             </div>
+        </div>
         </div>
     </ng-template>
     <!-- <ng-template ngbSlide>

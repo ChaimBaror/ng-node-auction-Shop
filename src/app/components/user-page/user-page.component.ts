@@ -25,4 +25,8 @@ this.userid = this.currentUser.uid
     
 
   }
+
+  value = '';
+  onEnter(value: string) { this.value = value; }
+
 }

@@ -16,7 +16,15 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.productsSer.getAllProducts();
-    this.myVar = setInterval(this.myTimer, 1000);
+   
+  //   setInterval(() => {
+  //     this.myVar =new Date().toLocaleString()
+      
+      
+  //     // this.productsSer.getTineNow()
+  // }, 1000);
+
+
 
     this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser= {...user} );
