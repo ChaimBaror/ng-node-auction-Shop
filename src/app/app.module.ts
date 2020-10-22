@@ -10,10 +10,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { SignOnComponent } from './components/loging/sign-on/sign-on.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {HttpClientModule} from '@angular/common/http';
+
 import { FooterComponent } from './components/footer/footer.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { PageProductsComponent } from './components/page-products/page-products.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { CategoryComponent } from './components/category/category.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +28,16 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     FooterComponent,
     UserPageComponent,
     PageProductsComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    CategoryComponent
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

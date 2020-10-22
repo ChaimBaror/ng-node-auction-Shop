@@ -112,8 +112,8 @@
                     </div>
                   </ng-container>
                   <ng-template #Youlost>
-                    <div class="Youlost">
-                      <li> ${{ myPro.price }} ההצעה שלך לא רלבנתית
+                    <div class="Youlost"  *ngIf="myPro.userId == userid">
+                      <li > ${{ myPro.price }} ההצעה שלך לא רלבנתית
                         {{myProduct.nameProduct}}
                         <sup>{{myPro.time}}</sup></li>
                       <button class="badge badge-pill badge-info" (click)="pageId(myProduct.id)">You lost</button>

@@ -6,54 +6,64 @@
     {{pageProducts | json}}
 </div> -->
 <div class="container">
+
   <div class="row">
-    <div *ngIf="pageProducts.auction">
-      <table class="table table-dark">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Auction</th>
-            <th scope="col">price</th>
-          </tr>
-        </thead>
-        <tbody *ngFor="let auction of pageProducts.auction;index as i ">
-          <tr class="rowitme{{i}}">
-            <th scope="row">{{i}}</th>
-            <td> user ID {{auction.userId}}</td>
-            <td>${{auction.price}}
-              <sub>{{auction.time}}</sub>
-            </td>
-          </tr>
 
-        </tbody>
-      </table>
-    </div>
-    <div class="col">
-      <button type="button" class="badge badge-pill badge-success" (click)="addAuction5(pageProducts.id)">Add Auction $5
-      </button><br><br>
-      <button type="button" class="badge badge-pill badge-primary" (click)="addAuction10(pageProducts.id)">Add Auction
-        $10 </button><br><br>
-      <button type="button" class="badge badge-pill badge-warning" (click)="addAuction25(pageProducts.id)">Add Auction
-        $25 </button><br><br>
-      <button type="button" class="badge badge-pill badge-danger" (click)="addAuction100(pageProducts.id)">Add Auction
-        $100 </button><br>
+    <div class="col-4">
+      <div *ngIf="pageProducts" class="card ">
+        <img src={{pageProducts.image}} alt="" width="100%" height="auto" />
+        <h1>{{pageProducts.nameProduct}} </h1>
+        <p class="price">$ {{pageProducts.auction[0].price}} </p>
 
-    </div>
-    <div *ngIf="pageProducts" class="card">
-      <img src={{pageProducts.image}} alt="" width="100%" height="auto" />
-      <h1>{{pageProducts.nameProduct}} </h1>
-      <p class="price">$ {{pageProducts.auction[0].price}} </p>
-
-      <p>{{pageProducts.message}}</p>
-      <p><button>Buy It Now <sub class="timer">{{timerProduct}}</sub></button></p>
-      <a routerLink="/home" routerLinkActive="active"> ...חזור</a>
+        <p>{{pageProducts.message}}</p>
+        <p><button>Buy It Now <sub class="timer">{{timerProduct}}</sub></button></p>
+        <a routerLink="/home" routerLinkActive="active"> ...חזור</a>
+      </div>
+      <div *ngIf="!pageProducts" class="card ">
+        <h1>....אין לך מוצרים</h1>
+        <p><button routerLink="/home"> Now</button></p>
+      </div>
     </div>
 
-    <div *ngIf="!pageProducts" class="card">
-      <h1>....אין לך מוצרים</h1>
-      <p><button routerLink="/home"> Now</button></p>
+    <div class="col-4">
+
+      <div *ngIf="pageProducts.auction">
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Auction</th>
+              <th scope="col">price</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let auction of pageProducts.auction;index as i ">
+            <tr class="rowitme{{i}}">
+              <th scope="row">{{i}}</th>
+              <td> user ID {{auction.userId}}</td>
+              <td>${{auction.price}}
+                <sub>{{auction.time}}</sub>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
     </div>
 
+    <div class="col-4">
+      <div >
+        <button type="button" class="badge badge-pill badge-success" (click)="addAuction5(pageProducts.id)">Add Auction
+          $5
+        </button><br><br>
+        <button type="button" class="badge badge-pill badge-primary" (click)="addAuction10(pageProducts.id)">Add Auction
+          $10 </button><br><br>
+        <button type="button" class="badge badge-pill badge-warning" (click)="addAuction25(pageProducts.id)">Add Auction
+          $25 </button><br><br>
+        <button type="button" class="badge badge-pill badge-danger" (click)="addAuction100(pageProducts.id)">Add Auction
+          $100 </button><br>
+      </div>
+    </div>
 
   </div>
+
 </div>

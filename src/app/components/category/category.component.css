@@ -1,0 +1,15 @@
+.section-nav{
+  
+    color: #FFD700;
+}
+li{
+    display: block;
+    padding: .25rem 1.5rem;
+    font-size: 90%;
+
+}
+
+.section-nav :hover{
+    /* opacity: 0.5; */
+    color: aqua;
+}

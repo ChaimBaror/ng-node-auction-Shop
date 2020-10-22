@@ -1,0 +1,17 @@
+<p>category works!</p>
+
+<div class="row">
+  
+    <div style="width:85%">
+        <app-home [products]="myProducts"></app-home>
+    </div>
+    <div style="width:15%"> 
+        <ul class="section-nav" > <h5>category</h5>
+           <!-- <li class="toc-entry toc-h2" *ngFor="let pro of categoryProduct[0]">{{pro.message}}</li>  -->
+           <li (click)="selectcategory('category1')"> Category A</li>
+           <li (click)="selectcategory('category2')"> category B</li>
+           <li (click)="selectcategory('api')"> API</li>
+          
+        </ul>
+    </div>
+</div>

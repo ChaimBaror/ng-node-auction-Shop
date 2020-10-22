@@ -17,6 +17,8 @@ export class UserPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(`ngOnInit Products work`);
+    
     this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser = { ...user });
     console.log(`%c ${this.currentUser.lastName}`, 'color:red');
