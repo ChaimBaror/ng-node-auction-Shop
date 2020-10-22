@@ -18,7 +18,7 @@ export class LogingComponent implements OnInit {
     phoneNumber: ['', [Validators.required, Validators.pattern('0[0-9\s.-]{5,13}')]],
     password: ['', [Validators.required, Validators.min(4)]],
     agree: [true],
-    img : ['./assets/images/icon/avataricon.png']
+    img : ['../assets/images/icon/avataricon.png']
   })
   ngOnInit(): void {
   }
