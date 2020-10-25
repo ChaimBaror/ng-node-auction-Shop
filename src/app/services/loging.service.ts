@@ -34,13 +34,15 @@ export class LogingService {
     this._router.navigate(['/UserPage'])
 
     this.currentUser$.subscribe(console.log);
-
+   
   }
+ 
 
   signUpUser(email, password) {
     for (let i = 0; i < this.arrayUsers.length; i++) {
       if (this.arrayUsers[i].email === email && this.arrayUsers[i].password === password) {
         this.currentUser$.next(this.arrayUsers[i])
+        localStorage.setItem('currentUser',this.arrayUsers[i].firstName +" " +this.arrayUsers[i].lastName)
         console.log("access_token");
         this._router.navigate(['/UserPage'])
       }

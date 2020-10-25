@@ -3,6 +3,7 @@ import { ProductsService, Products } from 'src/app/services/products.service';
 import { LogingService } from 'src/app/services/loging.service';
 import { Users } from 'src/app/services/Users';
 import { timer } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-products',
@@ -14,7 +15,7 @@ export class PageProductsComponent implements OnInit {
   pageProducts: Products
   timerProduct:number=1000
   thisNow 
-  constructor(private productsSer: ProductsService,private logingSer: LogingService) { 
+  constructor(private productsSer: ProductsService,private logingSer: LogingService, private _router: Router) { 
     
     const source = timer(100, 1000);
     //output: 0,1,2,3,4,5......
@@ -53,6 +54,12 @@ export class PageProductsComponent implements OnInit {
 
 
   addAuction(id,sum){
+
+    if(!this.currentUser.uid){
+      //  this._router.navigate(['/loging'])
+       return alert("כדי להגיש הצעה צריך להירשם")
+       
+    }
     console.log(id);
     this.productsSer.auctionAdd(id,this.currentUser.uid,sum)
   

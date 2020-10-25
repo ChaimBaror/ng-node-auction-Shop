@@ -35,6 +35,9 @@ export class HomeComponent implements OnInit {
 
 
   addAuction(id, add) {
+    if(!this.currentUser.uid){
+      return alert("כדי להגיש הצעה צריך להירשם") 
+   }
     if (add == 0)
       add = 10
     let sum = add
