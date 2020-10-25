@@ -36,7 +36,7 @@
           <label for="">phone number : </label>{{currentUser.phone}}</li>
         <li class="list-group-item list-group-item-info">
           <label for="">password : </label>
-          <!-- <span *ngIf="currentUser.password==value"> {{currentUser.password}}</span> -->
+          <span *ngIf="currentUser.password==value"> access token</span>
         </li>
       </ul>
     </div>
@@ -48,11 +48,11 @@
 
           <button class="btn btn-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
             aria-controls="collapseOne">
-            My products
+            My products <sup class="badge badge-pill badge-danger"  >{{myproducts.length }}</sup>
           </button>
           <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="false" aria-controls="collapseTwo">
-            Messages
+            Messages 
           </button>
           <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseThree"
             aria-expanded="false" aria-controls="collapseThree">

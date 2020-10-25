@@ -17,7 +17,7 @@
         <a class="nav-link" routerLink="/Category" routerLinkActive="active">Category <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/UserPage" routerLinkActive="active">User Page</a>
+        <a class="nav-link" routerLink="/UserPage" routerLinkActive="active">User Page <sup class="badge badge-pill badge-danger" >1</sup></a>
       </li>
     </ul>
   </div>
@@ -28,7 +28,7 @@
   </ng-template>
 
   <ng-template #outTemplate>
-    <a routerLink="/UserPage" routerLinkActive="active" style="color: yellow;">{{currentUser.firstName}}</a>
+    <a routerLink="/UserPage" routerLinkActive="active" style="color: yellow;">Welcome {{ currentUser.firstName }} &nbsp;  </a> 
     <button class="btn btn-outline-danger my-2 my-sm-0" (click)=signOut()>sign Out</button>
   </ng-template>
   

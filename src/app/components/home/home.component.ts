@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
   constructor(private productsSer: ProductsService, private logingSer: LogingService) { }
 
   ngOnInit(): void {
+    console.log("oninit home work");
+    
     this.products = this.productsSer.getAllProducts();
 
     this.logingSer.getCurrentUser().subscribe(user =>
