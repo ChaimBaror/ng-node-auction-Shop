@@ -7,4 +7,5 @@ export class Users {
   phone?: string;
   img?: string;
   agree?: boolean;
+  message?:number = 0;
 }

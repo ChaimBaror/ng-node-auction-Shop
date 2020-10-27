@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from './api.service';
+import { LogingService } from './loging.service';
 
 
 export interface Products {
@@ -25,7 +26,7 @@ export class ProductsService {
   arrayProducts: Products[] = [];
   baesProducts: Products[] = [];
   pageProducts: Products;
-  constructor(private _router: Router, private api: ApiService) {
+  constructor(private _router: Router, private api: ApiService,private userSer:LogingService ) {
 
     this.baesProducts = [
       { id: "10", image: "../assets/images/logo3.gif", nameProduct: "chaim bar-or 1 מכירה הפומבית", message: "chaim bar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
@@ -40,9 +41,6 @@ export class ProductsService {
     ]
   }
 
-
-
-
   getAllProducts() {
     this.arrayProducts = this.baesProducts
     return this.arrayProducts;
@@ -56,9 +54,10 @@ export class ProductsService {
 
       }
     }
-
   }
+
   auctionAdd(id, user, sum) {
+    this.userSer.updateSubject(1)
     let date = new Date();
     let now = date.setDate(date.getDate() - 1)
     let auction = sum

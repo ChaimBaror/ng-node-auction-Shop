@@ -18,7 +18,7 @@ const routes: Routes = [
 
 
   // { path: '', redirectTo: 'from', pathMatch: 'full' },
-  // { path:'**' , component:LogingComponent},
+  { path:'**' , component:LogingComponent},
 
 ];
 

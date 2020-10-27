@@ -10,41 +10,36 @@ import { Users } from './Users';
 export class LogingService {
   ;
   currentUser$: BehaviorSubject<Users> = new BehaviorSubject({ img: "../assets/images/icon/avataricon.png" });
-
+  user: Users
   arrayUsers: Users[] = []
 
   constructor(private _router: Router) {
     this.arrayUsers = [
-      { firstName: "chaim", lastName: "bar-or", email: "chaim@example.com", password: "1234", uid: 1, img: "../assets/images/logo5.png" ,phone:"0521010100" },
-      { firstName: "david", lastName: "AvraTech", email: "david@example.com", password: "1234", uid: 2, img: "../assets/images/logo5.png" ,phone:"0521010111"},
+      { firstName: "chaim", lastName: "bar-or", email: "chaim@example.com", password: "1234", uid: 1, img: "../assets/images/logo5.png", phone: "0521010100" },
+      { firstName: "david", lastName: "AvraTech", email: "david@example.com", password: "1234", uid: 2, img: "../assets/images/logo5.png", phone: "0521010111" },
     ]
   }
 
-  signUp(newUser: Users) {
-    console.log(`%c ${newUser.email, newUser.firstName}`, `color : red`);
-    // this.currentUser =  newUser
-  }
 
   setUser(user: Users) {
     user.uid = Math.floor(Math.random() * 100000);
     console.log(`%c ${user.uid}`, 'color :blue');
-    // this.currentUser = user
     this.currentUser$.next(user)
     this.arrayUsers.push(user)
     this._router.navigate(['/UserPage'])
 
     this.currentUser$.subscribe(console.log);
-   
+
   }
- 
+
 
   signUpUser(email, password) {
     for (let i = 0; i < this.arrayUsers.length; i++) {
       if (this.arrayUsers[i].email === email && this.arrayUsers[i].password === password) {
         this.currentUser$.next(this.arrayUsers[i])
-        localStorage.setItem('currentUser',this.arrayUsers[i].firstName +" " +this.arrayUsers[i].lastName)
+        localStorage.setItem('currentUser', this.arrayUsers[i].firstName + " " + this.arrayUsers[i].lastName)
         console.log("access_token");
-        this._router.navigate(['/UserPage'])
+        this._router.navigate(['/home'])
       }
 
       else {
@@ -56,14 +51,6 @@ export class LogingService {
 
 
   signOut() {
-    // this.currentUser.uid = null
-    // this.currentUser.firstName =''
-    // this.currentUser.lastName =''
-    // this.currentUser.email = ''
-    // this.currentUser.password = ''
-    // this.currentUser.phone = ''
-    // this.currentUser.img = ''
-    // this.currentUser.agree = null
     this.currentUser$.next(null)
     console.log(`%c ${this.currentUser$}`, 'color:yellow');
     this._router.navigate(['/loging'])
@@ -71,5 +58,18 @@ export class LogingService {
 
   getCurrentUser(): Observable<Users> {
     return this.currentUser$.asObservable()
+  }
+
+
+  updateSubject(newData: number) {
+    let n 
+    if (newData === 1) {
+      n = newData
+    this.currentUser$.subscribe(users => {
+      users.message == null ? n : n = users.message as number + 1 })
+    }
+
+    this.currentUser$.next({ ...this.currentUser$.value, message: n });
+ 
   }
 }

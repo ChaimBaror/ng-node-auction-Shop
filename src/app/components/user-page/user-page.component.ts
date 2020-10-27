@@ -42,4 +42,9 @@ export class UserPageComponent implements OnInit {
   value = '';
   onEnter(value: string) { this.value = value; }
 
+  zonemssad(){
+    this.logingSer.updateSubject(0)
+  }
+
 }
+

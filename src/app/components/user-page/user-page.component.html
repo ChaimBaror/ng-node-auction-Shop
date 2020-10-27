@@ -5,7 +5,7 @@
   <div class="body">
     <div class="text-center box">
       <h1 class="h3 mb-3 font-weight-normal"> דרושה סיסמא</h1>
-      <input type="password" name="" #password (keyup.enter)="onEnter(password.value)">
+      <input style="text-align: center;" type="password" value="{{currentUser.password}}" #password (keyup.enter)="onEnter(password.value)">
       <div>
       <app-spinner></app-spinner>
     </div>
@@ -22,7 +22,6 @@
       <ul class="list-group">
         <li class="list-group-item"><img src={{currentUser.img}} alt="..." width="120" height="120" srcset="">
           <br> {{currentUser.firstName}} {{currentUser.lastName}} </li>
-
 
         <li class="list-group-item list-group-item-primary">
           <label for="">id : </label> <a>{{currentUser.uid}}</a></li>
@@ -51,8 +50,8 @@
             My products <sup class="badge badge-pill badge-danger"  >{{myproducts.length }}</sup>
           </button>
           <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="false" aria-controls="collapseTwo">
-            Messages 
+            aria-expanded="false" aria-controls="collapseTwo" (click)="zonemssad()" >
+            Messages <sup class="badge badge-pill badge-danger"  >{{ currentUser.message}}</sup>
           </button>
           <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseThree"
             aria-expanded="false" aria-controls="collapseThree">
@@ -144,29 +143,3 @@
     </div>
   </div>
 </ng-template>
-<!-- ----------------------------------------------------------------
-
-
-
-<div class="btn-group" role="group" aria-label="Basic example" style="height:3rem">
-  <button type="button" class="btn btn-secondary">My products</button>
-  <button type="button" class="btn btn-secondary">Messages</button>
-  <button type="button" class="btn btn-secondary">Buy payment</button>
-
-</div>
-
-<div>
-
-  <div *ngFor="let myProduct of myproducts">
-  {{myProduct | json}}
-    <div class="row card" style="width: 100%; padding: 2px;">
-      <div class="" style="width: 4rem;">
-        <img src={{myProduct.image}} class="card-img-top" alt="...">
-      </div>
-      <h5 class="card-title">{{myProduct.nameProduct}}</h5>
-      <p class="card-text">{{myProduct.message}}</p>
-      <h5> {{myProduct.auction[0].price}}</h5>
-    </div>
-
-  <!-- <p>No payment ....... </p>
-  <p>No messages to display</p> -->
