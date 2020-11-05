@@ -13,3 +13,12 @@ li{
     /* opacity: 0.5; */
     color: aqua;
 }
+
+.row{
+    margin: 0;
+    padding: 0;
+}
+.categorys{
+    background:gray;
+    position:absolute;
+}
