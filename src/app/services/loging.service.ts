@@ -9,7 +9,7 @@ import { Users } from './Users';
 })
 export class LogingService {
   ;
-  currentUser$: BehaviorSubject<Users> = new BehaviorSubject({ img: "../assets/images/icon/avataricon.png" });
+  currentUser$: BehaviorSubject<Users> = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
   user: Users
   arrayUsers: Users[] = []
 
@@ -25,6 +25,8 @@ export class LogingService {
     user.uid = Math.floor(Math.random() * 100000);
     console.log(`%c ${user.uid}`, 'color :blue');
     this.currentUser$.next(user)
+    localStorage.setItem('currentUser', JSON.stringify(user));
+
     this.arrayUsers.push(user)
     this._router.navigate(['/UserPage'])
 
@@ -37,7 +39,7 @@ export class LogingService {
     for (let i = 0; i < this.arrayUsers.length; i++) {
       if (this.arrayUsers[i].email === email && this.arrayUsers[i].password === password) {
         this.currentUser$.next(this.arrayUsers[i])
-        localStorage.setItem('currentUser', this.arrayUsers[i].firstName + " " + this.arrayUsers[i].lastName)
+        localStorage.setItem('currentUser', JSON.stringify(this.arrayUsers[i]));
         console.log("access_token");
         this._router.navigate(['/home'])
       }
@@ -52,6 +54,8 @@ export class LogingService {
 
   signOut() {
     this.currentUser$.next(null)
+    localStorage.removeItem('currentUser');
+
     console.log(`%c ${this.currentUser$}`, 'color:yellow');
     this._router.navigate(['/loging'])
   }
