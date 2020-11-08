@@ -29,14 +29,14 @@ export class ProductsService {
   constructor(private _router: Router, private api: ApiService,private userSer:LogingService ) {
 
     this.baesProducts = [
-      { id: "10", image: "../assets/images/logo3.gif", nameProduct: "chaim bar-or 1 מכירה ", message: "chaim bar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
-      { id: "11", image: "../assets/images/logo1.gif", nameProduct: "chaim bar-or 2", message: "chaim AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
-      { id: "12", image: "../assets/images/logo5.png", nameProduct: "chaim bar-or 3", message: "chaim bar-or auction", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "13", image: "../assets/images/logo6.gif", nameProduct: "chaim bar-or 4 מכירה ", message: "chaim > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
-      { id: "14", image: "../assets/images/logo4.gif", nameProduct: "chaim bar-or 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
-      { id: "15", image: "../assets/images/logo3.gif", nameProduct: "מכירה  6", message: "avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
-      { id: "16", image: "../assets/images/logo.png", nameProduct: "chaim bar-or 3 מכירה", message: "מכירה auction", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "17", image: "../assets/images/exit1.png", nameProduct: "chaim bar-or exit מכירה", message: "מכירה exit ", price: 1, auction: [{ userId: '', price: 0 }] },
+      { id: "10", image: "assets/images/logo3.gif", nameProduct: "chaim bar-or 1 מכירה ", message: "chaim bar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
+      { id: "11", image: "assets/images/logo1.gif", nameProduct: "chaim bar-or 2", message: "chaim AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
+      { id: "12", image: "assets/images/logo5.png", nameProduct: "chaim bar-or 3", message: "chaim bar-or auction", price: 100, auction: [{ userId: '', price: 0 }] },
+      { id: "13", image: "assets/images/logo6.gif", nameProduct: "chaim bar-or 4 מכירה ", message: "chaim > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
+      { id: "14", image: "assets/images/logo4.gif", nameProduct: "chaim bar-or 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
+      { id: "15", image: "assets/images/logo3.gif", nameProduct: "מכירה  6", message: "avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
+      { id: "16", image: "assets/images/logo.png", nameProduct: "chaim bar-or 3 מכירה", message: "מכירה auction", price: 100, auction: [{ userId: '', price: 0 }] },
+      { id: "17", image: "assets/images/exit1.png", nameProduct: "chaim bar-or exit מכירה", message: "מכירה exit ", price: 1, auction: [{ userId: '', price: 0 }] },
 
     ]
   }
@@ -124,14 +124,14 @@ export class ProductsService {
 
   getSelected() {
     let array = [
-      { id: "20", image: "../assets/images/logo2.gif", nameProduct: "chaim bar-CategoryComponent 1 מכירה ", message: "CategoryComponentbar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
-      { id: "21", image: "../assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent", message: "CategoryComponent AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
-      { id: "22", image: "../assets/images/logo5.png", nameProduct: "CategoryComponent", message: "CategoryComponent auction", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "23", image: "../assets/images/logo2.gif", nameProduct: "CategoryComponentr 4 מכירה ", message: "CategoryComponent > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
-      { id: "24", image: "../assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
-      { id: "25", image: "../assets/images/logo3.gif", nameProduct: "CategoryComponentמכירה  6", message: "CategoryComponent avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
-      { id: "26", image: "../assets/images/logo.png", nameProduct: "CategoryComponent 3 מכירה", message: "מכירה CategoryComponent", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "27", image: "../assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent exit מכירה", message: "מכירה CategoryComponent ", price: 1, auction: [{ userId: '', price: 0 }] },
+      { id: "20", image: "assets/images/logo2.gif", nameProduct: "chaim bar-CategoryComponent 1 מכירה ", message: "CategoryComponentbar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
+      { id: "21", image: "assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent", message: "CategoryComponent AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
+      { id: "22", image: "assets/images/logo5.png", nameProduct: "CategoryComponent", message: "CategoryComponent auction", price: 100, auction: [{ userId: '', price: 0 }] },
+      { id: "23", image: "assets/images/logo2.gif", nameProduct: "CategoryComponentr 4 מכירה ", message: "CategoryComponent > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
+      { id: "24", image: "assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
+      { id: "25", image: "assets/images/logo3.gif", nameProduct: "CategoryComponentמכירה  6", message: "CategoryComponent avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
+      { id: "26", image: "assets/images/logo.png", nameProduct: "CategoryComponent 3 מכירה", message: "מכירה CategoryComponent", price: 100, auction: [{ userId: '', price: 0 }] },
+      { id: "27", image: "assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent exit מכירה", message: "מכירה CategoryComponent ", price: 1, auction: [{ userId: '', price: 0 }] },
     ]
     this.arrayProducts = array
     return array
