@@ -10,8 +10,10 @@ export interface Products {
   image: string;
   nameProduct: string;
   message: string;
+  tineEnd?: any;
   price: number | string;
   auction?: Auction[];
+  isActive?: boolean;
 }
 
 export interface Auction {
@@ -136,19 +138,7 @@ export class ProductsService {
     this.arrayProducts = array
     return array
   }
-  getapi() {
-    console.log("api is work ?");
-    let array:Products[] = []
-    this.api.getapi()
-    .subscribe((data: Products) => array .push({ ...data }));
-    this.arrayProducts = array
-    console.log(array);
-    
-    return array
-    
-    
-    
-  }
+
 }
 
 

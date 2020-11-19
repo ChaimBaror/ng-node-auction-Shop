@@ -1,0 +1,43 @@
+<p>card-product works!</p>
+<div class="body">
+
+        category?: string;
+    id: string;
+    image: string;
+    nameProduct: string;
+    message: string;
+    price: number | string;
+    auction?: Auction[];
+
+  
+    <div class="text-center box">
+
+        <form class="form-card" [formGroup]="cardfrom">
+            <h1 class="h3 mb-3 font-weight-normal">NEW PRODUCT</h1>
+
+            <label for="inputName" class="sr-only"> Name </label>
+            <input type="text" id="inputName" class="form-control" formControlName="Name" placeholder="Name" >
+       
+            <br>
+            <label for="inputName" class="sr-only">category </label>
+            <input type="text" id="inputName" class="form-control" formControlName="category" placeholder="category" >
+            <br>
+            <label for="inputName" class="sr-only">message </label>
+            <textarea type="text" id="description" class="form-control" formControlName="message" placeholder="message" >
+           </textarea>
+            <br>
+            <label for="inputName" class="sr-only">price </label>
+            <input type="price" id="inputName" class="form-control" formControlName="price" placeholder="price" >
+            <br>
+            <label for="inputName" class="sr-only">time </label>
+            <input type="date" id="inputName" class="form-control" formControlName="time" placeholder="time" >
+            <br>
+            <label for="inputName" class="sr-only">image </label>
+            <input type="" id="inputName" class="form-control" formControlName="image" placeholder="image" >
+            <br>
+
+       
+            <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' [disabled]="!cardfrom.valid">ADD PRODUCT</button>
+        </form>
+    </div>
+</div>

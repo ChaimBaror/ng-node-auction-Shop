@@ -1,8 +1,12 @@
 <p>gallery works!</p>
-
-
-<h1 (click)="indexItem()">click to next Apples </h1>
-
+<div class="row" >
+    <h1> <select  [(ngModel)]="numOfPage" class="form-control" (change)="selectNum(numOfPage)">
+        <option *ngFor="let num of numberOfPage" [ngValue]="num">Itmes Of Page {{num}}</option>
+    </select></h1>
+    
+    <h1 (click)="indexbeaend()">↩ next Apples </h1>
+    <h1 (click)="indexItem()"> next Apples ↪</h1>
+</div>
 <div class="gallery">
     <div class="gallery__img" *ngFor="let i of items;">
         <div>
@@ -10,7 +14,7 @@
             <app-card [num]=i></app-card>
         </div>
     </div>
-    
+
     <!-- <div class="gallery__img">
         <p>Shot by Chris Harrington</p>
         <img src="../../../assets/img/gallery1.jpeg" alt="">

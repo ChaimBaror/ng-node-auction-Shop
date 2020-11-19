@@ -6,10 +6,8 @@ import { Component, ViewChild, ElementRef, AfterViewInit, Renderer2, Input } fro
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent implements AfterViewInit {
-  ngAfterViewInit(): void {
-    throw new Error("Method not implemented.");
-  }
+export class CardComponent {
+ 
 
   constructor(private renderer: Renderer2) { }
   

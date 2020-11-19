@@ -1,11 +1,11 @@
 <!-- <p>user-page works!</p> -->
 
-<ng-container *ngIf="currentUser.password==value ; then pageUser; else passwordUser"></ng-container>
+<ng-container *ngIf="currentUser.email==value ; then pageUser; else passwordUser"></ng-container>
 <ng-template #passwordUser>
   <div class="body">
     <div class="text-center box">
       <h1 class="h3 mb-3 font-weight-normal"> דרושה סיסמא</h1>
-      <input style="text-align: center;" type="password" value="{{currentUser.password}}" #password (keyup.enter)="onEnter(password.value)">
+      <input style="text-align: center;" type="password" value="{{currentUser.email}}" #password (keyup.enter)="onEnter(password.value)">
       <div>
       <app-spinner></app-spinner>
     </div>
@@ -24,7 +24,7 @@
           <br> {{currentUser.firstName}} {{currentUser.lastName}} </li>
 
         <li class="list-group-item list-group-item-primary">
-          <label for="">id : </label> <a>{{currentUser.uid}}</a></li>
+          <label for="">id : </label> <a>{{currentUser.id}}</a></li>
         <li class="list-group-item list-group-item-secondary">
           <label for="">firstName : </label> {{currentUser.firstName}}</li>
         <li class="list-group-item list-group-item-success">

@@ -6,19 +6,25 @@ import { HomeComponent } from './components/home/home.component';
 import { UserPageComponent } from './components/user-page/user-page.component';
 import { PageProductsComponent } from './components/page-products/page-products.component';
 import { CategoryComponent } from './components/category/category.component';
+import { InterfaceManagerComponent } from './components/interface-manager/interface-manager.component';
+import { UserComponent } from './components/interface-manager/user/user.component';
 
 const routes: Routes = [
+
   { path: 'loging', component: LogingComponent },
   { path: 'SignUn', component: SignOnComponent },
   { path: 'home', component: HomeComponent },
   { path: 'Category', component: CategoryComponent },
   { path: 'UserPage', component: UserPageComponent },
   { path: 'pageProduct', component: PageProductsComponent },
-  { path: '', component: LogingComponent },
+  { path: 'interfaceManager', component: InterfaceManagerComponent },
+  // { path: 'users', component: InterfaceManagerComponent },
+  { path: 'users/:id', component: UserComponent },
+  { path: '', component: HomeComponent },
 
 
-  // { path: '', redirectTo: 'from', pathMatch: 'full' },
-  { path:'**' , component:LogingComponent},
+  { path: '', redirectTo: 'from', pathMatch: 'full' },
+  { path: '**', component: HomeComponent },
 
 ];
 

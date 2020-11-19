@@ -21,7 +21,7 @@
       </li>
     </ul>
   </div>
-  <ng-container *ngIf="currentUser.uid ; then outTemplate; else loginButton"></ng-container>
+  <ng-container *ngIf="currentUser.email ; then outTemplate; else loginButton"></ng-container>
   <ng-template #loginButton>
     <button class="btn btn-outline-success my-2 my-sm-0" routerLink="loging" routerLinkActive="active">sign up</button>
     <button class="btn btn-outline-success my-2 my-sm-0" routerLink="SignUn" routerLinkActive="active">sign in</button>
@@ -29,7 +29,7 @@
 
   <ng-template #outTemplate>
     <!-- <a routerLink="/UserPage" routerLinkActive="active" style="color: yellow;">Welcome {{ currentUser.firstName }} &nbsp;  </a>  -->
-    <button class="btn btn-outline-danger my-2 my-sm-0" (click)=signOut()>sign Out </button><sup  class="badge badge-pill badge-success" routerLink="/UserPage">{{ currentUser.firstName }}</sup> 
+    <button class="btn btn-outline-danger my-2 my-sm-0" (click)=signOut()>sign Out </button><button  class=".user badge-pill badge-success" routerLink="/interfaceManager">{{ currentUser.username }}</button> 
   </ng-template>
   
 </nav>

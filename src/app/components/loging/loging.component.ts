@@ -17,8 +17,8 @@ export class LogingComponent implements OnInit {
     email: ['', [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z0-9_\.]+@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,}$')]],
     phoneNumber: ['', [Validators.required, Validators.pattern('0[0-9\s.-]{5,13}')]],
     password: ['', [Validators.required, Validators.min(4)]],
-    agree: [true],
-    img : ['../assets/images/icon/avataricon.png']
+    agree: [false],
+    img : ['assets/images/icon/avataricon.png']
   })
   ngOnInit(): void {
   }
@@ -28,7 +28,7 @@ export class LogingComponent implements OnInit {
     console.log(this.signfrom.value);
     console.log(this.signfrom.controls.firstName.value);
     this.loggingSer.setUser({
-      uid:0,
+      id:0,
       firstName:this.signfrom.controls.firstName.value,
       lastName:this.signfrom.controls.lastName.value,
       email:this.signfrom.controls.email.value,

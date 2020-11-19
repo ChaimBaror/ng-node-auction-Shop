@@ -13,14 +13,20 @@ export class GalleryComponent implements OnInit {
   items = []
   itemsArray = []
   num = 0
+  numOfPage = 3
   ngOnInit(): void {
     this.indexItem()
+  }
+  numberOfPage = [3,4,6,12,15,18 ];
+
+  selectNum(num) {
+    this.numOfPage=num
   }
   indexItem() {
     console.log(this.num);
     this.items = []
     for (let i = this.num; i < this.itemsArray.length; i++) {
-      if (i < 6 + this.num) {
+      if (i < this.numOfPage + this.num) {
         this.items.push(this.itemsArray[i])
         continue
       }
@@ -28,6 +34,12 @@ export class GalleryComponent implements OnInit {
       break
     }
   }
-
+  indexbeaend(){
+    this.num-=(this.numOfPage*2)
+    if (this.num<0){
+      this.num=0
+    }
+    this.indexItem()
+  }
 
 }

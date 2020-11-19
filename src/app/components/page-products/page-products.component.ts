@@ -55,13 +55,13 @@ export class PageProductsComponent implements OnInit {
 
   addAuction(id,sum){
 
-    if(!this.currentUser.uid){
+    if(!this.currentUser.id){
       //  this._router.navigate(['/loging'])
        return alert("כדי להגיש הצעה צריך להירשם")
        
     }
     console.log(id);
-    this.productsSer.auctionAdd(id,this.currentUser.uid,sum)
+    this.productsSer.auctionAdd(id,this.currentUser.id,sum)
   
   }
 

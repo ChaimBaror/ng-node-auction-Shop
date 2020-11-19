@@ -19,6 +19,9 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
 import { CategoryComponent } from './components/category/category.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { CardComponent } from './components/card/card.component';
+import { InterfaceManagerComponent } from './components/interface-manager/interface-manager.component';
+import { UserComponent } from './components/interface-manager/user/user.component';
+import { CardProductComponent } from './components/interface-manager/card-product/card-product.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,11 @@ import { CardComponent } from './components/card/card.component';
     SpinnerComponent,
     CategoryComponent,
     GalleryComponent,
-    CardComponent
+    CardComponent,
+    InterfaceManagerComponent,
+    UserComponent,
+    CardProductComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -41,6 +48,7 @@ import { CardComponent } from './components/card/card.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FormsModule,
 
   ],
   providers: [],

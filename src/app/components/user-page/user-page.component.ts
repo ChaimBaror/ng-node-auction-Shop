@@ -22,8 +22,8 @@ export class UserPageComponent implements OnInit {
     this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser = { ...user });
     console.log(`%c ${this.currentUser.lastName}`, 'color:red');
-    this.userid = this.currentUser.uid
-    this.myproducts = this.productsSer.productsUser(this.currentUser.uid)
+    this.userid = this.currentUser.id
+    this.myproducts = this.productsSer.productsUser(this.currentUser.id)
 
 
   }

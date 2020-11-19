@@ -1,0 +1,44 @@
+<p>user works!</p>
+
+<ng-container *ngIf="(user$ | async) as user; else loadingUser">
+    <pre>{{ user | json }}</pre>
+    <form class="form-card" >
+
+            <h1 class="h3 mb-3 font-weight-normal">Edit User / {{user.id}}</h1>
+
+         
+            <br> <label for="inputName" class="sr-only"> {{user.username}} </label>
+            <input type="text" id="inputName" class="form-control" value="{{user.username}}" formControlName="username" placeholder="username" >
+       
+            <br> <label for="inputName" class="sr-only"> {{user.firstName}} </label>
+            <input type="text" id="inputName" class="form-control" value="{{user.firstName}}" formControlName="firstName" placeholder="firstName" >
+       
+            <br> <label for="inputName" class="sr-only"> {{user.lastName}} </label>
+            <input type="text" id="inputName" class="form-control" value="{{user.lastName}}" formControlName="lastName" placeholder="lastName" >
+       
+            <br> <label for="inputName" class="sr-only"> {{user.email}} </label>
+            <input type="text" id="inputName" class="form-control" value="{{user.email}}" formControlName="email" placeholder="email" >
+       
+            <br> <label for="inputName" class="sr-only"> {{user.password}} </label>
+            <input type="text" id="inputName" class="form-control" value="{{user.password}}" formControlName="password" placeholder="password" >
+       
+            <br> <label for="inputName" class="sr-only"> {{user.phone}} </label>
+            <input type="text" id="inputName" class="form-control" value="{{user.phone}}" formControlName="phone" placeholder="phone" >
+       
+            <br> <label for="inputName" class="sr-only"> {{user.img}} </label>
+            <input type="text" id="inputName" class="form-control" value="{{user.img}}" formControlName="img" placeholder="img" >
+       
+           
+           
+
+       
+            <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' >edit user</button>
+        </form>
+
+</ng-container>
+
+<ng-template #loadingUser>
+    <app-spinner></app-spinner>
+</ng-template>
+
+

@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
    this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser= {...user} );
-    console.log(`%c ${this.currentUser.uid}`,'color:red');
+    console.log(`%c ${this.currentUser.id}`,'color:red');
        
     setInterval(() => {
       this.timenow =new Date().toLocaleString()

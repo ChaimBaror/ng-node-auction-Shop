@@ -1,5 +1,6 @@
 export class Users {
-  uid?: number;
+  id?: number;
+  username?: string;
   firstName?: string;
   lastName?: string;
   email?: string;
@@ -8,4 +9,5 @@ export class Users {
   img?: string;
   agree?: boolean;
   message?:number = 0;
+  accessToken?:string
 }
