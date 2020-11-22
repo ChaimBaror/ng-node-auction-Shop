@@ -28,7 +28,7 @@ export class ProductsService {
   arrayProducts: Products[] = [];
   baesProducts: Products[] = [];
   pageProducts: Products;
-  constructor(private _router: Router, private api: ApiService,private userSer:LogingService ) {
+  constructor(private _router: Router, private apiService: ApiService,private userSer:LogingService ) {
 
     this.baesProducts = [
       { id: "10", image: "assets/images/logo3.gif", nameProduct: "chaim bar-or 1 מכירה ", message: "chaim bar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
@@ -41,6 +41,10 @@ export class ProductsService {
       { id: "17", image: "assets/images/exit1.png", nameProduct: "chaim bar-or exit מכירה", message: "מכירה exit ", price: 1, auction: [{ userId: '', price: 0 }] },
 
     ]
+  }
+
+  addproduct(product: Products) {
+    return this.apiService.requestPostBady(`/products`,product);
   }
 
   getAllProducts() {

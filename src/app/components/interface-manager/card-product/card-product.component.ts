@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-card-product',
@@ -9,24 +10,26 @@ import { FormBuilder } from '@angular/forms';
 export class CardProductComponent implements OnInit {
 
 
-    constructor(private fb: FormBuilder) { }
-    cardfrom = this.fb.group({
-      Name: [''],
-      category: [''],
-      message: [''],
-      price: [''],
-       time: [''],
-      image: [''],
-    })
-  
-    ngOnInit(): void {
-    }
-    onSubmit(){
-      console.log(this.cardfrom.value);
-      this.cardfrom.controls.Name.value, 
+  constructor(private fb: FormBuilder,private product : ProductsService) { }
+  cardfrom = this.fb.group({
+    nameProduct: [''],
+    category: [''],
+    message: [''],
+    price: [''],
+    tineEnd: [''],
+    image: [''],
+  })
+
+  ngOnInit(): void {
+  }
+  onSubmit() {
+    console.log(this.cardfrom.value);
+    this.product.addproduct(this.cardfrom.value)
+    this.cardfrom.controls.Name.value,
       this.cardfrom.controls.category.value
-    }
-  
-  
+
+  }
+
+
 
 }

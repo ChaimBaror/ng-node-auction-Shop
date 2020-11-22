@@ -2,8 +2,8 @@
 
 <div class="categorys">
        
-        <button (click)="selectcategory('user')"> user</button>
-        <button (click)="selectcategory('products')"> new products</button>
+        <button class="btn btn-success" (click)="selectcategory('user')"> user</button>
+        <button class="btn btn-success" (click)="selectcategory('products')"> new products</button>
 
 </div>
 
@@ -14,18 +14,28 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Email</th>
-                <th scope="col">UUid</th>
+                <th scope="col">firstName</th>
+                <th scope="col">firstName</th>
+                <th scope="col">phone</th>
+                <th scope="col">role</th>
+                <th scope="col">img</th>
             </tr>
         </thead>
         <tbody>
-
+              
             <tr style="cursor: pointer"
-             *ngFor="let user of users$| async ; index as i">
+             *ngFor="let user of users$| async ; index as i" (click)="showDetails(user.id)">
                 <th>{{ i }}</th>
+                <!-- <td>{{ user.id }}</td> -->
                 <td>{{ user.username }}</td>
-                <td  (click)="showDetails(user.id)">{{ user.email }}</td>
-                <td>{{ user.id }}</td>
+                <td >{{ user.email }}</td>
+                <td >{{ user.firstName }}</td>
+                <td >{{ user.firstName }}</td>
+                <td >{{ user.phone }}</td>
+                <td >{{ user.role }}</td>
+                <td class="d-print-none">
                 <button type="button" class="btn btn-secondary btn-sm" (click)=delete(user.id)>delete</button>
+            </td>
             </tr>
         </tbody>
     </table>

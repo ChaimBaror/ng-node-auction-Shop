@@ -1,44 +1,86 @@
 <p>user works!</p>
 
 <ng-container *ngIf="(user$ | async) as user; else loadingUser">
-    <pre>{{ user | json }}</pre>
-    <form class="form-card" >
+    <div class="row">
+        <pre>{{ user | json }}</pre>
+        <div class="card">
+            <form class="card-from" #f="ngForm" (ngSubmit)="onSubmit(f,user.id)">
+                <h1 class="h3 mb-3 font-weight-normal">Edit User </h1>
+                <!-- <p *ngIf="nameCtrl.invalid">Name is invalid.</p> -->
 
-            <h1 class="h3 mb-3 font-weight-normal">Edit User / {{user.id}}</h1>
+                <div ngModelGroup="name" #nameCtrl="ngModelGroup">
+                        <br> <label for="inputName" class="sr-only"> username </label>
+                        <input name="username"  class="form-control" [ngModel]="user.username" minlength="2" placeholder="username" ngModel>
 
-         
-            <br> <label for="inputName" class="sr-only"> {{user.username}} </label>
-            <input type="text" id="inputName" class="form-control" value="{{user.username}}" formControlName="username" placeholder="username" >
-       
-            <br> <label for="inputName" class="sr-only"> {{user.firstName}} </label>
-            <input type="text" id="inputName" class="form-control" value="{{user.firstName}}" formControlName="firstName" placeholder="firstName" >
-       
-            <br> <label for="inputName" class="sr-only"> {{user.lastName}} </label>
-            <input type="text" id="inputName" class="form-control" value="{{user.lastName}}" formControlName="lastName" placeholder="lastName" >
-       
-            <br> <label for="inputName" class="sr-only"> {{user.email}} </label>
-            <input type="text" id="inputName" class="form-control" value="{{user.email}}" formControlName="email" placeholder="email" >
-       
-            <br> <label for="inputName" class="sr-only"> {{user.password}} </label>
-            <input type="text" id="inputName" class="form-control" value="{{user.password}}" formControlName="password" placeholder="password" >
-       
-            <br> <label for="inputName" class="sr-only"> {{user.phone}} </label>
-            <input type="text" id="inputName" class="form-control" value="{{user.phone}}" formControlName="phone" placeholder="phone" >
-       
-            <br> <label for="inputName" class="sr-only"> {{user.img}} </label>
-            <input type="text" id="inputName" class="form-control" value="{{user.img}}" formControlName="img" placeholder="img" >
-       
-           
-           
+                        <br> <label for="inputName" class="sr-only"> {{user.firstName}} </label>
+                        <input name="firstName"  class="form-control" [ngModel]="user.firstName" placeholder="first Name" ngModel>
 
-       
-            <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' >edit user</button>
-        </form>
+                        <br> <label for="inputName" class="sr-only"> {{user.lastName}} </label>
+                        <input name="lastName"  class="form-control" [ngModel]="user.lastName" placeholder="lastName" ngModel>
+
+                        <br> <label for="inputName" class="sr-only"> email</label>
+                        <input name="email"  class="form-control" [ngModel]="user.email" placeholder="email" ngModel>
+
+                        <br> <label for="inputName" class="sr-only"> password </label>
+                        <input name="password"  class="form-control" [ngModel]="user.password" placeholder="password" ngModel>
+
+                        <label for="inputName" class="sr-only"> {{user.phone}} </label>
+                        <input name="phone"  class="form-control" [ngModel]="user.phone" placeholder=" number phone" ngModel>
+
+                        <label for="inputName" class="sr-only"> {{user.img}} </label>
+                        <input name="img"  class="form-control" [ngModel]="user.img" placeholder=" img" ngModel>
+
+
+                <!--   
+                    <input  type="text" id="inputName" class="form-control" value="{{user.username}}" formControlName="username"
+                        placeholder="username">
+        
+                    <input type="text" id="inputName" class="form-control" value="{{user.firstName}}" formControlName="firstName"
+                     placeholder="firstName">
+        
+               
+                    <input type="text" id="inputName" class="form-control" value="{{user.lastName}}" formControlName="lastName"
+                        placeholder="lastName">
+        
+                   
+                    <input type="text" id="inputName" class="form-control" value="{{user.email}}" formControlName="email"
+                        placeholder="email">
+        
+                    <br> <label for="inputName" class="sr-only"> {{user.password}} </label>
+                    <input type="text" id="inputName" class="form-control" value="{{user.password}}" formControlName="password"
+                        placeholder="password">
+        
+                    <br> 
+                    <input type="text" id="inputName" class="form-control" value="{{user.phone}}" formControlName="phone"
+                        placeholder="phone">
+        
+                    <br> 
+                    <input type="text" id="inputName" class="form-control" value="{{user.img}}" formControlName="img"
+                        placeholder="img">
+        
+        
+        
+                    <button  (click)='onSubmit()'>edit user</button>
+                </form> -->
+
+
+
+             
+                  
+
+                </div>
+
+                <!-- <input name="user.email" ngModel> -->
+                <button class="btn btn-lg btn-primary btn-block">edit user</button>
+            </form>
+
+            <!-- <button (click)="setValue()">Set value</button> -->
+
+        </div>
+    </div>
 
 </ng-container>
 
 <ng-template #loadingUser>
     <app-spinner></app-spinner>
 </ng-template>
-
-
