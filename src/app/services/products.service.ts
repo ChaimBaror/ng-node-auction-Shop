@@ -44,7 +44,15 @@ export class ProductsService {
   }
 
   addproduct(product: Products) {
-    return this.apiService.requestPostBady(`/products`,product);
+    return this.apiService.requestBady(`/products`,'POST', product);
+  }
+
+  all(){
+    return this.apiService.request('/products', 'GET');
+  }
+  
+  editProducts(products: Products,id){
+    return this.apiService.requestBady(`/products/${id}`,'PATCH' ,products)
   }
 
   getAllProducts() {

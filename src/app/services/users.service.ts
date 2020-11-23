@@ -10,7 +10,7 @@ export class UsersService {
   constructor(private apiService: ApiService) {}
 
   editUser(user: Users,id){
-    return this.apiService.requestPostBady(`/user/${id}` ,user)
+    return this.apiService.requestBady(`/user/${id}`,'PATCH' ,user)
   }
 
   all() {

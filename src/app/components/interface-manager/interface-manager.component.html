@@ -1,12 +1,16 @@
 <p>interface-manager works!</p>
 
 <div class="categorys">
-       
-        <button class="btn btn-success" (click)="selectcategory('user')"> user</button>
-        <button class="btn btn-success" (click)="selectcategory('products')"> new products</button>
+
+    <button class="btn btn-success" (click)="selectcategory('user')"> user</button>
+
+    <button class="btn btn-success" (click)="selectcategory('products')"> new products</button>
+    <button class="btn btn-success" (click)="selectcategory('allproducts')"> All products</button>
 
 </div>
-
+<div *ngFor="let prudcts of product$ | async">
+    <app-all-prudcts [prudcts]=prudcts></app-all-prudcts>
+</div>
 <div>
     <table class="table table-hover">
         <thead>
@@ -22,24 +26,23 @@
             </tr>
         </thead>
         <tbody>
-              
-            <tr style="cursor: pointer"
-             *ngFor="let user of users$| async ; index as i" (click)="showDetails(user.id)">
+
+            <tr style="cursor: pointer" *ngFor="let user of users$| async ; index as i" (click)="showDetails(user.id)">
                 <th>{{ i }}</th>
                 <!-- <td>{{ user.id }}</td> -->
                 <td>{{ user.username }}</td>
-                <td >{{ user.email }}</td>
-                <td >{{ user.firstName }}</td>
-                <td >{{ user.firstName }}</td>
-                <td >{{ user.phone }}</td>
-                <td >{{ user.role }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.firstName }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.role }}</td>
                 <td class="d-print-none">
-                <button type="button" class="btn btn-secondary btn-sm" (click)=delete(user.id)>delete</button>
-            </td>
+                    <button type="button" class="btn btn-secondary btn-sm" (click)=delete(user.id)>delete</button>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
-    <div *ngIf='showcardproduct'>
-       <app-card-product></app-card-product>
-    </div>
+<div *ngIf='showcardproduct'>
+    <app-card-product></app-card-product>
+</div>

@@ -24,14 +24,11 @@ export class LogingService {
 
 
   setUser(user: Users) {
-    // user.id = Math.floor(Math.random() * 100000);
-    // console.log(`%c ${user.id}`, 'color :blue');
-    this.setUserApi(user)
+    this.apiServer.requestBady(`/user`, 'POST', user);
     this.currentUser$.next(user)
     localStorage.setItem('currentUser', JSON.stringify(user));
-
     this.arrayUsers.push(user)
-    this._router.navigate(['/UserPage'])
+    this._router.navigate(['/SignUn'])
 
     this.currentUser$.subscribe(console.log);
 
@@ -39,39 +36,21 @@ export class LogingService {
 
 
   signUpUser(email, password) {
-    let user = this.apiServer.authUsersApi(email, password)
-    if (user) {
-      user.subscribe(user => {
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        let headers = new HttpHeaders();
-        headers = headers.set('Authorization', `Bearer ${ user.accessToken}`);
-
-        console.log(headers);
-        this.currentUser$.next(user)
-        this._router.navigate(['/home'])
+    this.apiServer.requestAuth(`/auth`, 'POST', { email: email, password: password })
+      .subscribe(user => {
+        if (user) {
+          console.log("my new user", user);
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.currentUser$.next(user)
+          this._router.navigate(['/home'])
+        }
+        else {
+          console.log("error");
+          this._router.navigate(['/loging'])
+        }
       })
-    }
-    // for (let i = 0; i < this.arrayUsers.length; i++) {
-    //   if (this.arrayUsers[i].email === email && this.arrayUsers[i].password === password) {
-    // this.currentUser$.next(this.arrayUsers[i])
-    //     localStorage.setItem('currentUser', JSON.stringify(this.arrayUsers[i]));
-    //     console.log("access_token");
-    //     this._router.navigate(['/home'])
-    //   }
-
-    else {
-      console.log("error");
-      this._router.navigate(['/loging'])
-    }
-    // }
   }
-
-  setUserApi(user: Users) {
-    console.log("setUserApi", user);
-
-    return this.apiServer.setUsersApi(user)
-  }
-
+  
   signOut() {
     this.currentUser$.next(null)
     localStorage.removeItem('currentUser');
@@ -96,6 +75,41 @@ export class LogingService {
     this.currentUser$.next({ ...this.currentUser$.value, message: n });
 
   }
+
+  // let user = this.apiServer.authUsersApi(email, password)
+  // if (user) {
+  // console.log("my new user",user);
+
+  // user.subscribe(user => {
+  //   localStorage.setItem('currentUser', JSON.stringify(user));
+  //   let headers = new HttpHeaders();
+  //   headers = headers.set('Authorization', `Bearer ${ user}`);
+
+  //   console.log(headers);
+  //   this.currentUser$.next(user)
+  //   this._router.navigate(['/home'])
+  // })
+  // }
+  // for (let i = 0; i < this.arrayUsers.length; i++) {
+  //   if (this.arrayUsers[i].email === email && this.arrayUsers[i].password === password) {
+  // this.currentUser$.next(this.arrayUsers[i])
+  //     localStorage.setItem('currentUser', JSON.stringify(this.arrayUsers[i]));
+  //     console.log("access_token");
+  //     this._router.navigate(['/home'])
+  //   }
+
+  //     else {
+  //   console.log("error");
+  //   this._router.navigate(['/loging'])
+  // }
+  // }
+
+
+  // setUserApi(user: Users) {
+  //   console.log("setUserApi", user);
+
+  //   return this.apiServer.setUsersApi(user)
+  // }
 
 
 }

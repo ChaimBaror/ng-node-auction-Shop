@@ -4,8 +4,10 @@ export class Products {
     image: string;
     nameProduct: string;
     message: string;
+    tineEnd?: any;
     price: number | string;
     auction?: Auction[];
+    isActive?: boolean;
 
 }
 export class Auction {

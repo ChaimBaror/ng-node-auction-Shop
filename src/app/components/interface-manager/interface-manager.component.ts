@@ -3,7 +3,7 @@ import { Users } from 'src/app/services/Users';
 import { ApiService } from 'src/app/services/api.service';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
-import { Products } from 'src/app/services/products.service';
+import { Products, ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-manager',
@@ -12,20 +12,25 @@ import { Products } from 'src/app/services/products.service';
 })
 export class InterfaceManagerComponent implements OnInit {
   products: Products
+  product$
   users$;
-  showcardproduct:boolean = false
-  constructor(private usersService: UsersService,
-    private router: Router
+  showcardproduct: boolean = false
+  constructor(private usersService: UsersService, private productsService: ProductsService
+    , private router: Router
   ) { }
 
   ngOnInit(): void {
-    // this.users$ = this.usersService.all();
 
   }
   selectcategory(select) {
     switch (select) {
       case 'products':
-        this.showcardproduct=!this.showcardproduct
+        this.showcardproduct = !this.showcardproduct
+        break;
+      case 'allproducts':
+        this.product$ = this.productsService.all();
+        console.log("chaim");
+        
         break;
       case 'user':
         this.users$ = this.usersService.all();
