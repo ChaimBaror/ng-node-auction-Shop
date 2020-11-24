@@ -1,0 +1,44 @@
+<p>edit-product works!</p>
+<ng-container *ngIf="(product$ | async) as prudct; else loadingUser">
+
+    <div class="row body">
+       
+        <div class="card box">
+
+            <form class="card-from" #f="ngForm" (ngSubmit)="onSubmit(f,prudct.id)">
+                <h1 class="h3 mb-3 font-weight-normal">Edit User </h1>
+                <img src="{{prudct.image}}" alt="" srcset="" width="200px" height="200px">
+                  
+                <div ngModelGroup="name" #nameCtrl="ngModelGroup">
+                        <br> <label for="inputName" class=""> category </label>
+                        <input name="username"  class="form-control" [ngModel]="prudct.category" minlength="2" placeholder="username" ngModel>
+
+                        <br> <label for="inputName" class=""> firstName </label>
+                        <input name="firstName"  class="form-control" [ngModel]="prudct.message" placeholder="first Name" ngModel>
+
+                        <br> <label for="inputName" class=""> lastName </label>
+                        <input name="lastName"  class="form-control" [ngModel]="prudct.price" placeholder="lastName" ngModel>
+
+                        <br> <label for="inputName" class=""> email</label>
+                        <input name="email"  class="form-control" [ngModel]="prudct.tineEnd" placeholder="email" ngModel>
+
+                        <br> <label for="inputName" class=""> role</label>
+                        <input name="role"  class="form-control" [ngModel]="prudct.isActive" placeholder="role" ngModel>
+
+                     
+
+
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block">edit </button>
+            </form>
+
+
+        </div>
+    </div>
+
+</ng-container>
+
+<ng-template #loadingUser>
+    <app-spinner></app-spinner>
+</ng-template>

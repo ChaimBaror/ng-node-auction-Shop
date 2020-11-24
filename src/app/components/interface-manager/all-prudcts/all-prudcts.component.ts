@@ -25,6 +25,10 @@ export class AllPrudctsComponent implements OnInit {
     this.showcardproduct = !this.showcardproduct
 
   }
+  editproduct(id){
+    this.router.navigate(['product', id]);
+
+  }
 
   remove(id) {
     this.productsService.delete(id)

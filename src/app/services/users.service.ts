@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import {ApiService} from './api.service';
 import { Users } from '../model/Users';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService,private router: Router) {}
 
   editUser(user: Users,id){
-    return this.apiService.requestBady(`/user/${id}`,'PATCH' ,user)
+    if (this.apiService.requestBady(`/user/${id}`,'PATCH' ,user))
+    this.router.navigate(['/interfaceManager'])
+else{
+  alert("error")
+}
   }
 
   all() {

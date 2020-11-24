@@ -24,6 +24,7 @@ import { UserComponent } from './components/interface-manager/user/user.componen
 import { CardProductComponent } from './components/interface-manager/card-product/card-product.component';
 import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/all-prudcts.component';
 import { AllUsersComponent } from './components/interface-manager/all-users/all-users.component';
+import { EditProductComponent } from './components/interface-manager/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AllUsersComponent } from './components/interface-manager/all-users/all-
     CardProductComponent,
     AllPrudctsComponent,
     AllUsersComponent,
+    EditProductComponent,
     
   ],
   imports: [

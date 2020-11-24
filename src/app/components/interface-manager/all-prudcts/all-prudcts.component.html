@@ -27,10 +27,11 @@
         </thead>
      
         <tbody *ngFor="let prudct of products$  | async">
-          <tr>
+          <tr >
             <td class="pt-3-half" contenteditable="true">{{prudct.id}}</td>
             <td class="pt-3-half" contenteditable="true">{{prudct.category}}</td>
-            <td class="pt-3-half" contenteditable="true">{{prudct.nameProduct}}</td>
+            <td class="pt-3-half" contenteditable="true"> <input name="name"  class="form-control" [ngModel]="prudct.nameProduct" minlength="2" placeholder="name" ngModel>
+              </td>
             <td class="pt-3-half" contenteditable="true">{{prudct.message}}</td>
             <td class="pt-3-half" contenteditable="true">{{prudct.image}}</td>
             <td class="pt-3-half" contenteditable="true">${{prudct.price}}</td>
@@ -46,6 +47,10 @@
             <td>
               <span class="table-remove"><button type="button" (click)=remove(prudct.id)
                   class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+            </td>editproduct
+            <td>
+              <span class="table-remove"><button type="button" (click)=editproduct(prudct.id)
+                  class=" btn-rounded btn-sm my-0">Edit</button></span>
             </td>
           </tr>
 

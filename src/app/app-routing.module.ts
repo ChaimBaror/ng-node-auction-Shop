@@ -8,6 +8,7 @@ import { PageProductsComponent } from './components/page-products/page-products.
 import { CategoryComponent } from './components/category/category.component';
 import { InterfaceManagerComponent } from './components/interface-manager/interface-manager.component';
 import { UserComponent } from './components/interface-manager/user/user.component';
+import { EditProductComponent } from './components/interface-manager/edit-product/edit-product.component';
 
 const routes: Routes = [
 
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'interfaceManager', component: InterfaceManagerComponent },
   // { path: 'users', component: InterfaceManagerComponent },
   { path: 'users/:id', component: UserComponent },
+  { path: 'product/:id', component: EditProductComponent },
   { path: '', component: HomeComponent },
 
 

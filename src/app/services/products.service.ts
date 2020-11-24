@@ -54,6 +54,9 @@ export class ProductsService {
   editProducts(products: Products,id){
     return this.apiService.requestBady(`/products/${id}`,'PATCH' ,products)
   }
+  getById(id: any) {
+    return this.apiService.request(`/products/${id}`, 'GET');
+  }
 
   delete(id){
     return this.apiService.delete(`/products/${id}`,)

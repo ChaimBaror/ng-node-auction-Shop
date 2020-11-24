@@ -8,6 +8,7 @@ export class Users {
   phone?: string;
   img?: string;
   agree?: boolean;
+  role?: string;
   message?:number = 0;
   accessToken?:string
 }

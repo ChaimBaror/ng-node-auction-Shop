@@ -24,12 +24,8 @@ export class UserComponent implements OnInit {
 
   constructor(
     private usersService: UsersService,
-    private activeRoute: ActivatedRoute,
-    ) { }
+    private activeRoute: ActivatedRoute,) { }
 
-
-
- 
   ngOnInit(): void {
     this.user$ = this.usersService.getById(this.activeRoute.snapshot.params.id);
       //  this.user$ = this.usersService.getById(this.user.id);
@@ -43,18 +39,12 @@ export class UserComponent implements OnInit {
     
     this.name = f.value
     console.log(f.value);  // {name: {first: 'Nancy', last: 'Drew'}, email: ''}
-    console.log(f.value.name.username); //); // 
     console.log(f.valid);  // true
     console.log( JSON.stringify(f.value))
 
     this.usersService.editUser(f.value.name,id)
   }
 
-  // setValue() {
-  //   // this.name = {first: 'Bess', last: 'Marvin'};
-  // }
   
-  
-
 
 }

@@ -28,7 +28,7 @@
   </ng-template>
 
   <ng-template #outTemplate>
-      <a class="nav-link" routerLink="/interfaceManager" routerLinkActive="active">Manager Page</a>
+      <a *ngIf="currentUser.role == 'Admin'" class="nav-link" routerLink="/interfaceManager" routerLinkActive="active">Manager Page</a>
 
     <!-- <a routerLink="/UserPage" routerLinkActive="active" style="color: yellow;">Welcome {{ currentUser.firstName }} &nbsp;  </a>  -->
     <button class="btn btn-outline-danger my-2 my-sm-0" (click)=signOut()>sign Out </button><button  class=".user badge-pill badge-success" routerLink="/UserPage">{{ currentUser.username }}</button> 
