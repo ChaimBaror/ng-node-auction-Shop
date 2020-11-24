@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService, Products } from 'src/app/services/products.service';
 import { LogingService } from 'src/app/services/loging.service';
-import { Users } from 'src/app/services/Users';
 import { timer } from 'rxjs';
 import { Router } from '@angular/router';
+import { Users } from 'src/app/model/Users';
 
 @Component({
   selector: 'app-page-products',

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Users } from './Users';
 import { ApiService } from './api.service';
 import { HttpHeaders } from '@angular/common/http';
+import { Users } from '../model/Users';
 
 
 @Injectable({

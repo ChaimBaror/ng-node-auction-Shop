@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogingService } from 'src/app/services/loging.service';
-import { Users } from 'src/app/services/Users';
 import { ProductsService, Products } from 'src/app/services/products.service';
+import { Users } from 'src/app/model/Users';
 
 @Component({
   selector: 'app-user-page',

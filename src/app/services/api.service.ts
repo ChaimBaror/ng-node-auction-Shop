@@ -40,8 +40,10 @@ export class ApiService {
   }
 
 
-  delete(id) {
-    this.httpClient.delete(`${environment.apiUrl}/user/${id}`)
+  delete(url) {
+    console.log(url);
+    
+    this.httpClient.delete(environment.apiUrl + url)
         .subscribe(data => console.log(data))
 
   }

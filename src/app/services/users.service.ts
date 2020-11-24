@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {ApiService} from './api.service';
-import { Users } from './Users';
+import { Users } from '../model/Users';
 
 @Injectable({
   providedIn: 'root'
@@ -25,6 +25,6 @@ export class UsersService {
   //   this.apiService.request(`/user/${id}`, 'DELETE');
   // }
   delete(id: any) {
-    this.apiService.delete(id);
+    this.apiService.delete(`/user/${id}`);
   }
 }

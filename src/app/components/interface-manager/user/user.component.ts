@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { UsersService } from 'src/app/services/users.service';
 import { FormBuilder, NgForm } from '@angular/forms';
+import { Users } from 'src/app/model/Users';
 
 @Component({
   selector: 'app-user',
@@ -10,6 +11,7 @@ import { FormBuilder, NgForm } from '@angular/forms';
 })
 export class UserComponent implements OnInit {
   user$;
+  @Input() user: Users;
 
   name = {
     username: '',
@@ -30,7 +32,8 @@ export class UserComponent implements OnInit {
  
   ngOnInit(): void {
     this.user$ = this.usersService.getById(this.activeRoute.snapshot.params.id);
-   
+      //  this.user$ = this.usersService.getById(this.user.id);
+
   }
 
 

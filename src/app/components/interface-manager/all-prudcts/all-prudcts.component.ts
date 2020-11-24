@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Products } from 'src/app/model/products';
+import { Observable } from 'rxjs';
+import { ProductsService } from 'src/app/services/products.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-all-prudcts',
@@ -7,11 +10,23 @@ import { Products } from 'src/app/model/products';
   styleUrls: ['./all-prudcts.component.css']
 })
 export class AllPrudctsComponent implements OnInit {
-  @Input() prudcts: Products;
 
-  constructor() { }
+  showcardproduct: boolean = false;
+
+  @Input() prudcts: Observable<Products[]>;
+  products$;
+
+  constructor(private productsService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
+    this.products$=  this.productsService.all();
+  }
+  addPrudct() {
+    this.showcardproduct = !this.showcardproduct
+
   }
 
+  remove(id) {
+    this.productsService.delete(id)
+this.ngOnInit()  }
 }

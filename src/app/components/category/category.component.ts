@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { Products, ProductsService } from 'src/app/services/products.service';
-import { Users } from 'src/app/services/Users';
 
 @Component({
   selector: 'app-category',

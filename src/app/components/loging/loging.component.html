@@ -17,16 +17,20 @@
        <form class="form-signin" [formGroup]="signfrom" >
 
             <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
-            <label for="inputName" class="sr-only">first  Name </label>
+
+            <label for="inputName" class="">User  Name </label>
+            <input type="text" id="inputName" class="form-control" formControlName="UserName" placeholder="User  Name"
+                required autofocus>
+            <label for="inputName" class="">first  Name </label>
             <input type="text" id="inputName" class="form-control" formControlName="firstName" placeholder="first Name"
                 required autofocus>
 
             <br>
-            <label for="inputName" class="sr-only">last Name </label>
+            <label for="inputName" class="">last Name </label>
             <input type="text" id="inputName" class="form-control" formControlName="lastName" placeholder="last Name" >
 
             <br>
-            <label for="inputName" class="sr-only">number </label>
+            <label for="inputName" class="">number </label>
             <input  id="inputName" class="form-control" formControlName="phoneNumber" placeholder="phone number"
             [class.is-invalid]="signfrom.get('phoneNumber').invalid&&signfrom.get('phoneNumber').touched"
             required autofocus>
@@ -48,7 +52,7 @@
                    כתובת אימייל לא תקינה
                 </div>
             <br>
-            <label for="inputPassword" class="sr-only">Password</label>
+            <label for="inputPassword" class="">Password</label>
             <input type="password" id="inputPassword" class="form-control" formControlName="password"
                 placeholder="Password" required>
 

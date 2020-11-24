@@ -3,30 +3,32 @@
 
   
     <div class="text-center box">
+            <a href="/interfaceManager/#products" routerLinkActive="active" >❌</a>
+
             <div class="panel-heading">
                     <h4 class="text-center"> <span class="fa fa-edit pull-right bigicon"></span></h4>
                 </div>
         <form class="form-card" [formGroup]="cardfrom">
             <h1 class="h3 mb-3 font-weight-normal">NEW PRODUCT</h1>
 
-            <label for="inputName" class="sr-only"> Name </label>
+            <label for="inputName" class=""> Name </label>
             <input type="text" id="inputName" class="form-control" formControlName="nameProduct" placeholder="Name">
 
             <br>
-            <label for="inputName" class="sr-only">category </label>
+            <label for="inputName" class="">category </label>
             <input type="text" id="inputName" class="form-control" formControlName="category" placeholder="category">
             <br>
-            <label for="inputName" class="sr-only">message </label>
+            <label for="inputName" class="">message </label>
             <textarea type="text" id="description" class="form-control" formControlName="message" placeholder="message">
            </textarea>
             <br>
-            <label for="inputName" class="sr-only">price </label>
+            <label for="inputName" class="">price </label>
             <input type="price" id="inputName" class="form-control" formControlName="price" placeholder="price">
             <br>
-            <label for="inputName" class="sr-only">time </label>
+            <label for="inputName" class="">time </label>
             <input type="date" id="inputName" class="form-control" formControlName="tineEnd" placeholder="time">
             <br>
-            <label for="inputName" class="sr-only">image </label>
+            <label for="inputName" class="">image </label>
             <input type="" id="inputName" class="form-control" formControlName="image" placeholder="image">
             <br>
 

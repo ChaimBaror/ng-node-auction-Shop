@@ -11,7 +11,7 @@ export class LogingComponent implements OnInit {
 
   constructor(private fb: FormBuilder,private loggingSer:LogingService) { }
   signfrom = this.fb.group({
-    
+    UserName : ['', [Validators.required, Validators.minLength(2)]],
     firstName: ['', [Validators.required, Validators.minLength(2)]],
     lastName: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z0-9_\.]+@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,}$')]],
@@ -26,9 +26,10 @@ export class LogingComponent implements OnInit {
 
   onSubmit() {
     console.log(this.signfrom.value);
-    console.log(this.signfrom.controls.firstName.value);
     this.loggingSer.setUser({
-      id:0,
+      
+      username:this.signfrom.controls.UserName.value,
+
       firstName:this.signfrom.controls.firstName.value,
       lastName:this.signfrom.controls.lastName.value,
       email:this.signfrom.controls.email.value,

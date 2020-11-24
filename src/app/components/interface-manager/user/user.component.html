@@ -4,6 +4,8 @@
     <div class="row body">
         <pre>{{ user | json }}</pre>
         <div class="card box">
+                <a routerLink="/interfaceManager" routerLinkActive="active" >❌</a>
+
             <form class="card-from" #f="ngForm" (ngSubmit)="onSubmit(f,user.id)">
                 <h1 class="h3 mb-3 font-weight-normal">Edit User </h1>
                 <!-- <p *ngIf="nameCtrl.invalid">Name is invalid.</p> -->

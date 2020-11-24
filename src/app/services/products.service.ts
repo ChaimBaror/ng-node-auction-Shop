@@ -55,6 +55,11 @@ export class ProductsService {
     return this.apiService.requestBady(`/products/${id}`,'PATCH' ,products)
   }
 
+  delete(id){
+    return this.apiService.delete(`/products/${id}`,)
+
+  }
+
   getAllProducts() {
     this.arrayProducts = this.baesProducts
     return this.arrayProducts;

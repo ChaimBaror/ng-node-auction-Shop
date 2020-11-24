@@ -23,6 +23,7 @@ import { InterfaceManagerComponent } from './components/interface-manager/interf
 import { UserComponent } from './components/interface-manager/user/user.component';
 import { CardProductComponent } from './components/interface-manager/card-product/card-product.component';
 import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/all-prudcts.component';
+import { AllUsersComponent } from './components/interface-manager/all-users/all-users.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/
     UserComponent,
     CardProductComponent,
     AllPrudctsComponent,
+    AllUsersComponent,
     
   ],
   imports: [
