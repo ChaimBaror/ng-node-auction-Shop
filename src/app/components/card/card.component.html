@@ -6,24 +6,24 @@
         <div #card class="card">
             <div class="PopoImg">
                 <div #circle class="circle"></div>
-                <img #PopoImg src="assets/Apple_.png" alt="apple">
+                <img #PopoImg src={{image}} alt="apple">
             </div>
             <div class="info">
                 <div>
-                    <h1 #title class="title">APPLE {{num}}</h1>
-                    <h3 #info>There are more than 7,500 known cultivars of apples. Cultivars vary in their yield and the
-                        ultimate size of the tree, even when grown on the same rootstock</h3>
+                    <h1 #title class="title">{{name}}  {{num}} </h1>
+                    <h3 #info>{{message}}</h3>
+
                     <div #sizes class="sizes">
                         <button class="button" [ngClass]="{'active': selectedItem === 1}"
-                            (click)='selectedItem = 1;'>Pink Lady'</button>
+                            (click)='selectedItem = 1;'>{{button1}}</button>
                         <!-- <button class="button">Jonagold</button> -->
                         <button class="button" [ngClass]="{'active': selectedItem === 2}"
-                            (click)='selectedItem = 2;'>Granny Smith</button>
+                            (click)='selectedItem = 2;'>price Now {{price}}</button>
                         <button class="button" [ngClass]="{'active': selectedItem === 3}"
-                            (click)='selectedItem = 3;'>'McIntosh'</button>
+                            (click)='selectedItem = 3;'>{{button3}}</button>
                     </div>
                     <div class="purchase">
-                        <button #purchase>SELECT</button>
+                        <button  (click)=pageId(product.id) #purchase>SELECT</button>
                     </div>
                 </div>
             </div>

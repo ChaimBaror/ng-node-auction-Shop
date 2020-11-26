@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -12,16 +12,18 @@ export class EditProductComponent implements OnInit {
 
   product$;
 
+  
+
   name = {
-    username: '',
-    firstName: '',
-    lastName: '',
-    password: '',
-    phone: '',
-    img: '',
+    category: '',
+    nameProduct: '',
+    message: '',
+    tineEnd: '',
+    price: '',
+    image: 'https://raw.githubusercontent.com/ChaimBaror/ng-node-auction-Shop/main/src/assets/Apple_.png',
   };
 
-  constructor(
+  constructor(private router: Router,
     
     private activeRoute: ActivatedRoute,private productsService:ProductsService,) { }
 
@@ -41,5 +43,7 @@ export class EditProductComponent implements OnInit {
     console.log( JSON.stringify(f.value))
 
     this.productsService.editProducts(f.value.name,id)
+    this.router.navigate(['AllPrudcts']);
+
   }
 }

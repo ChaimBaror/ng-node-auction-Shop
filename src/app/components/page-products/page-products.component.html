@@ -2,9 +2,6 @@
 
 
 
-<!-- <div>
-    {{pageProducts | json}}
-</div> -->
 <div class="container">
 
   <div class="row">
@@ -51,13 +48,13 @@
     </div>
 
     <div class="col-4">
-      <div >
-        <button type="button" class="badge badge-pill badge-success" (click)="addAuction5(pageProducts.id)">Add Auction
+      <div  >
+        <button [disabled]="pageProducts.isActive" type="button" class="badge badge-pill badge-success" (click)="addAuction5(pageProducts.id)">Add Auction
           $5
         </button><br><br>
-        <button type="button" class="badge badge-pill badge-primary" (click)="addAuction10(pageProducts.id)">Add Auction
+        <button [disabled]="pageProducts.isActive" type="button" class="badge badge-pill badge-primary" (click)="addAuction10(pageProducts.id)">Add Auction
           $10 </button><br><br>
-        <button type="button" class="badge badge-pill badge-warning" (click)="addAuction25(pageProducts.id)">Add Auction
+        <button  type="button" class="badge badge-pill badge-warning" (click)="addAuction25(pageProducts.id)">Add Auction
           $25 </button><br><br>
         <button type="button" class="badge badge-pill badge-danger" (click)="addAuction100(pageProducts.id)">Add Auction
           $100 </button><br>

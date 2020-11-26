@@ -118,9 +118,6 @@ export class ProductsService {
 
   }
 
-  // routerpageProduct() {
-  //   this._router.navigate(['/pageProduct'])
-  // }
 
   getOneProducts() {
     return this.pageProducts;

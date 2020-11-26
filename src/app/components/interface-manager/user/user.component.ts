@@ -22,6 +22,8 @@ export class UserComponent implements OnInit {
     img: '',
   };
 
+  roles=["role" , "Admin" , "User"]
+
   constructor(
     private usersService: UsersService,
     private activeRoute: ActivatedRoute,) { }

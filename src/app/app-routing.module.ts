@@ -9,6 +9,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { InterfaceManagerComponent } from './components/interface-manager/interface-manager.component';
 import { UserComponent } from './components/interface-manager/user/user.component';
 import { EditProductComponent } from './components/interface-manager/edit-product/edit-product.component';
+import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/all-prudcts.component';
 
 const routes: Routes = [
 
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserComponent },
   { path: 'product/:id', component: EditProductComponent },
   { path: '', component: HomeComponent },
-
+{ path: 'AllPrudcts', component: AllPrudctsComponent },
 
   { path: '', redirectTo: 'from', pathMatch: 'full' },
   { path: '**', component: HomeComponent },

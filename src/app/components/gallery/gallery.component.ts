@@ -1,22 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Products } from 'src/app/model/products';
 
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: ['./gallery.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryComponent implements AfterViewInit {
+
+
+  @Input() products;
+  ngAfterViewInit(): void {
+
+    this.indexItem()
+    
+    if(this.products){
+      this.itemsArray=this.products
+    }
+  }
+  
 
   constructor() {
     this.itemsArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27]
+    
   }
   items = []
   itemsArray = []
   num = 0
-  numOfPage = 3
-  ngOnInit(): void {
-    this.indexItem()
-  }
+  numOfPage = 6
+ 
   numberOfPage = [3,4,6,12,15,18 ];
 
   selectNum(num) {

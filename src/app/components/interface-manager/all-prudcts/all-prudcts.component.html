@@ -14,26 +14,32 @@
         <thead>
           <tr>
               <th class="text-center">#</th>
+              <th class="text-center">Image</th>
             <th class="text-center">Category</th>
             <th class="text-center">Name Product</th>
             <th class="text-center">Message</th>
-            <th class="text-center">Image</th>
             <th class="text-center">Price</th>
             <th class="text-center">Tine End</th>
             <th class="text-center">Is Active</th>
             <th class="text-center">Sort</th>
             <th class="text-center">Remove</th>
+            <th class="text-center">Edit</th>
+
           </tr>
         </thead>
      
         <tbody *ngFor="let prudct of products$  | async">
           <tr >
             <td class="pt-3-half" contenteditable="true">{{prudct.id}}</td>
+            <td class="pt-3-half" contenteditable="true"> 
+                <img src="{{prudct.image}}" alt="..." srcset="" width="50px" height="50px">
+              </td>
             <td class="pt-3-half" contenteditable="true">{{prudct.category}}</td>
             <td class="pt-3-half" contenteditable="true"> <input name="name"  class="form-control" [ngModel]="prudct.nameProduct" minlength="2" placeholder="name" ngModel>
               </td>
             <td class="pt-3-half" contenteditable="true">{{prudct.message}}</td>
-            <td class="pt-3-half" contenteditable="true">{{prudct.image}}</td>
+           
+            <!-- <td class="pt-3-half" contenteditable="true">{{prudct.image}}</td> -->
             <td class="pt-3-half" contenteditable="true">${{prudct.price}}</td>
             <td class="pt-3-half" contenteditable="true">{{prudct.tineEnd}}</td>
             <td class="pt-3-half" contenteditable="true">{{prudct.isActive}}</td>
@@ -47,10 +53,15 @@
             <td>
               <span class="table-remove"><button type="button" (click)=remove(prudct.id)
                   class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
-            </td>editproduct
+            </td>
             <td>
-              <span class="table-remove"><button type="button" (click)=editproduct(prudct.id)
-                  class=" btn-rounded btn-sm my-0">Edit</button></span>
+              <span class="col">
+                <button  (click)=editproduct(prudct.id)
+                  class="btn btn-secondary btn-rounded btn-sm my-0">Edit</button> &nbsp;
+                  <button  (click)=editproduct(prudct.id)
+                  class="btn btn-secondary btn-rounded btn-sm my-0">Save</button>
+                </span>
+                  
             </td>
           </tr>
 

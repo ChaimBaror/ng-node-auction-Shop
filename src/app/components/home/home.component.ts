@@ -28,21 +28,22 @@ export class HomeComponent implements OnInit {
 
   }
 
-  myTimer() {
-    let d = new Date();
-    return d.getSeconds();
-  }
+  // myTimer() {
+  //   let d = new Date('16/12/20 15:30');
+  //   d.setHours()
+  //   return d.getSeconds();
+  // }
 
 
   addAuction(id, add) {
-    if(!this.currentUser.uid){
+    if(!this.currentUser.id){
       return alert("כדי להגיש הצעה צריך להירשם") 
    }
     if (add == 0)
       add = 10
     let sum = add
     console.log(id);
-    this.productsSer.auctionAdd(id, this.currentUser.uid, sum)
+    this.productsSer.auctionAdd(id, this.currentUser.id, sum)
 
   }
 

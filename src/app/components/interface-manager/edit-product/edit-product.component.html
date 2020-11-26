@@ -6,24 +6,33 @@
         <div class="card box">
 
             <form class="card-from" #f="ngForm" (ngSubmit)="onSubmit(f,prudct.id)">
-                <h1 class="h3 mb-3 font-weight-normal">Edit User </h1>
+                <h1 class="h3 mb-3 font-weight-normal">Edit product </h1>
                 <img src="{{prudct.image}}" alt="" srcset="" width="200px" height="200px">
                   
                 <div ngModelGroup="name" #nameCtrl="ngModelGroup">
                         <br> <label for="inputName" class=""> category </label>
-                        <input name="username"  class="form-control" [ngModel]="prudct.category" minlength="2" placeholder="username" ngModel>
+                        <input name="category"  class="form-control" [ngModel]="prudct.category" minlength="2" placeholder="category" ngModel>
 
-                        <br> <label for="inputName" class=""> firstName </label>
-                        <input name="firstName"  class="form-control" [ngModel]="prudct.message" placeholder="first Name" ngModel>
+                        <br> <label for="inputName" class=""> nameProduct </label>
+                        <input name="nameProduct"  class="form-control" [ngModel]="prudct.nameProduct" minlength="2" placeholder="nameProduct" ngModel>
 
-                        <br> <label for="inputName" class=""> lastName </label>
-                        <input name="lastName"  class="form-control" [ngModel]="prudct.price" placeholder="lastName" ngModel>
 
-                        <br> <label for="inputName" class=""> email</label>
-                        <input name="email"  class="form-control" [ngModel]="prudct.tineEnd" placeholder="email" ngModel>
+                        <br> <label for="inputName" class=""> message </label>
+                        <input name="message"  class="form-control" [ngModel]="prudct.message" placeholder="message" ngModel>
 
-                        <br> <label for="inputName" class=""> role</label>
-                        <input name="role"  class="form-control" [ngModel]="prudct.isActive" placeholder="role" ngModel>
+                        <br> <label for="inputName" class=""> image</label>
+                        <input  name="image"  class="form-control" [ngModel]="prudct.image" placeholder="image" ngModel>
+
+
+                        <br> <label for="inputName" class=""> price </label>
+                        <input type="number" name="price"  class="form-control" [ngModel]="prudct.price" placeholder="price" ngModel>
+
+                        <br> <label for="inputName" class=""> tineEnd</label>
+                        <input name="tineEnd"  class="form-control" [ngModel]="prudct.tineEnd" placeholder="tineEnd" ngModel>
+
+                        <br> <label for="inputName" class=""> isActive</label>
+                        <input type="checkbox" name="isActive"  class="form-control" [ngModel]="prudct.isActive" placeholder="isActive" ngModel>
+
 
                      
 
