@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
       add = 10
     let sum = add
     console.log(id);
-    this.productsSer.auctionAdd(id, this.currentUser.id, sum)
+    this.productsSer.auctionAdd(id,  sum)
 
   }
 

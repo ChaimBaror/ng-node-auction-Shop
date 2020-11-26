@@ -12,10 +12,11 @@ export class GalleryComponent implements AfterViewInit {
   @Input() products;
   ngAfterViewInit(): void {
 
-    this.indexItem()
+    
     
     if(this.products){
-      this.itemsArray=this.products
+      this.itemsArray=this.products,
+      this.indexItem()
     }
   }
   

@@ -10,7 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class CardProductComponent implements OnInit {
 
 
-  constructor(private fb: FormBuilder,private product : ProductsService) { }
+  constructor(private fb: FormBuilder, private product: ProductsService) { }
   cardfrom = this.fb.group({
     nameProduct: [''],
     category: [''],
@@ -23,13 +23,21 @@ export class CardProductComponent implements OnInit {
   ngOnInit(): void {
   }
   onSubmit() {
-    console.log(this.cardfrom.value);
-    this.product.addproduct(this.cardfrom.value)
-    this.cardfrom.controls.Name.value,
-      this.cardfrom.controls.category.value
+    const product = this.cardfrom.value
+    product.tineEnd = Date.parse(product.tineEnd);
+    const now = product.tineEnd - Date.now()
+    if (now < 0) {
+      product.isActive = false;
+    }
+    else {
+      product.isActive = true;
+    }
+    console.log(now, product.isActive);
+
+    console.log(product);
+    this.product.addproduct(product)
 
   }
-
 
 
 }

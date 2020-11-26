@@ -9,6 +9,16 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit{
+  @Input() product :Products;
+
+  image: string
+  name: string;
+  message: string;
+  price;
+  button1;
+  button2;
+  button3;
+
   ngOnInit(): void {
    if (this.product){
     this.name = this.product.nameProduct;
@@ -30,15 +40,7 @@ export class CardComponent implements OnInit{
    }
   }
 
-  @Input() product :Products;
-
-  image: string
-  name: string;
-  message: string;
-  price;
-  button1;
-  button2;
-  button3;
+  
 
   pageId(id) {
     console.log("pageId", id);

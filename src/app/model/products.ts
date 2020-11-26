@@ -4,7 +4,7 @@ export class Products {
     image: string;
     nameProduct: string;
     message: string;
-    tineEnd?: any;
+    timeEnd?: any;
     price: number | string;
     auction?: Auction[];
     isActive?: boolean;

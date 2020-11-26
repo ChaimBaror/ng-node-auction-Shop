@@ -10,7 +10,7 @@ export interface Products {
   image: string;
   nameProduct: string;
   message: string;
-  tineEnd?: any;
+  timeEnd?: any;
   price: number | string;
   auction?: Auction[];
   isActive?: boolean;
@@ -19,6 +19,7 @@ export interface Products {
 export interface Auction {
   userId: string;
   price: number;
+  username?:string;
   time?: string;
 }
 @Injectable({
@@ -78,7 +79,13 @@ export class ProductsService {
     }
   }
 
-  auctionAdd(id, user, sum) {
+  auctionAdd(id, sum) {
+    const user =JSON.parse(localStorage.getItem('currentUser'))
+      if(!user.id){
+      //  this._router.navigate(['/loging'])
+       return alert("כדי להגיש הצעה צריך להירשם")
+       
+    }
     this.userSer.updateSubject(1)
     let date = new Date();
     let now = date.setDate(date.getDate() - 1)
@@ -88,7 +95,7 @@ export class ProductsService {
         if (this.arrayProducts[i].auction[0] !== null) {
           this.arrayProducts[i].auction = (this.arrayProducts[i].auction.sort((a, b) => (b.price) - (a.price)))
           auction += this.arrayProducts[i].auction[0].price
-          this.arrayProducts[i].auction.unshift({ userId: user, price: auction, time: this.convertTime(now) })
+          this.arrayProducts[i].auction.unshift({ userId: user.id, price: auction,username: user.username, time: this.convertTime(now) })
         }
       }
     }

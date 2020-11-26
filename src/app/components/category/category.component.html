@@ -4,10 +4,10 @@
 
 
 
-<div class="categorys">
-    <ul class="section-nav">
+<div class="navbar navbar-expand-lg ">
+
+    <ul class="navbar-nav mr-auto section-nav">
         <h5>category</h5>
-        <!-- <li class="toc-entry toc-h2" *ngFor="let pro of categoryProduct[0]">{{pro.message}}</li>  -->
         <li (click)="selectcategory('category1')"> Category A</li>
         <li (click)="selectcategory('category2')"> category B</li>
         <li (click)="selectcategory('category1')"> Category C</li>
@@ -17,6 +17,13 @@
         <li (click)="selectcategory('api')"> API</li>
 
     </ul>
+
+    <li >
+        <a class="section-nav" href="Category#Itmes">Products</a>
+    </li>
+    <li >
+        <a class="section-nav" href="Category#Apples">Apples</a>
+    </li>
 </div>
 <div class="home">
     <app-home [products]="myProducts"></app-home>
@@ -24,3 +31,20 @@
 
 
 <!-- </div> -->
+<!-- <nav class=" navbar-expand-lg ">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto section-nav">
+            <li (click)="selectcategory('category1')"> Category A</li>
+            <li (click)="selectcategory('category2')"> category B</li>
+            <li (click)="selectcategory('category1')"> Category C</li>
+            <li (click)="selectcategory('category2')"> category D</li>
+            <li (click)="selectcategory('category1')"> Category E</li>
+            <li (click)="selectcategory('category2')"> category F</li>
+            <li (click)="selectcategory('api')"> API</li>
+        
+        </ul>
+
+    </div>
+
+</nav> -->
