@@ -10,15 +10,15 @@
       <span class="table-add float-right mb-3 mr-2"><a (click)=addPrudct() class="text-success"><i
             class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
       <table class="table table-bordered table-responsive-md table-striped text-center">
-       
-        <thead>
+
+        <thead class="table">
           <tr>
-              <th class="text-center">#</th>
-              <th class="text-center">Image</th>
+            <th class="text-center">#</th>
+            <th class="text-center">Image</th>
             <th class="text-center">Category</th>
             <th class="text-center">Name Product</th>
             <th class="text-center">Message</th>
-            <th class="text-center">Price</th>
+            <th class="text-center">$ Price</th>
             <th class="text-center">Tine End</th>
             <th class="text-center">Is Active</th>
             <th class="text-center">Sort</th>
@@ -27,22 +27,35 @@
 
           </tr>
         </thead>
-     
-        <tbody *ngFor="let prudct of products$  | async">
-          <tr >
+
+        <tbody *ngFor="let prudct of products$ | async">
+          <tr>
             <td class="pt-3-half" contenteditable="true">{{prudct.id}}</td>
-            <td class="pt-3-half" contenteditable="true"> 
-                <img src="{{prudct.image}}" alt="..." srcset="" width="50px" height="50px">
-              </td>
-            <td class="pt-3-half" contenteditable="true">{{prudct.category}}</td>
-            <td class="pt-3-half" contenteditable="true"> <input name="name"  class="form-control" [ngModel]="prudct.nameProduct" minlength="2" placeholder="name" ngModel>
-              </td>
-            <td class="pt-3-half" contenteditable="true">{{prudct.message}}</td>
-           
+            <td class="pt-3-half" contenteditable="true">
+              <img src="{{prudct.image}}" alt="..." srcset="" width="50px" height="50px">
+            </td>
+            <td class="pt-3-half" contenteditable="true" >
+              <input name="category" class="form-control"
+              [(ngModel)]="prudct.category" minlength="2" placeholder="category" ngModel></td>
+            <td class="pt-3-half" contenteditable="true">
+               <input name="nameProduct" class="form-control"
+                [(ngModel)]="prudct.nameProduct" minlength="2" placeholder="nameProduct" ngModel>
+            </td>
+            <td class="pt-3-half" contenteditable="true">
+                <input name="category" class="form-control"
+                [(ngModel)]="prudct.message" minlength="2" placeholder="message" ngModel>
+            </td>
+
             <!-- <td class="pt-3-half" contenteditable="true">{{prudct.image}}</td> -->
-            <td class="pt-3-half" contenteditable="true">${{prudct.price}}</td>
-            <td class="pt-3-half" contenteditable="true">{{prudct.timeEnd}}</td>
-            <td class="pt-3-half" contenteditable="true">{{prudct.isActive}}</td>
+            <td class="pt-3-half" contenteditable="true">
+                <input name="category" class="form-control"
+                [(ngModel)]= "prudct.price" minlength="2" placeholder="price" ngModel>
+              </td>
+            <td class="pt-3-half" contenteditable="true">
+                <input name="category" class="form-control"
+                type="datetime-local" [(ngModel)]="prudct.timeEnd " minlength="2" placeholder="timeEnd" ngModel>{{prudct.timeEnd}}
+            </td>
+            <td  class="pt-3-half" contenteditable="true"><input type="checkbox" [(ngModel)] = "prudct.isActive"> &nbsp; {{prudct.isActive}} </td>
 
             <td class="pt-3-half">
               <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up"
@@ -56,12 +69,11 @@
             </td>
             <td>
               <span class="col">
-                <button  (click)=editproduct(prudct.id)
-                  class="btn btn-secondary btn-rounded btn-sm my-0">Edit</button> &nbsp;
-                  <button  (click)=editproduct(prudct.id)
-                  class="btn btn-secondary btn-rounded btn-sm my-0">Save</button>
-                </span>
-                  
+                <button (click)=editproduct(prudct.id) class="btn btn-secondary btn-rounded btn-sm my-0"><span class="fa fa-edit pull-right bigicon"></span></button>
+                &nbsp;
+                <button (click)=save(prudct) class="btn btn-secondary btn-rounded btn-sm my-0">Save</button>
+              </span>
+
             </td>
           </tr>
 

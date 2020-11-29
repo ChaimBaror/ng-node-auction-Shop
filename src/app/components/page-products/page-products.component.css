@@ -1,3 +1,16 @@
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+    color: white;
+	border-radius:3px;
+	padding:70px 100px;
+}
+
+
+
 .card {
   background:rgb(216, 203, 203);
   transform-style: preserve-3d;
@@ -58,3 +71,4 @@ width: 50%;
     font-size: 3rem;
     transition: all 0.75s ease-out;
   }
+

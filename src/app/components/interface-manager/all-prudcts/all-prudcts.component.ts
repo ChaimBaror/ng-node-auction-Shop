@@ -29,6 +29,17 @@ export class AllPrudctsComponent implements OnInit {
     this.router.navigate(['product', id]);
 
   }
+  save(nameProduct) {
+    const {id , ...result} = nameProduct
+
+     result.timeEnd = Date.parse(result.timeEnd)
+
+     if (result.timeEnd - Date.now() < 0) {
+      result.isActive = false;
+    }
+    this.productsService.editProducts(result, id)
+
+  }
 
   remove(id) {
     this.productsService.delete(id)

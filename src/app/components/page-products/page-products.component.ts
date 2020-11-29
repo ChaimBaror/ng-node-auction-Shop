@@ -24,7 +24,7 @@ export class PageProductsComponent implements OnInit {
     this.pageProducts = this.productsSer.getOneProducts();
     this.pageProducts.auction.sort((a, b) => (b.price) - (a.price));
     if (this.pageProducts.timeEnd == null) {
-      this.pageProducts.timeEnd = 1606494960000
+      this.pageProducts.timeEnd = 2606494960000
     }
 
     this.timeOfProduct()

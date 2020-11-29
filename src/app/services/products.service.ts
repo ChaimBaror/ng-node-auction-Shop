@@ -53,6 +53,8 @@ export class ProductsService {
   }
   
   editProducts(products: Products,id){
+    console.log("editProducts",products );
+    console.log("id",id );
     return this.apiService.requestBady(`/products/${id}`,'PATCH' ,products)
   }
   getById(id: any) {

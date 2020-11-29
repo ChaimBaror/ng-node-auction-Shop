@@ -23,6 +23,8 @@ export class SignOnComponent implements OnInit {
     console.log(this.signfrom.value);
     this.loggingSer.signUpUser(this.signfrom.controls.email.value, this.signfrom.controls.password.value)
   }
-
-
+  signInGoogle(){
+    console.log('signInGoogle');
+    
+  }
 }

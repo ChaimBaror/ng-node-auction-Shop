@@ -10,6 +10,7 @@ import { InterfaceManagerComponent } from './components/interface-manager/interf
 import { UserComponent } from './components/interface-manager/user/user.component';
 import { EditProductComponent } from './components/interface-manager/edit-product/edit-product.component';
 import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/all-prudcts.component';
+import { AdminGuard } from './Guard/admin.guard';
 
 const routes: Routes = [
 
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'Category', component: CategoryComponent },
   { path: 'UserPage', component: UserPageComponent },
   { path: 'pageProduct', component: PageProductsComponent },
-  { path: 'interfaceManager', component: InterfaceManagerComponent },
+  { path: 'interfaceManager', component: InterfaceManagerComponent ,canActivate: [AdminGuard] },
   // { path: 'users', component: InterfaceManagerComponent },
   { path: 'users/:id', component: UserComponent },
   { path: 'product/:id', component: EditProductComponent },

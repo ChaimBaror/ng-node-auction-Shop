@@ -2,31 +2,45 @@
     <p>sign-on works!</p>
 
     <div class="text-center box">
+            <button class="btn-google" (click)="signInGoogle()" class="btn btn-lg btn-primary">
+                    להיכנס דרך חשבון גוגל <i class="fa fa-google ml-3"></i>
+                </button>
+
 
         <form class="form-signin" [formGroup]="signfrom">
             <h1 class="h3 mb-3 font-weight-normal">SIGN IN</h1>
 
-            <input formControlName="email"
-            [class.is-invalid]="signfrom.get('email').invalid&&signfrom.get('email').touched" class="form-control"
-            id="inputEmail" placeholder="Email">
+            <div class="input-container">
+                <i class="fa fa-envelope icon"></i>
+                <input formControlName="email"
+                    [class.is-invalid]="signfrom.get('email').invalid&&signfrom.get('email').touched"
+                    class="form-control" id="inputEmail" placeholder="Email">
+            </div>
             <div *ngIf="signfrom.get('email').errors?.required" class="invalid-feedback">
                 נדרש אימייל
             </div>
             <div *ngIf="signfrom.get('email').errors?.pattern" class="invalid-feedback">
-               כתובת אימייל לא תקינה
+                כתובת אימייל לא תקינה
             </div>
             <br>
             <label for="inputPassword" class="sr-only">Password</label>
-            <input formControlName="password"
-            [class.is-invalid]="signfrom.get('password').invalid&&signfrom.get('password').touched" type="password"
-            class="form-control" id="inputPassword" placeholder="Password">
-        <div *ngIf="signfrom.get('password').errors?.required" class="invalid-feedback">
-            דרושה סיסמא
-        </div>
-        <div *ngIf="signfrom.get('password').errors?.pattern" class="invalid-feedback">
-            הסיסמה חייבת להכיל 8 תווים לפחות
-        </div>
+
+            <div class="input-container">
+                <i class="fa fa-key icon"></i>
+                <input formControlName="password"
+                    [class.is-invalid]="signfrom.get('password').invalid&&signfrom.get('password').touched"
+                    type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+            <div *ngIf="signfrom.get('password').errors?.required" class="invalid-feedback">
+                דרושה סיסמא
+            </div>
+            <div *ngIf="signfrom.get('password').errors?.pattern" class="invalid-feedback">
+                הסיסמה חייבת להכיל 8 תווים לפחות
+            </div>
             <br>
+
+
+
 
             <div class="checkbox mb-3">
 
@@ -38,5 +52,64 @@
                 in</button>
             <p class="mt-5 mb-3 text-muted">&copy; 2020</p>
         </form>
+
+        <!-- <a class="btn btn-block btn-social btn-twitter">
+                    <span class="fa fa-twitter"></span> Sign in with Twitter
+                  </a> -->
+
+    </div>
+</div>
+    <div>
+        <div class="text-center">
+            <a class="btn btn-lg btn-social-icon btn-google"
+                href="https://gae-init.appspot.com/signin/gae/?next=%2F&amp;remember=true" title="Sign in with GAE"
+                rel="nofollow">
+                <span class="fa fa-google"></span>
+
+            </a>
+
+            <a class="btn btn-lg btn-social-icon btn-facebook"
+                href="https://gae-init.appspot.com/signin/facebook/?next=%2F&amp;remember=true"
+                title="Sign in with Facebook" rel="nofollow">
+                <span class="fa fa-facebook"></span>
+
+            </a>
+
+            <a class="btn btn-lg btn-social-icon btn-twitter"
+                href="https://gae-init.appspot.com/signin/twitter/?next=%2F&amp;remember=true"
+                title="Sign in with Twitter" rel="nofollow">
+                <span class="fa fa-twitter"></span>
+
+            </a>
+
+            <a class="btn btn-lg btn-social-icon btn-bitbucket"
+                href="https://gae-init.appspot.com/signin/bitbucket/?next=%2F&amp;remember=true"
+                title="Sign in with Bitbucket" rel="nofollow">
+                <span class="fa fa-bitbucket"></span>
+
+            </a>
+
+            <a class="btn btn-lg btn-social-icon btn-github"
+                href="https://gae-init.appspot.com/signin/github/?next=%2F&amp;remember=true"
+                title="Sign in with GitHub" rel="nofollow">
+                <span class="fa fa-github"></span>
+
+            </a>
+
+            <a class="btn btn-lg btn-social-icon btn-google"
+                href="https://gae-init.appspot.com/signin/google/?next=%2F&amp;remember=true"
+                title="Sign in with Google" rel="nofollow">
+                <span class="fa fa-google"></span>
+
+            </a>
+
+            <a class="btn btn-lg btn-social-icon btn-microsoft"
+                href="https://gae-init.appspot.com/signin/microsoft/?next=%2F&amp;remember=true"
+                title="Sign in with Microsoft" rel="nofollow">
+                <span class="fa fa-windows"></span>
+
+            </a>
+
+      
     </div>
 </div>

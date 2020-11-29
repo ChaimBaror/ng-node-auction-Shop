@@ -2,10 +2,10 @@
 
 <div class="container">
 
-    <button class="btn btn-success" (click)="selectcategory('user')">All Users</button>
-
+    <button class="btn btn-success" href="interfaceManager#products">All Users</button>
+<a href="interfaceManager#allproduct">All Users</a>
     <button id="products" class="btn btn-success" (click)="selectcategory('allproducts')"> All products</button>
-    
+    <a href="interfaceManager#allproduct">All Users</a> 
     <button class="btn btn-success" (click)="selectcategory('products')"> new products</button>
 
 </div>
@@ -15,10 +15,10 @@
     <app-card-product></app-card-product>
 </div>
 
-<div *ngIf='showAlldproduct'>
+<div id="allproduct" *ngIf="showAlldproduct" >
     <app-all-prudcts></app-all-prudcts>
 </div>
-<div *ngIf="!showAlldproduct">
+<div id="#products">
     <app-all-users></app-all-users>
 </div>
 
