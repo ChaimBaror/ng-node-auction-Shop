@@ -24,7 +24,7 @@
           <br> {{currentUser.firstName}} {{currentUser.lastName}} </li>
 
         <li class="list-group-item list-group-item-primary">
-          <label for="">id : </label> <a>{{currentUser.id}}</a></li>
+          <label for="">username : </label> <a>{{currentUser.username}}</a></li>
         <li class="list-group-item list-group-item-secondary">
           <label for="">firstName : </label> {{currentUser.firstName}}</li>
         <li class="list-group-item list-group-item-success">
@@ -34,8 +34,8 @@
         <li class="list-group-item list-group-item-warning">
           <label for="">phone number : </label>{{currentUser.phone}}</li>
         <li class="list-group-item list-group-item-info">
-          <label for="">password : </label>
-          <span *ngIf="currentUser.password==value"> access token</span>
+          <label for="">role : </label>
+          <span > {{currentUser.role}}</span>
         </li>
       </ul>
     </div>
@@ -47,7 +47,7 @@
 
           <button class="btn btn-secondary" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
             aria-controls="collapseOne">
-            My products <sup class="badge badge-pill badge-danger"  >{{myproducts.length }}</sup>
+            My products <sup class="badge badge-pill badge-danger" > myproducts </sup>
           </button>
           <button class="btn btn-secondary collapsed" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="false" aria-controls="collapseTwo" (click)="zonemssad()" >
@@ -82,7 +82,7 @@
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 
             <div class="card-body " *ngFor="let myProduct of myproducts">
-              <ul *ngFor="let myPro of myProduct.auction">
+              <ul *ngFor="let myPro of auction">
                 <li *ngIf="myPro.userId == userid" class="card-text style">
                   <h5 class="card-title">{{myProduct.nameProduct}}</h5> ${{ myPro.price }} An offer for auction was
                   received on time <sup>{{myPro.time}}</sup>
@@ -98,7 +98,7 @@
           <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
               <div class="card-body " *ngFor="let myProduct of myproducts">
-                <div *ngFor="let myPro of myProduct.auction index as i">
+                <div *ngFor="let myPro of auction index as i">
                   <ng-container *ngIf="myPro.userId == userid && i == 0; else Youlost">
                     <div class="winner">
                       <h1> ${{ myPro.price }} ההצעה שלך מקום ראשון עכשיו</h1>

@@ -9,22 +9,26 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="picsum-img-wrapper">
-                        <img src={{item.image}} alt="Random first slide" height="300">
+                        <img src={{item.image}} alt="Random first slide" height="300px" width="300px">
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
+
                     <div class="carousel-caption">
                         <p>{{myVar}}</p>
+
                         <h3>{{item.nameProduct}}</h3>
                         <p>{{item.message}}</p>
-                        <label>Double quick offer :</label><button *ngIf=" item.auction && item.auction[0]" class="by now badge badge-pill badge-danger"
-                            (click)=addAuction(item.id,item.auction[0].price)> ${{item.auction[0].price}}
-                            ADD</button>
-                            <p *ngIf="item.timeEnd">  {{item.timeEnd}}</p>
+                        <h3  class=" badge-pill badge-success">New price  ${{item.price}}</h3>
+
+                        <label>Double quick offer :</label><button  class="by now badge badge-pill badge-danger"
+                            (click)=addAuction(item)>ADD $10
+                            </button>
+                            <p *ngIf="item.timeEnd">  {{item.timeEnd | date}}</p>
                             <p *ngIf="!item.timeEnd"> <sub> 12:00 PM</sub> המכירה הפומבית עומדת להתקיים ב -22 באוקטובר 2020</p>
-                        <button class="by now btn btn-info" (click)=pageId(item.id)>by now</button>
-                        <button class="by now btn btn-warning" (click)=pageId(item.id)>New offer</button>
+                        <button class="by now btn btn-info" (click)=pageId(item)>by now</button>
+                        <button class="by now btn btn-warning" (click)=pageId(item)>New offer</button>
                     </div>
                 </div>
             </div>

@@ -33,9 +33,7 @@ export class CategoryComponent implements OnInit {
            this.products$ =data});
          console.log(this.products$);
          this.myProducts=this.products$
-        // this.myProducts = this.productsSer.getapi();
         console.log("this myProducts", this.myProducts);
-        
         break;
     }
 

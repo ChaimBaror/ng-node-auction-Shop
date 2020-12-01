@@ -42,7 +42,6 @@ export class ApiService {
 
   delete(url) {
     console.log(url);
-    
     this.httpClient.delete(environment.apiUrl + url)
         .subscribe(data => console.log(data))
 

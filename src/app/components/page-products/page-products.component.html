@@ -2,8 +2,6 @@
 
 
 
-
-
 <div class="container">
   <div class="row">
     <div class="col">
@@ -15,7 +13,7 @@
 
           <img class="img" src={{pageProducts.image}} alt="" width="100%" height="auto" />
           <h1>{{pageProducts.nameProduct}} </h1>
-          <p class="price">$ {{pageProducts.auction[0].price}} </p>
+          <p  class="price">$ {{pageProducts.price}} </p>
 
           <p>{{pageProducts.message}}</p>
           <p><button>Buy It Now </button></p>
@@ -37,7 +35,7 @@
             (click)="addAuction5(pageProducts.id)">Add Auction
             $5
           </button><br><br>
-          <button [disabled]="pageProducts.isActive" type="button" class="badge badge-pill badge-primary"
+          <button  type="button" class="badge badge-pill badge-primary"
             (click)="addAuction10(pageProducts.id)">Add Auction
             $10 </button><br><br>
           <button type="button" class="badge badge-pill badge-warning" (click)="addAuction25(pageProducts.id)">Add
@@ -48,11 +46,10 @@
             $100 </button><br>
         </div>
       </div>
-      <div *ngIf="pageProducts.auction">
+      <div >
         <hr>
         <h2>Scoreboard ↑ {{this.pageProducts.timeEnd | date}}</h2>
         <hr>
-
         <table class="table table-dark ">
           <thead class="brod">
             <tr>
@@ -62,7 +59,7 @@
               <th scope="col">Time</th>
             </tr>
           </thead>
-          <tbody *ngFor="let auction of pageProducts.auction;index as i ">
+          <tbody *ngFor="let auction of auctionPruduct ;index as i ">
             <tr class="rowitme{{i}}">
               <th scope="row">{{i}}</th>
               <td *ngIf="auction.username"> user name : <span>{{auction.username}}</span></td>
@@ -71,6 +68,15 @@
               <td> <sub>{{auction.time}}</sub></td>
             </tr>
           </tbody>
+          <!-- <tbody *ngFor="let auction of pageProducts.auction;index as i ">
+            <tr class="rowitme{{i}}">
+              <th scope="row">{{i}}</th>
+              <td *ngIf="auction.username"> user name : <span>{{auction.username}}</span></td>
+              <td *ngIf="!auction.username"> user id : <span>{{auction.userId}}</span></td>
+              <td>${{auction.price}} </td>
+              <td> <sub>{{auction.time}}</sub></td>
+            </tr>
+          </tbody> -->
         </table>
       </div>
     </div>
@@ -78,6 +84,6 @@
 </div>
 
 <div class="box" *ngIf='pageProducts.isActive == false'>
-  <h1>this product is not active</h1>
+  <h1 style="color:red">this product is not active</h1>
   <p>{{this.pageProducts.timeEnd | date}}</p>
 </div>

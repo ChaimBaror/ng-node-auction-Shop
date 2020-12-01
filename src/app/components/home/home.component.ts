@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductsService, Products } from 'src/app/services/products.service';
 import { LogingService } from 'src/app/services/loging.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   @Input()  products: Products[] = []
   myVar
   currentUser
-  constructor(private productsSer: ProductsService, private logingSer: LogingService) { }
+  constructor(private productsSer: ProductsService, private logingSer: LogingService, private _router: Router) { }
 
   ngOnInit(): void {
     console.log("oninit home work");
@@ -22,26 +23,21 @@ export class HomeComponent implements OnInit {
     this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser = { ...user });
   }
-  pageId(id) {
-    console.log("pageId", id);
-    this.productsSer.getproductById(id)
+  pageId(itme) {
+    console.log("pageId", itme);
+    this.productsSer.getproductById(itme)
 
   }
 
-  // myTimer() {
-  //   let d = new Date('16/12/20 15:30');
-  //   d.setHours()
-  //   return d.getSeconds();
-  // }
 
-
-  addAuction(id, add) {
+  addAuction(itme) {
+    const {id} = itme
     if(!this.currentUser.id){
       return alert("כדי להגיש הצעה צריך להירשם") 
    }
-    if (add == 0)
-      add = 10
-    let sum = add
+   
+    itme.price += 10
+    let sum =itme.price 
     console.log(id);
     this.productsSer.auctionAdd(id,  sum)
 

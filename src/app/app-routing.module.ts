@@ -13,7 +13,7 @@ import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/
 import { AdminGuard } from './Guard/admin.guard';
 
 const routes: Routes = [
-
+  { path: '', component: HomeComponent },
   { path: 'loging', component: LogingComponent },
   { path: 'SignUn', component: SignOnComponent },
   { path: 'home', component: HomeComponent },
@@ -21,11 +21,11 @@ const routes: Routes = [
   { path: 'UserPage', component: UserPageComponent },
   { path: 'pageProduct', component: PageProductsComponent },
   { path: 'interfaceManager', component: InterfaceManagerComponent ,canActivate: [AdminGuard] },
+  { path: 'pageProduct/:id', component: PageProductsComponent },
   // { path: 'users', component: InterfaceManagerComponent },
-  { path: 'users/:id', component: UserComponent },
-  { path: 'product/:id', component: EditProductComponent },
-  { path: '', component: HomeComponent },
-{ path: 'AllPrudcts', component: AllPrudctsComponent },
+  { path: 'users/:id', component: UserComponent ,canActivate: [AdminGuard] },
+  { path: 'product/:id', component: EditProductComponent ,canActivate: [AdminGuard] },
+{ path: 'AllPrudcts', component: AllPrudctsComponent ,canActivate: [AdminGuard] },
 
   { path: '', redirectTo: 'from', pathMatch: 'full' },
   { path: '**', component: HomeComponent },
