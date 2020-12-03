@@ -4,10 +4,14 @@
 
 <div class="container">
   <div class="row">
+
     <div class="col">
       <div *ngIf="pageProducts">
+        <app-chart></app-chart>
+
         <!-- <app-card [product] =pageProducts ></app-card> -->
         <!-- </div>  -->
+
         <div class="card ">
           <h2 class="timer">TIME END : <p>{{thisNow }}</p></h2>
 
@@ -28,10 +32,11 @@
     </div>
 
     <div class="col-4">
+
       <div class="navbar navbar-expand-lg ">
 
         <div class="navbar-nav section-nav">
-          <button [disabled]="pageProducts.isActive" type="button" class="badge badge-pill badge-success"
+          <button [disabled]="pageProducts.isActive== false" type="button" class="badge badge-pill badge-success"
             (click)="addAuction5(pageProducts.id)">Add Auction
             $5
           </button><br><br>
@@ -47,6 +52,7 @@
         </div>
       </div>
       <div >
+
         <hr>
         <h2>Scoreboard ↑ {{this.pageProducts.timeEnd | date}}</h2>
         <hr>
@@ -68,19 +74,13 @@
               <td> <sub>{{auction.time}}</sub></td>
             </tr>
           </tbody>
-          <!-- <tbody *ngFor="let auction of pageProducts.auction;index as i ">
-            <tr class="rowitme{{i}}">
-              <th scope="row">{{i}}</th>
-              <td *ngIf="auction.username"> user name : <span>{{auction.username}}</span></td>
-              <td *ngIf="!auction.username"> user id : <span>{{auction.userId}}</span></td>
-              <td>${{auction.price}} </td>
-              <td> <sub>{{auction.time}}</sub></td>
-            </tr>
-          </tbody> -->
         </table>
+
       </div>
     </div>
+
   </div>
+
 </div>
 
 <div class="box" *ngIf='pageProducts.isActive == false'>

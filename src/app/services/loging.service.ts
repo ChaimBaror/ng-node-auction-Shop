@@ -26,6 +26,8 @@ export class LogingService {
     this.apiServer.requestBady(`/user`, 'POST', user);
     this.currentUser$.next(user)
     localStorage.setItem('currentUser', JSON.stringify(user));
+    localStorage.setItem('loggedInToken', JSON.stringify(user.accessToken));
+
     this.arrayUsers.push(user)
     this._router.navigate(['/SignUn'])
 
@@ -36,10 +38,11 @@ export class LogingService {
 
   signUpUser(email, password) {
     this.apiServer.requestAuth(`/auth`, 'POST', { email: email, password: password })
-      .subscribe(user => {
+      .subscribe((user:Users) => {
         if (user) {
           console.log("my new user", user);
           localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('loggedInToken', JSON.stringify(user.accessToken));
           this.currentUser$.next(user)
           this._router.navigate(['/home'])
         }
@@ -53,6 +56,8 @@ export class LogingService {
   signOut() {
     this.currentUser$.next(null)
     localStorage.removeItem('currentUser');
+    localStorage.removeItem('loggedInToken');
+
     console.log(`%c ${this.currentUser$}`, 'color:yellow');
     this._router.navigate(['/loging'])
   }

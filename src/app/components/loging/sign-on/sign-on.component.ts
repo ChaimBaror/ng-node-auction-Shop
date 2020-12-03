@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { LogingService } from 'src/app/services/loging.service';
 import { ApiService } from 'src/app/services/api.service';
@@ -9,7 +9,7 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./sign-on.component.css']
 })
 export class SignOnComponent implements OnInit {
-
+ 
   constructor(private fb: FormBuilder,private loggingSer:LogingService, private apiService: ApiService) { }
   signfrom = this.fb.group({
     email: ['', [Validators.required, Validators.pattern('^[a-zA-Z][a-zA-Z0-9_\.]+@[a-z0-9]{2,}(\.[a-z0-9]{2,4}){1,}$')]],
@@ -18,7 +18,9 @@ export class SignOnComponent implements OnInit {
   })
 
   ngOnInit(): void {
+
   }
+
   onSubmit(){
     console.log(this.signfrom.value);
     this.loggingSer.signUpUser(this.signfrom.controls.email.value, this.signfrom.controls.password.value)
@@ -26,8 +28,9 @@ export class SignOnComponent implements OnInit {
   signInGoogle(){
 
     console.log('signInGoogle');
-    return this.apiService.request('google', 'GET').subscribe(res =>console.log(res)
+     this.apiService.request('google', 'GET').subscribe(res =>console.log(res)
     );
 
   }
+ 
 }

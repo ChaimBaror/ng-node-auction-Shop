@@ -25,9 +25,13 @@ import { CardProductComponent } from './components/interface-manager/card-produc
 import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/all-prudcts.component';
 import { AllUsersComponent } from './components/interface-manager/all-users/all-users.component';
 import { EditProductComponent } from './components/interface-manager/edit-product/edit-product.component';
+import { NotFoundComponent } from './components/Page-not-found';
+import { ChartComponent } from './components/chart/chart.component';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
+    FilterPipe,
     AppComponent,
     NavbarComponent,
     LogingComponent,
@@ -46,6 +50,8 @@ import { EditProductComponent } from './components/interface-manager/edit-produc
     AllPrudctsComponent,
     AllUsersComponent,
     EditProductComponent,
+    NotFoundComponent,
+    ChartComponent,
     
   ],
   imports: [

@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
 import { Products } from 'src/app/model/products';
-import { ProductsService } from 'src/app/services/products.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,9 +25,9 @@ export class CardComponent implements OnInit{
     this.image = this.product.image;
     this.message = this.product.message;
     this.price = this.product.price;
-    this.button1 = "SHOW";
-    this.button2 = 'ADD';
-    this.button3 = 'PUSH';
+    this.button1 =this.product.timeEnd ;
+    this.button2 = this.product.id;
+    this.button3 = this.product.price;
    }
    else{
     this.name = 'APPLE';
@@ -44,12 +44,13 @@ export class CardComponent implements OnInit{
 
   pageId(id) {
     console.log("pageId", id);
-    this.productsSer.getproductById(id)
+    this._router.navigate(['/pageProduct' , id])
+
 
   }
 
 
-  constructor(private renderer: Renderer2, private productsSer: ProductsService) {
+  constructor(private renderer: Renderer2, private _router: Router) {
   }
 
   @Input() num: number;

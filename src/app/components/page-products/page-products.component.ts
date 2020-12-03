@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService, Products } from 'src/app/services/products.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Users } from 'src/app/model/Users';
 import { Auction } from 'src/app/model/Auction';
 
 @Component({
   selector: 'app-page-products',
   templateUrl: './page-products.component.html',
-  styleUrls: ['./page-products.component.css']
+  styleUrls: ['./page-products.component.css'],
+  
 })
 export class PageProductsComponent implements OnInit {
 
@@ -18,12 +19,12 @@ export class PageProductsComponent implements OnInit {
   timeEnd
   auctionPruduct;
 
-  constructor(private productsSer: ProductsService, private _router: Router) { }
+  constructor(private productsSer: ProductsService, private activeRoute: ActivatedRoute, private _router: Router) { }
 
 
   ngOnInit(): void {
 
-    this.pageProducts = this.productsSer.getOneProducts();
+    this.pageProducts = this.productsSer.getOneProducts(this.activeRoute.snapshot.params.id);
 
 
     if (this.pageProducts.timeEnd) {
@@ -50,10 +51,10 @@ getAuction() {
   this.pageProducts.price = this.auctionPruduct[0].price
 }
 
-sort() {
-  this.pageProducts.auction.sort((a, b) => (b.price) - (a.price));
+// sort() {
+//   this.pageProducts.auction.sort((a, b) => (b.price) - (a.price));
 
-}
+// }
 
 timeOfProduct() {
 
@@ -65,17 +66,13 @@ timeOfProduct() {
     this.timeProduct = setInterval(() => {
       this.pageProducts.timeEnd - Date.now()
       this.thisNow = this.pageProducts.timeEnd - Date.now();
-
     }, 10);
-
   }
-
 }
 
 ngOnDestroy() {
   this.timeOfProduct()
 }
-
 
 
 
@@ -104,6 +101,9 @@ addAuction(id, sum) {
   sum = this.pageProducts.price += sum
   console.log(id);
   this.productsSer.auctionAdd(id, sum)
+
+
+
   this.getAuction()
 }
 

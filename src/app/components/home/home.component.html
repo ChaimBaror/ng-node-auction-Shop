@@ -4,7 +4,7 @@
 <!-- <app-category></app-category> -->
 <!-- <div class="container"> -->
 <ngb-carousel>
-    <ng-template ngbSlide *ngFor="let item of products">
+    <ng-template ngbSlide *ngFor="let item of myProducts">
         <div class=" container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
@@ -42,5 +42,5 @@
     <app-card [product]="item"></app-card>
 </div> -->
 <div class="cardgallery">
-    <app-gallery [products]="products"></app-gallery>
+    <app-gallery [products]="myProducts"></app-gallery>
 </div>

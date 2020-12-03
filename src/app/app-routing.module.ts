@@ -11,6 +11,7 @@ import { UserComponent } from './components/interface-manager/user/user.componen
 import { EditProductComponent } from './components/interface-manager/edit-product/edit-product.component';
 import { AllPrudctsComponent } from './components/interface-manager/all-prudcts/all-prudcts.component';
 import { AdminGuard } from './Guard/admin.guard';
+import { NotFoundComponent } from './components/Page-not-found';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -28,7 +29,7 @@ const routes: Routes = [
 { path: 'AllPrudcts', component: AllPrudctsComponent ,canActivate: [AdminGuard] },
 
   { path: '', redirectTo: 'from', pathMatch: 'full' },
-  { path: '**', component: HomeComponent },
+  { path: '**', component: NotFoundComponent },
 
 ];
 

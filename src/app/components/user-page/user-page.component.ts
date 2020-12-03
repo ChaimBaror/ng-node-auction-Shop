@@ -3,6 +3,7 @@ import { LogingService } from 'src/app/services/loging.service';
 import { ProductsService, Products } from 'src/app/services/products.service';
 import { Users } from 'src/app/model/Users';
 import { Auction } from 'src/app/model/Auction';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-page',
@@ -16,7 +17,7 @@ export class UserPageComponent implements OnInit {
   myproducts: any[] = []
   allproduct: any[] = []
 
-  constructor(private logingSer: LogingService, private productsSer: ProductsService) {
+  constructor(private logingSer: LogingService, private productsSer: ProductsService,private _router: Router) {
   }
 
   ngOnInit(): void {
@@ -84,6 +85,8 @@ export class UserPageComponent implements OnInit {
     var r = confirm("Do you want to switch to a sales channel?");
     if (r == true) {
       txt = "You pressed OK!";
+      this._router.navigate(['/pageProduct', id])
+
       this.productsSer.getproductById(id)
     } else {
       txt = "You pressed Cancel!";

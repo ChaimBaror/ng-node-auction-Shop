@@ -15,15 +15,15 @@
 
                     <div #sizes class="sizes">
                         <button class="button" [ngClass]="{'active': selectedItem === 1}"
-                            (click)='selectedItem = 1;'>{{button1}}</button>
+                            (click)='selectedItem = 1;'>{{button1 | date}}</button>
                         <!-- <button class="button">Jonagold</button> -->
                         <button class="button" [ngClass]="{'active': selectedItem === 2}"
-                            (click)='selectedItem = 2;'>price Now {{price}}</button>
+                            (click)='selectedItem = 2;'>price Now ${{price}}</button>
                         <button class="button" [ngClass]="{'active': selectedItem === 3}"
                             (click)='selectedItem = 3;'>{{button3}}</button>
                     </div>
                     <div class="purchase">
-                        <button  (click)=pageId(product) #purchase>SELECT</button>
+                        <button  (click)=pageId(button2) #purchase>SELECT</button>
                     </div>
                 </div>
             </div>

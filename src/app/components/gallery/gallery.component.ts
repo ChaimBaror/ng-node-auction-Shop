@@ -12,8 +12,6 @@ export class GalleryComponent implements AfterViewInit {
   @Input() products;
   ngAfterViewInit(): void {
 
-    
-    
     if(this.products){
       this.itemsArray=this.products,
       this.indexItem()

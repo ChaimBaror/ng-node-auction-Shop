@@ -10,15 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @Input()  products: Products[] = []
+  @Input() products
   myVar
-  currentUser
+  currentUser;
+  myProducts:Products[]= []
   constructor(private productsSer: ProductsService, private logingSer: LogingService, private _router: Router) { }
 
   ngOnInit(): void {
-    console.log("oninit home work");
     
-    this.products = this.productsSer.getAllProducts();
+    console.log("oninit home work");
+    this.myProducts = this.productsSer.getAllProducts();
 
     this.logingSer.getCurrentUser().subscribe(user =>
       this.currentUser = { ...user });
@@ -35,12 +36,18 @@ export class HomeComponent implements OnInit {
     if(!this.currentUser.id){
       return alert("כדי להגיש הצעה צריך להירשם") 
    }
-   
+   if (typeof itme.price == 'string') {
+    itme.price = parseInt(itme.price)
+  }
+ 
     itme.price += 10
     let sum =itme.price 
     console.log(id);
     this.productsSer.auctionAdd(id,  sum)
 
+    if(this.currentUser.id){
+      return alert(`${this.currentUser.username}  מאת    $${sum} התקבלה`) 
+   }
   }
 
 }
