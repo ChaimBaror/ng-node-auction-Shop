@@ -60,12 +60,15 @@ export class ProductsService {
     return this.apiService.requestBady(`/products/${id}`, 'PATCH', products)
   }
   getById(id: any) {
-    return this.apiService.request(`/products/${id}`, 'GET');
+    return this.apiService.request<Products>(`/products/${id}`, 'GET');
   }
 
   delete(id) {
     return this.apiService.delete(`/products/${id}`,)
 
+  }
+  uploadImage(image,id){
+    this.apiService.requestImage(`/products/upload`,'POST',image,id)
   }
 
   getAllProducts() {

@@ -1,12 +1,12 @@
 <div class="body">
     <p>sign-on works!</p>
-    
+
 
     <div class="text-center box">
-            <button  class="btn-google btn-lg btn-primary" (click)="signInGoogle()" #loginRef>
-                    להיכנס דרך חשבון גוגל <i class="fa fa-google ml-3"></i>
-                </button>
-            
+
+        <button class="btn-google btn-lg btn-primary" (click)="signInGoogle()" #loginRef>
+            להיכנס דרך חשבון גוגל <i class="fa fa-google ml-3"></i>
+        </button>
 
 
         <form class="form-signin" [formGroup]="signfrom">
@@ -42,15 +42,14 @@
             <br>
 
 
-
-
             <div class="checkbox mb-3">
 
                 <label>
                     <input type="checkbox" formControlName="agree" value="remember-me"> Remember me
                 </label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' [disabled]="!signfrom.valid">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" (click)='onSubmit()' [disabled]="!signfrom.valid">Sign
+                in</button>
             <p class="mt-5 mb-3 text-muted"> &copy; 2020</p>
         </form>
 
@@ -60,57 +59,57 @@
 
     </div>
 </div>
-    <div>
-        <div class="text-center">
-            <a class="btn btn-lg btn-social-icon btn-google"
-                href="https://gae-init.appspot.com/signin/gae/?next=%2F&amp;remember=true" title="Sign in with GAE"
-                rel="nofollow">
-                <span class="fa fa-google"></span>
+<div>
+    <div class="text-center">
+        <a class="btn btn-lg btn-social-icon btn-google"
+            href="https://gae-init.appspot.com/signin/gae/?next=%2F&amp;remember=true" title="Sign in with GAE"
+            rel="nofollow">
+            <span class="fa fa-google"></span>
 
-            </a>
+        </a>
 
-            <a class="btn btn-lg btn-social-icon btn-facebook"
-                href="https://gae-init.appspot.com/signin/facebook/?next=%2F&amp;remember=true"
-                title="Sign in with Facebook" rel="nofollow">
-                <span class="fa fa-facebook"></span>
+        <a class="btn btn-lg btn-social-icon btn-facebook"
+            href="https://gae-init.appspot.com/signin/facebook/?next=%2F&amp;remember=true"
+            title="Sign in with Facebook" rel="nofollow">
+            <span class="fa fa-facebook"></span>
 
-            </a>
+        </a>
 
-            <a class="btn btn-lg btn-social-icon btn-twitter"
-                href="https://gae-init.appspot.com/signin/twitter/?next=%2F&amp;remember=true"
-                title="Sign in with Twitter" rel="nofollow">
-                <span class="fa fa-twitter"></span>
+        <a class="btn btn-lg btn-social-icon btn-twitter"
+            href="https://gae-init.appspot.com/signin/twitter/?next=%2F&amp;remember=true" title="Sign in with Twitter"
+            rel="nofollow">
+            <span class="fa fa-twitter"></span>
 
-            </a>
+        </a>
 
-            <a class="btn btn-lg btn-social-icon btn-bitbucket"
-                href="https://gae-init.appspot.com/signin/bitbucket/?next=%2F&amp;remember=true"
-                title="Sign in with Bitbucket" rel="nofollow">
-                <span class="fa fa-bitbucket"></span>
+        <a class="btn btn-lg btn-social-icon btn-bitbucket"
+            href="https://gae-init.appspot.com/signin/bitbucket/?next=%2F&amp;remember=true"
+            title="Sign in with Bitbucket" rel="nofollow">
+            <span class="fa fa-bitbucket"></span>
 
-            </a>
+        </a>
 
-            <a class="btn btn-lg btn-social-icon btn-github"
-                href="https://gae-init.appspot.com/signin/github/?next=%2F&amp;remember=true"
-                title="Sign in with GitHub" rel="nofollow">
-                <span class="fa fa-github"></span>
+        <a class="btn btn-lg btn-social-icon btn-github"
+            href="https://gae-init.appspot.com/signin/github/?next=%2F&amp;remember=true" title="Sign in with GitHub"
+            rel="nofollow">
+            <span class="fa fa-github"></span>
 
-            </a>
+        </a>
 
-            <a class="btn btn-lg btn-social-icon btn-google"
-                href="https://gae-init.appspot.com/signin/google/?next=%2F&amp;remember=true"
-                title="Sign in with Google" rel="nofollow">
-                <span class="fa fa-google"></span>
+        <a class="btn btn-lg btn-social-icon btn-google"
+            href="https://gae-init.appspot.com/signin/google/?next=%2F&amp;remember=true" title="Sign in with Google"
+            rel="nofollow">
+            <span class="fa fa-google"></span>
 
-            </a>
+        </a>
 
-            <a class="btn btn-lg btn-social-icon btn-microsoft"
-                href="https://gae-init.appspot.com/signin/microsoft/?next=%2F&amp;remember=true"
-                title="Sign in with Microsoft" rel="nofollow">
-                <span class="fa fa-windows"></span>
+        <a class="btn btn-lg btn-social-icon btn-microsoft"
+            href="https://gae-init.appspot.com/signin/microsoft/?next=%2F&amp;remember=true"
+            title="Sign in with Microsoft" rel="nofollow">
+            <span class="fa fa-windows"></span>
 
-            </a>
+        </a>
 
-      
+
     </div>
 </div>

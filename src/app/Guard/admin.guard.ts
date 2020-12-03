@@ -8,18 +8,18 @@ export class AdminGuard implements CanActivate {
 
   constructor() { }
 
-  public canActivate(route: ActivatedRouteSnapshot){
+  public canActivate(route: ActivatedRouteSnapshot) {
 
-        let user = JSON.parse(localStorage.getItem('currentUser'));
-        
-        let userTokenrole= JSON.parse(atob(localStorage.getItem('loggedInToken').split('.')[1]))
-console.log(userTokenrole);
+    let user = JSON.parse(localStorage.getItem('currentUser'));
 
-        if(userTokenrole.role== "Admin"){
-          return true;
-        }
+    let userTokenrole = JSON.parse(atob(localStorage.getItem('loggedInToken').split('.')[1]))
+    console.log(userTokenrole);
 
-        return false;
-      }
-  
+    if (userTokenrole.role == "Admin") {
+      return true;
+    }
+
+    return false;
+  }
+
 }

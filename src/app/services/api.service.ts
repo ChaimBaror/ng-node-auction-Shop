@@ -31,6 +31,15 @@ export class ApiService {
 
   }
 
+  requestImage<T>(url: string,method: HttpMethod, image,id){
+    console.log("image" ,url,method, image,id);
+    let formData = new FormData()
+    formData.append('image', image );
+    let headers = new HttpHeaders().set('id',id) 
+    this.httpClient.request<T>(method, environment.apiUrl + url, {body: formData, headers})
+    .subscribe() ; 
+  }
+
   requestAuth<T>(url: string,  method: HttpMethod, BadyRequest) {
     console.log(environment.apiUrl + url);
     let body = JSON.stringify(BadyRequest);
@@ -39,12 +48,12 @@ export class ApiService {
 
   }
 
-
   delete(url) {
     console.log(url);
     this.httpClient.delete(environment.apiUrl + url)
         .subscribe(data => console.log(data))
 
   }
+
 
 }

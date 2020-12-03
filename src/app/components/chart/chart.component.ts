@@ -8,8 +8,8 @@ import { Chart } from 'chart.js';
 })
 export class ChartComponent  {
 
-  title = 'chart';
-  name = 'Angular   6';
+  title = '';
+  name = '';
   canvas: any;
   ctx: any;
   @ViewChild('mychart') mychart;
@@ -23,7 +23,7 @@ export class ChartComponent  {
       
       data: {
         datasets: [{
-          label: 'Höhenlinie',
+          label: '',
           backgroundColor: "rgba(255, 99, 132,0.4)",
           borderColor: "rgb(255, 99, 132)",
           fill: true,
@@ -43,7 +43,7 @@ export class ChartComponent  {
         responsive: true,
         title: {
           display: true,
-          text: 'Höhenlinie'
+          text: ''
         },
         scales: {
           xAxes: [{
@@ -58,7 +58,7 @@ export class ChartComponent  {
               }
             },
             scaleLabel: {
-              labelString: 'Länge',
+              labelString: '',
               display: true,
             }
           }],
@@ -70,7 +70,7 @@ export class ChartComponent  {
               }
             },
             scaleLabel: {
-              labelString: 'Höhe',
+              labelString: '',
               display: true
             }
           }]
