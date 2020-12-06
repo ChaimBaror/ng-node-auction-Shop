@@ -8,15 +8,19 @@
 
     <ul class="navbar-nav mr-auto section-nav">
         <h5>category</h5>
+        <li  *ngFor="let category of categories" (click)="selectscategory(category.category)"> {{category.category}}</li>
+
         <li (click)="selectcategory('category1')"> Category A</li>
         <li (click)="selectcategory('category2')"> category B</li>
-        <li (click)="selectcategory('category1')"> Category C</li>
+        <!-- <li (click)="selectcategory('category1')"> category C</li>
         <li (click)="selectcategory('category2')"> category D</li>
         <li (click)="selectcategory('category1')"> Category E</li>
-        <li (click)="selectcategory('category2')"> category F</li>
-        <li (click)="selectcategory('api')"> API</li>
+        <li (click)="selectcategory('category2')"> category F</li>-->
+        <li (click)="selectcategory('api')"> API</li> 
 
     </ul>
+
+   
     
     <!-- <div class="container h-100"> -->
             <div class="d-flex justify-content-center h-100">
@@ -36,10 +40,10 @@
     </li>
 </div>
 
-<div class="home">
-    <app-home [products]="myProducts "></app-home>
-</div>
+<div class="home" *ngIf=" myProducts" >
+    <app-home  [products]="myProducts"></app-home>
 
+</div>
 
 
 <!-- </div> -->

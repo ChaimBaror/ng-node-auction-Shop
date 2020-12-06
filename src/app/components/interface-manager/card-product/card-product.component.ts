@@ -16,7 +16,7 @@ export class CardProductComponent implements OnInit {
     category: [''],
     message: [''],
     price: [''],
-    tineEnd: [''],
+    timeEnd: ['2020-12-06T20:36:00'],
     image: [''],
   })
 
@@ -24,8 +24,8 @@ export class CardProductComponent implements OnInit {
   }
   onSubmit() {
     const product = this.cardfrom.value
-    product.tineEnd = Date.parse(product.tineEnd);
-    const now = product.tineEnd - Date.now()
+    product.timeEnd = Date.parse(product.timeEnd);
+    const now = product.timeEnd - Date.now()
     if (now < 0) {
       product.isActive = false;
     }

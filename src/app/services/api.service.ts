@@ -11,7 +11,7 @@ export type HttpMethod = 'GET' | 'POST' | 'DELETE' | 'PATCH';
 })
 export class ApiService {
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   request<T>(url: string, method: HttpMethod): Observable<T> {
     console.log(method, url);
@@ -22,36 +22,36 @@ export class ApiService {
   }
 
 
-  requestBady<T>(url: string,  method: HttpMethod, BadyRequest) {
+  requestBady<T>(url: string, method: HttpMethod, BadyRequest) {
     console.log(environment.apiUrl + url);
     let body = JSON.stringify(BadyRequest);
     const headers = { 'content-type': 'application/json' }
-    return this.httpClient.request<T>(method, environment.apiUrl + url, {body, headers})
-    .subscribe(data => console.log(data))
+    return this.httpClient.request<T>(method, environment.apiUrl + url, { body, headers })
+      .subscribe(data => console.log(data))
 
   }
 
-  requestImage<T>(url: string,method: HttpMethod, image,id){
-    console.log("image" ,url,method, image,id);
+  requestImage<T>(url: string, method: HttpMethod, image, id) {
+    console.log("image", url, method, image, id);
     let formData = new FormData()
-    formData.append('image', image );
-    let headers = new HttpHeaders().set('id',id) 
-    this.httpClient.request<T>(method, environment.apiUrl + url, {body: formData, headers})
-    .subscribe() ; 
+    formData.append('image', image);
+    let headers = new HttpHeaders().set('id', id)
+    this.httpClient.request<T>(method, environment.apiUrl + url, { body: formData, headers })
+      .subscribe();
   }
 
-  requestAuth<T>(url: string,  method: HttpMethod, BadyRequest) {
+  requestAuth<T>(url: string, method: HttpMethod, BadyRequest) {
     console.log(environment.apiUrl + url);
     let body = JSON.stringify(BadyRequest);
     const headers = { 'content-type': 'application/json' }
-    return this.httpClient.request<T>(method, environment.apiUrl + url, {body, headers})
+    return this.httpClient.request<T>(method, environment.apiUrl + url, { body, headers })
 
   }
 
   delete(url) {
     console.log(url);
     this.httpClient.delete(environment.apiUrl + url)
-        .subscribe(data => console.log(data))
+      .subscribe(data => console.log(data))
 
   }
 

@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'users/:id', component: UserComponent ,canActivate: [AdminGuard] },
   { path: 'product/:id', component: EditProductComponent ,canActivate: [AdminGuard] },
 { path: 'AllPrudcts', component: AllPrudctsComponent ,canActivate: [AdminGuard] },
+{ path: 'home/:category', component: HomeComponent },
 
   { path: '', redirectTo: 'from', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent },

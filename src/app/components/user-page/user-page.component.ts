@@ -21,7 +21,7 @@ export class UserPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let arrayProducts = []
+    let arrayProducts
     arrayProducts = this.productsSer.getAllProducts()
 
     console.log(`ngOnInit Products work`);

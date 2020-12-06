@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { Products, ProductsService } from 'src/app/services/products.service';
 
@@ -9,26 +10,46 @@ import { Products, ProductsService } from 'src/app/services/products.service';
 })
 export class CategoryComponent implements OnInit {
   categoryProduct: Products[] = []
-  myProducts
+  myProducts : Products[] = []
   arrayProducts: Products[] = []
+  categories
 
   products$
   keyword: string
-  constructor(private productsService: ProductsService) { }
+  constructor(private productsService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
+    this.myProducts = this.productsService.getProducts();
+    this.allcategories()
+  }
+  allcategories(){
+    this.productsService.all().subscribe((products: Products) =>{
+      this.categories = products
+      this.categories=this.categories.filter((obj, index, self) => self.findIndex((o) => { return o.category === obj.category; }) === index);
+    console.log("categories ", this.categories);
+    
+      return  this.categories.category
+    })
+    // this.categories = this.allProducts.filter((obj, index, self) => self.findIndex((o) => { return o.category === obj.category; }) === index);
+    // console.log("categories service",this.categories);
+  
+
+  }
+  selectscategory(category){
+    this.router.navigate(['home', category]);
   }
 
   selectcategory(select) {
     this.myProducts = []
     switch (select) {
       case 'category1':
-        this.myProducts = this.productsService.getCategory('A');
+        // this.myProducts = this.productsService.getCategory('frout'); 
+           this.router.navigate(['home', 'frout']);
         console.log(this.myProducts);
         break;
-
       case 'category2':
-        this.myProducts = this.productsService.getCategory('B');
+        this.router.navigate(['home', 'B']);
+        // this.myProducts = this.productsService.getCategory('B');
         console.log(this.myProducts);
         break;
 

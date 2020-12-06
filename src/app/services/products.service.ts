@@ -28,24 +28,25 @@ export interface Auction {
 })
 export class ProductsService {
   allProducts: Products[] = [];
-  baesProducts: Products[] = [];
+  Products: Products[] = [];
   pageProducts: Products;
   auction: Auction[] = []
+  
 
   constructor(private _router: Router, private apiService: ApiService, private userSer: LogingService) {
 
-    this.baesProducts = [
-      { id: "10", category: "A", image: "assets/images/logo3.gif", nameProduct: "chaim bar-or 1 מכירה ", message: "chaim bar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
-      { id: "11", category: "A", image: "assets/images/logo1.gif", nameProduct: "chaim bar-or 2", message: "chaim AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
-      { id: "12", category: "A", image: "assets/images/logo5.png", nameProduct: "chaim bar-or 3", message: "chaim bar-or auction", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "13", category: "A", image: "assets/images/logo6.gif", nameProduct: "chaim bar-or 4 מכירה ", message: "chaim > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
-      { id: "14", category: "A", image: "assets/images/logo4.gif", nameProduct: "chaim bar-or 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
-      { id: "15", category: "A", image: "assets/images/logo3.gif", nameProduct: "מכירה  6", message: "avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
-      { id: "16", category: "A", image: "assets/images/logo.png", nameProduct: "chaim bar-or 3 מכירה", message: "מכירה auction", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "17", category: "A", image: "assets/images/exit1.png", nameProduct: "chaim bar-or exit מכירה", message: "מכירה exit ", price: 1, auction: [{ userId: '', price: 0 }] },
+    // this.baesProducts = [
+    //   { id: "10", category: "A", image: "assets/images/logo3.gif", nameProduct: "chaim bar-or 1 מכירה ", message: "chaim bar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
+    //   { id: "11", category: "A", image: "assets/images/logo1.gif", nameProduct: "chaim bar-or 2", message: "chaim AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
+    //   { id: "12", category: "A", image: "assets/images/logo5.png", nameProduct: "chaim bar-or 3", message: "chaim bar-or auction", price: 100, auction: [{ userId: '', price: 0 }] },
+    //   { id: "13", category: "A", image: "assets/images/logo6.gif", nameProduct: "chaim bar-or 4 מכירה ", message: "chaim > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
+    //   { id: "14", category: "A", image: "assets/images/logo4.gif", nameProduct: "chaim bar-or 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
+    //   { id: "15", category: "A", image: "assets/images/logo3.gif", nameProduct: "מכירה  6", message: "avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
+    //   { id: "16", category: "A", image: "assets/images/logo.png", nameProduct: "chaim bar-or 3 מכירה", message: "מכירה auction", price: 100, auction: [{ userId: '', price: 0 }] },
+    //   { id: "17", category: "A", image: "assets/images/exit1.png", nameProduct: "chaim bar-or exit מכירה", message: "מכירה exit ", price: 1, auction: [{ userId: '', price: 0 }] },
 
-    ]
-    this.getSelected()
+    // ]
+    this.getAllProducts()
   }
 
   addproduct(product: Products) {
@@ -67,15 +68,28 @@ export class ProductsService {
     return this.apiService.delete(`/products/${id}`,)
 
   }
-  uploadImage(image,id){
-    this.apiService.requestImage(`/products/upload`,'POST',image,id)
+  uploadImage(image, id) {
+    this.apiService.requestImage(`/products/upload`, 'POST', image, id)
   }
 
   getAllProducts() {
-    this.allProducts = this.baesProducts
-    return this.allProducts;
+    this.allProducts = []
+    // return this.allProducts;
+    this.all().subscribe((p: Products) => {
+      this.allProducts = this.allProducts.concat(p)
+      console.log("getAllProducts() service ",this.allProducts);
+      this.Products =  this.allProducts;
+     return this.allProducts
 
+    })
+    
   }
+
+
+  getProducts() {
+      return this.Products;
+  }
+
   getproductById(itme) {
     const { id, } = itme
     for (let i = 0; i < this.allProducts.length; i++) {
@@ -125,16 +139,12 @@ export class ProductsService {
   }
 
   getCategory(category) {
-    this.allProducts = this.baesProducts
-    this.all().subscribe((p: Products) => {
-      this.allProducts = this.allProducts.concat(p)
-      console.log(this.allProducts);
+  
+      this.Products = this.allProducts.filter((p: Products) => p.category == category);
+      console.log(this.Products, category);
+      return this.Products; 
 
-      this.allProducts = this.allProducts.filter((p: Products) => p.category == category);
-      console.log(this.allProducts, category);
-      return this.allProducts
-    
-    })
+  
   }
 
   // auctionAdd(id, sum) {
@@ -183,23 +193,6 @@ export class ProductsService {
 
 
 
-
-
-
-  getSelected() {
-    let array = [
-      { id: "20", category: "B", image: "assets/images/logo2.gif", nameProduct: "chaim bar-CategoryComponent 1 מכירה ", message: "CategoryComponentbar-or auction", price: 10, auction: [{ userId: '1', price: 10 }, { userId: '2', price: 25 }] },
-      { id: "21", category: "B", image: "assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent", message: "CategoryComponent AvraTech 07", price: 24, auction: [{ userId: '', price: 0 }] },
-      { id: "22", category: "B", image: "assets/images/logo5.png", nameProduct: "CategoryComponent", message: "CategoryComponent auction", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "23", category: "B", image: "assets/images/logo2.gif", nameProduct: "CategoryComponentr 4 מכירה ", message: "CategoryComponent > AvraTech 07", price: 54, auction: [{ userId: '', price: 0 }] },
-      { id: "24", category: "B", image: "assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent 5", message: "chaim bar-or auction", price: 250, auction: [{ userId: '', price: 0 }] },
-      { id: "25", category: "B", image: "assets/images/logo3.gif", nameProduct: "CategoryComponentמכירה  6", message: "CategoryComponent avraTech", price: 1, auction: [{ userId: '', price: 0 }] },
-      { id: "26", category: "B", image: "assets/images/logo.png", nameProduct: "CategoryComponent 3 מכירה", message: "מכירה CategoryComponent", price: 100, auction: [{ userId: '', price: 0 }] },
-      { id: "27", category: "B", image: "assets/images/wine-auction-inside.png", nameProduct: "CategoryComponent exit מכירה", message: "מכירה CategoryComponent ", price: 1, auction: [{ userId: '', price: 0 }] },
-    ]
-    this.baesProducts = this.baesProducts.concat(array)
-    return array
-  }
 
 }
 
