@@ -8,7 +8,7 @@ import { Auction } from 'src/app/model/Auction';
   selector: 'app-page-products',
   templateUrl: './page-products.component.html',
   styleUrls: ['./page-products.component.css'],
-  
+
 })
 export class PageProductsComponent implements OnInit {
 
@@ -26,7 +26,6 @@ export class PageProductsComponent implements OnInit {
 
     this.pageProducts = this.productsSer.getOneProducts(this.activeRoute.snapshot.params.id);
 
-
     if (this.pageProducts.timeEnd) {
       if (this.pageProducts.timeEnd - Date.now() < 0) {
         this.pageProducts.isActive = false;
@@ -39,73 +38,69 @@ export class PageProductsComponent implements OnInit {
       this.pageProducts.timeEnd = 2606494960000;
       this.pageProducts.isActive = true;
     }
+    this.timeOfProduct()
 
- 
+
     this.getAuction()
-this.timeOfProduct()
   }
 
-getAuction() {
-  this.auctionPruduct = this.productsSer.getAuctionByProductId(this.pageProducts.id)
-  this.auctionPruduct.sort((a, b) => (b.price) - (a.price));
-  this.pageProducts.price = this.auctionPruduct[0].price
-}
-
-// sort() {
-//   this.pageProducts.auction.sort((a, b) => (b.price) - (a.price));
-
-// }
-
-timeOfProduct() {
-
-  const timeEnd = this.pageProducts.timeEnd - Date.now();
-  if (timeEnd < 0) {
-    this.pageProducts.isActive = false;
-  }
-  if (timeEnd > 0) {
-    this.timeProduct = setInterval(() => {
-      this.pageProducts.timeEnd - Date.now()
-      this.thisNow = this.pageProducts.timeEnd - Date.now();
-    }, 10);
-  }
-}
-
-ngOnDestroy() {
-  this.timeOfProduct()
-}
-
-
-
-addAuction5(id) {
-  this.addAuction(id, 5)
-}
-addAuction10(id) {
-  this.addAuction(id, 10)
-}
-addAuction25(id) {
-  this.addAuction(id, 25)
-}
-addAuction100(id) {
-  this.addAuction(id, 100)
-}
-
-addAuction(id, sum) {
-  const user = JSON.parse(localStorage.getItem('currentUser'))
-  if (!user.id) {
-    return alert("כדי להגיש הצעה צריך להירשם")
-  }
-  if (typeof this.pageProducts.price == 'string') {
-    this.pageProducts.price = parseInt(this.pageProducts.price)
+  getAuction() {
+    this.auctionPruduct = this.productsSer.getAuctionByProductId(this.pageProducts.id)
+    this.auctionPruduct.sort((a, b) => (b.price) - (a.price));
+    this.pageProducts.price = this.auctionPruduct[0].price
   }
 
-  sum = this.pageProducts.price += sum
-  console.log(id);
-  this.productsSer.auctionAdd(id, sum)
+
+
+  timeOfProduct() {
+    const timeEnd = this.pageProducts.timeEnd - Date.now();
+    if (timeEnd < 0) {
+      this.pageProducts.isActive = false;
+    }
+    else if (timeEnd > 0) {
+      this.timeProduct = setInterval(() => {
+        this.pageProducts.timeEnd - Date.now()
+        this.thisNow = this.pageProducts.timeEnd - Date.now();
+      }, 10);
+    }
+  }
+
+  ngOnDestroy() {
+    this.timeOfProduct()
+  }
 
 
 
-  this.getAuction()
-}
+  addAuction5(id) {
+    this.addAuction(id, 5)
+  }
+  addAuction10(id) {
+    this.addAuction(id, 10)
+  }
+  addAuction25(id) {
+    this.addAuction(id, 25)
+  }
+  addAuction100(id) {
+    this.addAuction(id, 100)
+  }
+
+  addAuction(id, sum) {
+    const user = JSON.parse(localStorage.getItem('currentUser'))
+    if (!user.id) {
+      return alert("כדי להגיש הצעה צריך להירשם")
+    }
+    if (typeof this.pageProducts.price == 'string') {
+      this.pageProducts.price = parseInt(this.pageProducts.price)
+    }
+
+    sum = this.pageProducts.price += sum
+    console.log(id);
+    this.productsSer.auctionAdd(id, sum)
+
+
+
+    this.getAuction()
+  }
 
 }
 
