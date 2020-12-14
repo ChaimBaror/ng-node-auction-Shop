@@ -17,6 +17,7 @@ export class ApiService {
     console.log(method, url);
     let headers = new HttpHeaders();
     let user = JSON.parse(localStorage.getItem('currentUser'))
+    if(user)
     headers = headers.set('Authorization', `Bearer ${user.accessToken}`);
     return this.httpClient.request<T>(method, environment.apiUrl + url, { headers: headers, });
   }

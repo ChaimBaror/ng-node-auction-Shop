@@ -10,7 +10,7 @@ import { Users } from '../model/Users';
 })
 export class LogingService {
   ;
-  currentUser$: BehaviorSubject<Users> = new BehaviorSubject(JSON.parse(localStorage.getItem('currentUser')));
+  currentUser$: BehaviorSubject<Users> = new BehaviorSubject(null)
   user: Users
   arrayUsers: Users[] = []
 
