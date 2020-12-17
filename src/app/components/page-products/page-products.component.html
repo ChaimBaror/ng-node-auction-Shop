@@ -65,7 +65,7 @@
               <th scope="col">Time</th>
             </tr>
           </thead>
-          <tbody *ngFor="let auction of auctionPruduct ;index as i ">
+          <tbody *ngFor="let auction of auctionPruduct$| async ;index as i ">
             <tr class="rowitme{{i}}">
               <th scope="row">{{i}}</th>
               <td *ngIf="auction.username"> user name : <span>{{auction.username}}</span></td>

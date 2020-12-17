@@ -45,7 +45,7 @@ export class EditProductComponent implements OnInit {
     // formData.append('image', image );
   }
 
-  onSubmit(f: NgForm, id: any) {
+  onSubmit(f: NgForm, id: string) {
     f.value.name.timeEnd = Date.parse(f.value.name.timeEnd)
     if (f.value.name.timeEnd - Date.now() < 0) {
       f.value.name.isActive = false;

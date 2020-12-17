@@ -31,7 +31,7 @@ export class ProductsService {
   Products: Products[] = [];
   pageProducts: Products;
   auction: Auction[] = []
-  
+
 
   constructor(private _router: Router, private apiService: ApiService, private userSer: LogingService) {
 
@@ -52,16 +52,26 @@ export class ProductsService {
   addproduct(product: Products) {
     return this.apiService.requestBady(`/products`, 'POST', product);
   }
-
+  addAuction(auction: Auction) {
+    return this.apiService.requestBady(`/auction`, 'POST', auction);
+  }
   all() {
     return this.apiService.request('/products', 'GET');
   }
 
-  editProducts(products: Products, id) {
+  editProducts(products, id) {
     return this.apiService.requestBady(`/products/${id}`, 'PATCH', products)
   }
   getById(id: any) {
     return this.apiService.request<Products>(`/products/${id}`, 'GET');
+  }
+
+  getAuctionByProductId(id: any) {
+    return this.apiService.request<Auction>(`/auction/${id}`, 'GET');
+  }
+  
+  getAuctionByUserId(id: any) {
+    return this.apiService.request<Auction>(`/auction/user/${id}`, 'GET');
   }
 
   delete(id) {
@@ -77,17 +87,17 @@ export class ProductsService {
     // return this.allProducts;
     this.all().subscribe((p: Products) => {
       this.allProducts = this.allProducts.concat(p)
-      console.log("getAllProducts() service ",this.allProducts);
-      this.Products =  this.allProducts;
-     return this.allProducts
+      console.log("getAllProducts() service ", this.allProducts);
+      this.Products = this.allProducts;
+      return this.allProducts
 
     })
-    
+
   }
 
 
   getProducts() {
-      return this.Products;
+    return this.Products;
   }
 
   getproductById(itme) {
@@ -102,16 +112,19 @@ export class ProductsService {
     this._router.navigate(['/pageProduct', id])
   }
 
-  auctionAdd(id, sum) {
+  auctionAdd(id, sum: number) {
     this.userSer.updateSubject(1)
     const user = JSON.parse(localStorage.getItem('currentUser'))
     const productId = id
     const date = new Date();
-    this.auction.push({ pruductId: productId, userId: user.id, price: sum, time: date, username: user.username })
+    // this.auction.push({ pruductId: productId, userId: user.id, price: sum, time: date, username: user.username })
+    this.addAuction({ pruductId: productId, userId: user.id, price: sum, time: date, username: user.username })
+    this.editProducts({ price: sum }, productId)
   }
-  getAuctionByProductId(productId: string) {
-    return this.auction.filter(auction => auction.pruductId == productId);
-  }
+
+  // getAuctionByProductId(productId: string) {
+    // return this.auction.filter(auction => auction.pruductId == productId);
+  // }
 
   getAuctionByuserId(userId: string) {
     return this.auction.filter(auction => auction.userId == userId);
@@ -139,12 +152,12 @@ export class ProductsService {
   }
 
   getCategory(category) {
-  
-      this.Products = this.allProducts.filter((p: Products) => p.category == category);
-      console.log(this.Products, category);
-      return this.Products; 
 
-  
+    this.Products = this.allProducts.filter((p: Products) => p.category == category);
+    console.log(this.Products, category);
+    return this.Products;
+
+
   }
 
   // auctionAdd(id, sum) {

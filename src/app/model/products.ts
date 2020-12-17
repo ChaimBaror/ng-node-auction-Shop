@@ -1,11 +1,11 @@
 export class Products {
     category?: string;
-    id: string;
-    image: string;
-    nameProduct: string;
-    message: string;
+    id?: string;
+    image?: string;
+    nameProduct?: string;
+    message?: string;
     timeEnd?: any;
-    price: number | string;
+    price?: number | string;
     auction?: Auction[];
     isActive?: boolean;
 
