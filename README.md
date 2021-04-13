@@ -2,6 +2,8 @@
 
 # [MY APP](https://chaim-baror.herokuapp.com)
 
+adnim `EMAIL:chaim@gmail.com , pass :1111`
+
 # [demo](https://chaimbaror.github.io/ng-node-auction-Shop/index.html)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
