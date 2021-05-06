@@ -2,7 +2,7 @@
 
 # [MY APP](https://chaim-baror.herokuapp.com)
 
-ADMIN `EMAIL:  admin.admin.com , Passwords :admin123`
+ADMIN `EMAIL:  admin@admin.com , Passwords :admin123`
 
 # [demo](https://chaimbaror.github.io/ng-node-auction-Shop/index.html)
 
